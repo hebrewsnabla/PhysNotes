@@ -1,0 +1,794 @@
+%\documentclass[UTF8]{ctexart} % use larger type; default would be 10pt
+\documentclass[a4paper]{article}
+%\usepackage{xeCJK}
+%\usepackage{ctex}
+\usepackage{luatexja-fontspec}
+\setmainjfont{FandolSong}
+%\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+
+%%% Examples of Article customizations
+% These packages are optional, depending whether you want the features they provide.
+% See the LaTeX Companion or other references for full information.
+
+%%% PAGE DIMENSIONS
+\usepackage{geometry} % to change the page dimensions
+\geometry{a4paper} % or letterpaper (US) or a5paper or....
+% \geometry{margin=2in} % for example, change the margins to 2 inches all round
+% \geometry{landscape} % set up the page for landscape
+%   read geometry.pdf for detailed page layout information
+
+\usepackage{graphicx} % support the \includegraphics command and options
+
+% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+
+%%% PACKAGES
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+% These packages are all incorporated in the memoir class to one degree or another...
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+%%% SECTION TITLE APPEARANCE
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+% (This matches ConTeXt defaults)
+
+%%% ToC (table of contents) APPEARANCE
+\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+%%% END Article customizations
+
+%%% The "real" document content comes below...
+
+\setlength{\parindent}{0pt}
+\usepackage{physics}
+\usepackage{amsmath}
+%\usepackage{symbols}
+\usepackage{AMSFonts}
+\usepackage{bm}
+%\usepackage{eucal}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{multicol}
+\usepackage{abstract}
+\usepackage{empheq}
+\usepackage{extarrows}
+\usepackage{textcomp}
+\usepackage{mhchem}
+\usepackage{braket}
+\usepackage{siunitx}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz-feynman}
+\usepackage{feynmp}
+
+
+\DeclareMathOperator{\p}{\prime}
+\DeclareMathOperator{\ti}{\times}
+
+\DeclareMathOperator{\e}{\mathrm{e}}
+\DeclareMathOperator{\I}{\mathrm{i}}
+\DeclareMathOperator{\Arg}{\mathrm{Arg}}
+\newcommand{\NA}{N_\mathrm{A}}
+\newcommand{\kB}{k_\mathrm{B}}
+
+\DeclareMathOperator{\ra}{\rightarrow}
+\DeclareMathOperator{\llra}{\longleftrightarrow}
+\DeclareMathOperator{\lra}{\longrightarrow}
+\DeclareMathOperator{\dlra}{\;\Leftrightarrow\;}
+\DeclareMathOperator{\dra}{\;\Rightarrow\;}
+
+%%%%%%%%%%%% QUANTUM MECHANICS %%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\bkk}[1]{\Braket{#1|#1}}
+\newcommand{\bk}[2]{\Braket{#1|#2}}
+\newcommand{\bkev}[2]{\Braket{#2|#1|#2}}
+
+\DeclareMathOperator{\na}{\bm{\nabla}}
+\DeclareMathOperator{\nna}{\nabla^2}
+\DeclareMathOperator{\drrr}{\dd[3]\vb{r}}
+
+\DeclareMathOperator{\psis}{\psi^\ast}
+\DeclareMathOperator{\Psis}{\Psi^\ast}
+\DeclareMathOperator{\hi}{\hat{\vb{i}}}
+\DeclareMathOperator{\hj}{\hat{\vb{j}}}
+\DeclareMathOperator{\hk}{\hat{\vb{k}}}
+\DeclareMathOperator{\hr}{\hat{\vb{r}}}
+\DeclareMathOperator{\hT}{\hat{\vb{T}}}
+\DeclareMathOperator{\hH}{\hat{H}}
+
+\DeclareMathOperator{\hL}{\hat{\vb{L}}}
+\DeclareMathOperator{\hp}{\hat{\vb{p}}}
+\DeclareMathOperator{\hx}{\hat{\vb{x}}}
+\DeclareMathOperator{\ha}{\hat{\vb{a}}}
+\DeclareMathOperator{\hS}{\hat{\vb{S}}}
+\DeclareMathOperator{\hSigma}{\hat{\bm\Sigma}}
+\DeclareMathOperator{\hJ}{\hat{\vb{J}}}
+
+\DeclareMathOperator{\Tdv}{-\dfrac{\hbar^2}{2m}\dv[2]{x}}
+\DeclareMathOperator{\Tna}{-\dfrac{\hbar^2}{2m}\nabla^2}
+
+%\DeclareMathOperator{\s}{\sum_{n=1}^{\infty}}
+\DeclareMathOperator{\intinf}{\int_0^\infty}
+\DeclareMathOperator{\intdinf}{\int_{-\infty}^\infty}
+%\DeclareMathOperator{\suminf}{\sum_{n=0}^\infty}
+\DeclareMathOperator{\sumnzinf}{\sum_{n=0}^\infty}
+\DeclareMathOperator{\sumnoinf}{\sum_{n=1}^\infty}
+\DeclareMathOperator{\sumndinf}{\sum_{n=-\infty}^\infty}
+\DeclareMathOperator{\sumizinf}{\sum_{i=0}^\infty}
+
+%%%%%%%%%%%%%%%%% PARTICLE PHYSICS %%%%%%%%%%%%%%%%
+\DeclareMathOperator{\hh}{\hat{h}}               % helicity
+\DeclareMathOperator{\hP}{\hat{\vb{P}}}          % Parity
+\DeclareMathOperator{\hU}{\hat{U}}
+\DeclareMathOperator{\hG}{\hat{G}}
+
+\DeclareMathOperator{\GeV}{\si{GeV}}
+\DeclareMathOperator{\LI}{\mathscr{L}.I.}
+%\DeclareMathOperator{\g5}{\gamma^5}
+\DeclareMathOperator{\gmuu}{\gamma^\mu}
+\DeclareMathOperator{\gmud}{\gamma_\mu}
+\DeclareMathOperator{\gnuu}{\gamma^\nu}
+\DeclareMathOperator{\gnud}{\gamma_\nu}
+
+\renewcommand{\u}{\mathrm{u}}
+\renewcommand{\d}{\mathrm{d}}
+\DeclareMathOperator{\s}{\mathrm{s}}
+
+\DeclareMathOperator{\q}{\mathrm{q}}
+\DeclareMathOperator{\bq}{\bar{\mathrm{q}}}
+
+\DeclareMathOperator{\g}{\mathrm{g}}
+\DeclareMathOperator{\W}{\mathrm{W}}
+\DeclareMathOperator{\Z}{\mathrm{Z}}
+
+%%% Feynman Diagram
+\newcommand{\pa}{particle}
+\newcommand{\mo}{momentum}
+\newcommand{\el}{edge label}
+
+\newcommand{\dis}{\displaystyle}
+\numberwithin{equation}{section}
+
+\title{Notes of Particle Physics, LIU Zuowei}
+\author{hebrewsnabla}
+%\date{} % Activate to display a given date or no date (if empty),
+         % otherwise the current date is printed 
+
+\begin{document}
+% \boldmath
+\maketitle
+
+\tableofcontents
+
+\newpage
+
+\setcounter{section}{8}
+\section{Symmetries and the Quark Model}
+$ \bigstar $
+Standard Model can be written in group theory\\
+EM -- U(1)\\
+weak -- \\
+strong -- SU(3)\\
+EM, weak -- SU(2)
+\subsection{Symm. in QM}
+\begin{equation}\label{key}
+\psi \ra \psi' = \hat{U}\psi
+\end{equation}
+\begin{equation}\label{key}
+\bk{\psi}{\psi} = \bk{\psi'}{\psi'} = \Braket{\psi | \hat{U}^\dagger \hat{U} | \psi}
+\end{equation}
+thus $ \hat{U} $ must be unitary
+\begin{equation}\label{key}
+\hat{U}^\dagger \hat{U} = I
+\end{equation}
+...
+\begin{equation}\label{key}
+[\hH, \hat{U}] = 0
+\end{equation}
+
+A finite continuous symm operation can be built up from a series of infinitesimal transformations like
+\begin{equation}\label{key}
+\hU = I + \I\epsilon\hG
+\end{equation}
+$ \hG $: generator of the transformation 产生算符
+\begin{equation}\label{key}
+\hat{U}^\dagger \hat{U} = I \dra \hG^\dagger = \hG \;(\text{Hermitian})
+\end{equation}
+\begin{equation}\label{key}
+[\hH, \hG] = 0
+\end{equation}
+thus
+\begin{equation}\label{key}
+\dv{t}\ev{\hG} = \I\ev{[\hH, \hG]} = 0 \;(\text{conserved})
+\end{equation}
+Noether's Theorem: Symmetry $ \dra $ Conserved quantity\\
+E.g.: translational symm. -- momentum conserved\\
+
+\subsubsection{Finite Transformation}
+\begin{equation}\label{key}
+\hU(\bm\alpha) = \e^{\I\bm\alpha\cdot\hG}
+\end{equation}
+
+\subsection{Flavor Symmetry $ \bigstar $}
+Heisenberg: proton and neutron are 2 states of nucleon.\\
+In isospin space
+\begin{equation}\label{key}
+p = \mqty(1\\0) \quad n = \mqty(0\\1)
+\end{equation}
+total isospin $ I = 1/2 $\\
+3rd component of isospin $ I_3 = \pm 1/2 $\\
+
+\subsubsection{Flavor Symm. of the Strong Interaction}
+flavor space
+\begin{equation}\label{key}
+\u = \mqty(1\\0) \quad \d = \mqty(0\\1)
+\end{equation}
+\begin{equation}\label{key}
+\mqty(\u'\\ \d') = \hU\mqty(\u\\ \d)
+\end{equation}
+\begin{equation}\label{key}
+\hU = \mqty(U_1 & U_2\\U_3 & U_4)
+\end{equation}
+4 complex numbers -- 8 real parameters\\
+$ \hU^\dagger \hU = I $ -- 4 constraints\\
+thus, 4 real parameters needed.
+\begin{equation}\label{key}
+\hU = \e^{\I\alpha_i\hG_i} \quad i = 1,2,3,4
+\end{equation}
+one of these
+\begin{equation}\label{key}
+\hU = \mqty(1 & 0\\0 & 1)\e^{\I\phi}  \quad U(1) \text{ symm}
+\end{equation}
+the remaining three -- $ SU(2) $ (special unitary, traceless)\\
+a suitable choice: Pauli matrices
+\begin{equation}\label{key}
+\sigma_1 = ...
+\end{equation}
+def: isospin
+\begin{equation}\label{key}
+\hT = \dfrac{1}{2}\bm\sigma
+\end{equation}
+\subsubsection{Isospin Algebra}
+spin: $ \ket{l,m} $\\
+isospin: $ \ket{I, I_3} $\\
+\begin{equation}\label{key}
+\u = \mqty(1\\0) = \Ket{\dfrac{1}{2},\dfrac{1}{2}} \quad \d = \mqty(0\\1) = \Ket{\dfrac{1}{2}, -\dfrac{1}{2}}
+\end{equation}
+
+\subsection{Combining Quarks into Baryons}
+$ 2\otimes 2 = 3\oplus 1 $\\
+singlet
+\begin{equation}\label{key}
+\ket{0,0} = \dfrac{1}{\sqrt{2}}(\u\d - \d\u)
+\end{equation}
+triplet
+\begin{equation}\label{key}
+\left\{
+\mqty{\ket{1,1} = \u\u\\
+	  \ket{1,0} = \tfrac{1}{\sqrt{2}}(\u\d + \d\u)\\
+	  \ket{1,-1} = \d\d
+	 }
+\right.
+\end{equation}
+
+$ 2\otimes 2\otimes 2  = (3\oplus 1)\otimes 2 = 4\oplus 2\oplus 2$\\
+(using spin multiplicity)\\
+actually $ 4\oplus 2_S\oplus 2_A$ , symm and anti-symm\\
+$ 3\otimes 2 $\\
+$ 1 - \dfrac{1}{2} \leq I \leq 1 + \dfrac{1}{2}  \dra I = \dfrac{1}{2}, \dfrac{3}{2}$\\
+\begin{equation}\label{key}
+2I+1 \dra 4\oplus 2
+\end{equation}
+\begin{equation}\label{key}
+\left\{
+\mqty{\ket{3/2, 3/2} = \\
+	  \ket{3/2, 1/2} = \\
+	  \ket{3/2, -1/2} = \\
+	  \ket{3/2, -3/2} = 
+     }
+\right.
+\end{equation}
+\begin{equation}\label{key}
+\left\{
+\mqty{\ket{1/2, 1/2}_S = \\
+	\ket{1/2, -1/2}_S = \\
+     }
+\right.
+\end{equation}
+$ 1\otimes 2 $
+\begin{equation}\label{key}
+\left\{
+\mqty{\ket{1/2, 1/2}_A = \\
+	\ket{1/2, -1/2}_A = \\
+}
+\right.
+\end{equation}
+
+\subsection{Ground State Baryon Wfn.}
+For proton, $ p = \u\u\d $, or neutron\\
+\begin{equation}\label{key}
+\Psi = \eta_{\text{space}} \chi_{\text{spin}} \phi_{\text{flavor}} \xi_{\text{color}}
+\end{equation}
+spin -- 8, flavor -- 8, color -- 27\\
+But QCD states:\\
+$ \xi $ -- anti-symm\\
+$ \eta $ -- $ (-1)^l $, for ground state, symm\\
+And $ \Psi $ is anti-symm\\
+So, $ \chi\phi $ is symm
+\begin{equation}\label{key}
+\Psi = \dfrac{1}{\sqrt{2}} (\chi_S\phi_S + \phi_A\chi_A)
+\end{equation}
+
+\subsection{Isospin Representation of Anti-Quarks}
+A general SU(2) transformation $ q \ra q' = Uq $
+\begin{equation}\label{key}
+\mqty(\u \\ \d) \ra \mqty(\u\\ \d) = \mqty(a & b\\ -b^* & a^*)\mqty(\u\\ \d)
+\end{equation}
+with $ aa^* + bb^* = 1 $\\
+take complex conjugation
+\begin{equation}\label{key}
+\mqty(\bar\u\\ \bar\d) = \mqty(a^* & b^*\\ -b & a)\mqty(\bar\u\\ \bar\d)
+\end{equation}
+
+
+
+\subsection{SU(3) Flavor Symmetry}
+\begin{equation}\label{key}
+\mqty(\u' \\ \d' \\ \s') = \hU\mqty(\u\\ \d\\ \s) = 
+\mqty(U_{11} & U_{12} & U_{13}\\
+      ... &&\\
+      ... &&)
+\mqty(\u\\ \d\\ \s)
+\end{equation}
+\begin{equation}\label{key}
+\hU = \e^{\I \bm\alpha\cdot\hT}
+\end{equation}
+\begin{equation}\label{key}
+\hT_i = \dfrac{1}{2}\bm\lambda_i \quad i = 1,2,...,8
+\end{equation}
+\begin{equation}\label{key}
+\u = \mqty(1\\ 0\\ 0) \quad \d = \mqty(0\\ 1\\ 0) \quad \s = \mqty(0 \\ 0\\ 1)
+\end{equation}
+expand SU(2) of $ \u,\d $ to SU(3)
+\begin{equation}\label{key}
+\lambda_1 = \mqty(1 & 0 & 0\\ 1 & 0 & 0\\ 0 & 0 & 0) \quad
+\lambda_2 = ... \quad 
+\lambda_3 = ...
+\end{equation}
+expand SU(2) of $ \u,\s $ and $ \d,\s $ to SU(3)
+\begin{equation}\label{key}
+\lambda_4 = \mqty(0 & 0 & 1\\ 0 & 0 & 0\\ 1 & 0 & 0) \quad
+\lambda_5 = ... \quad 
+\lambda_X = \mqty(1 & 0 & 0\\ 0 & 0 & 0\\ 0 & 0 & -1)
+\end{equation}
+\begin{equation}\label{key}
+\lambda_6 = \mqty(0 & 0 & 0\\ 0 & 0 & 1\\ 0 & 1 & 0) \quad
+\lambda_7 = ... \quad 
+\lambda_Y = \mqty(0 & 0 & 0\\ 0 & 1 & 0\\ 0 & 0 & -1)
+\end{equation}
+However $ \lambda_3,\lambda_X,\lambda_Y $ are not linear independent, thus we take
+\begin{equation}\label{key}
+\lambda_8 = \dfrac{1}{\sqrt{3}}\lambda_X + \dfrac{1}{\sqrt{3}}\lambda_Y = \dfrac{1}{\sqrt{3}}\mqty(1 & 0 & 0\\ 0 & 1 & 0\\ 0 & 0 & -2)
+\end{equation}
+those eight aka Gell-Mann matrices
+
+\subsubsection{SU(3) Flavor States}
+\begin{equation}\label{key}
+\hT^2 = \dfrac{1}{4} \sum_{i=1}^8 \lambda_i^2 = 
+\end{equation}
+observables: 3rd component of isospin and flavor hypercharge
+\begin{equation}\label{key}
+\hT_3 = \dfrac{1}{2}\lambda_3 \quad \hat{Y} = \dfrac{1}{\sqrt{3}}\lambda_8
+\end{equation}
+\begin{equation}\label{key}
+I_3 = n_u - n_d \quad Y = \dfrac{1}{3}(n_u + n_d - 2n_s)
+\end{equation}
+states
+\begin{equation}\label{key}
+\u = (1/2, 1/3) \quad \bar\u = (-1/2, -1/3)
+\end{equation}
+\begin{equation}\label{key}
+\d = (-1/2, 1/3) \quad \bar\d = (1/2, -1/3)
+\end{equation}
+\begin{equation}\label{key}
+\s = (0, -2/3) \quad \bar\s = (0, 2/3)
+\end{equation}
+Meson ($ q\bar{q} $):
+\begin{equation}\label{key}
+\u\bar\u = (0, 0) \quad \u\bar\d = (1, 0) \u\bar\s = (1/2, 1)
+\end{equation}
+\begin{equation}\label{key}
+\d\bar\u = ...
+\end{equation}
+\begin{equation}\label{key}
+\s\bar\u = ...
+\end{equation}
+
+\subsubsection{The Light Mesons}
+
+Flavor symm is approximate.
+
+
+
+\section{Quantum Chromodynamics}
+$ \bigstar $
+What's the diff between SU(3)color and SU(3)flavor?\\
+color is precise and gauge.
+\subsection{The Local Gauge Principle}
+\begin{equation}\label{key}
+\psi(x) \ra \psi'(x) = \hU(x)\psi(x) = \e^{\I q\chi(x)}\psi(x)
+\end{equation}
+$ \chi(x) $ is dependent on $ x $. It's local U(1) transformation.
+\begin{equation}\label{key}
+\I\gamma^\mu\partial_\mu [\e^{\I q\chi(x)}\psi] = m[\e^{\I q\chi(x)}\psi]
+\end{equation}
+\begin{equation}\label{key}
+\I\gamma^\mu\e^{\I q\chi(x)}[\partial_\mu \psi + \I q(\partial_\mu \chi) \psi] = \e^{\I q\chi(x)} m\psi
+\end{equation}
+\begin{equation}\label{key}
+\I\gamma^\mu [\partial_\mu + \I q(\partial_\mu \chi)] \psi = m\psi
+\end{equation}
+def: $ D_\mu = \partial_\mu + \I q A_\mu $, gauge invariant derivative operator
+\begin{equation}\label{key}
+\I\gamma^\mu [\partial_\mu + \I q A_\mu] \psi = m\psi
+\end{equation}
+\begin{equation}\label{key}
+A_\mu \ra A'_\mu = A_\mu - \partial_\mu \chi
+\end{equation}
+
+\subsubsection{From QED to QCD}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|}
+		\hline
+		               & QED      &  QCD \\ \hline
+		symm           & U(1)     &  SU(3) \\ \hline
+		gauge boson & photon $ A_\mu $   & gluon $ G_\mu^a \quad a = 1,2,...,8$
+		\\ \hline
+		generator   & q           & $ T^a = \lambda^a / 2 $
+		\\ \hline
+		charge      & electric chg. $ +/- $ & color chg. $ r/g/b $ \\ \hline
+	\end{tabular}
+\end{table}
+elec/color neutral particles do not interact with photon/gluon. But photon has no elec chg, while gluon has color chg.\\
+SU(3) local transf.
+\begin{equation}\label{key}
+\psi(x) \ra \psi'(x) = \e^{\I g_S \bm\alpha(x)\cdot\hT} \psi(x)
+\end{equation}
+Dirac Eq. becomes
+\begin{equation}\label{key}
+\I\gamma^\mu [\partial_\mu + \I g_S(\partial_\mu \bm\alpha)\cdot\hT] \psi = m\psi
+\end{equation}
+\begin{equation}\label{key}
+\I\gamma^\mu [\partial_\mu + \I g_S G_\mu^a T^a] \psi = m\psi
+\end{equation}
+\begin{equation}\label{key}
+G_\mu^k \ra (G_\mu^k)' = G_\mu^k - \partial_\mu \alpha_k - g_S f_{ijk} \alpha_i G_\mu^j 
+\end{equation}
+$ f_{ijk} $: structure constant, def by
+\begin{equation}\label{key}
+[\lambda_i, \lambda_j] = 2\I f_{ijk}\lambda_k
+\end{equation}
+
+-----\\
+U(1) -- Abelian\\
+SU(3) -- Non-Abelian, or Yang-Mils
+
+\subsection{Color and QCD}
+\subsubsection{Quark-gluon Vertex}
+\begin{equation}\label{key}
+(-\I g_S\gamma^\mu) \qty(\dfrac{1}{2}\lambda^a) \quad\text{\# (spinor index)(color index)}
+\end{equation}
+\begin{equation}\label{key}
+u(p) \ra c_i u(p) 
+\end{equation}
+where $ c_1, c_2, c_3 = r,g,b $\\
+\begin{figure}[H]
+	\centering
+	\feynmandiagram [vertical = b to d]{
+		a [particle=q] -- [fermion,edge label=$ p_1 $] b [label=$ {\mu,a} $] -- [fermion,edge label=$ p_3 $] c [particle=q],
+		b -- [gluon] d [\pa=g],
+	};
+\end{figure}
+\begin{equation}\label{key}
+j_q^\mu = \bar{u}(p_3) c_j^\dagger \qty(-\I g_S\gamma^\mu \dfrac{1}{2}\lambda^a) c_i u(p_1) 
+\end{equation}
+
+gluon propagator
+\begin{figure}[H]
+	\centering
+	\feynmandiagram [horizontal = a to b]{
+		a [\pa=$ {\mu,a} $] -- [gluon,edge label=$ g $] 
+		b [\pa=$ {\nu,b} $],
+	};
+\end{figure}
+\begin{equation}\label{key}
+-\I\dfrac{g_{\mu\nu}}{q^2}\delta^{ab}
+\end{equation}
+
+\subsection{Gluons}
+gluon -- octet of colored states
+\begin{equation}\label{key}
+r\bar{g}, g\bar{r}, r\bar{b}, b\bar{r}, g\bar{b}, b\bar{g}, \dfrac{1}{\sqrt{2}}(r\bar{r} - g\bar{g}), \dfrac{1}{\sqrt{6}}(r\bar{r} + g\bar{g} - 2b\bar{b})
+\end{equation}
+
+\subsection{Color Confinement}
+gluon field
+\begin{equation}\label{key}
+V(\vb{r}) \sim \kappa r
+\end{equation}
+colored objects are always confined to color singlet states.
+
+\subsubsection{Color Confinement and Hadronic States}
+$ 3\otimes \bar{3} = 8 \oplus 1 $, the 8 are gluon states and the 1 is meson state ($ \q\bq $).\\
+$ 3\otimes 3 = 6 \oplus 3 $, and hadrons must be color singlet, thus qq meson does not exist.\\
+
+For baryon ($ \q\q\q $)
+\begin{equation}\label{key}
+3 \otimes 3 \otimes 3 = 10 \oplus 8 \oplus 8 \oplus 1
+\end{equation}
+while $ \q\q\bq, \q\bq\bq $ do not exist.\\
+Other: antibaryon $ (\bq\bq\bq)$, pentaquark $ (\q\q\q\q\bq) $.
+
+\subsubsection{Hadronization and Jets}
+...
+
+\subsection{Running of $ \alpha_S $ and Asymptotic Freedom(渐进自由)}
+... photo
+
+\subsection{QCD in e-p Annihilation}
+\begin{figure}[H]
+	\centering
+	\feynmandiagram [horizontal = b to e]{
+		a [\pa=$ e^- $] -- [fermion] b -- [fermion] c [\pa=$ e^+ $],
+		b -- [photon] e,
+		d [\pa=$ \bq $] -- [fermion] e -- [fermion] f [\pa=$ \q $],
+	};
+\end{figure}
+\begin{equation}\label{key}
+R = \dfrac{\sigma(\ce{e^+ e^- \ra \text{hadrons}})}{\sigma(\ce{e^+ e^- \ra \mu^+ \mu^-})} = 3\sum_{\text{flavors}} Q_q^2
+\end{equation}
+
+agree w/ data by error 10\%(圈图修正？)\\
+
+\subsection{}
+\subsection{}
+\subsection{Hadron-hadron Collisions}
+elec collision -- $ \SI{10}{GeV} $\\
+hadron coll. -- $ \SI{13}{TeV} $\\
+
+\subsubsection{Kinematics}
+Variables\\
+$ e^- p $ elastic: $ \theta_e $\\
+$ e^- p $ inelastic: $ \theta_e $, $ E_e $\\
+$ pp $: $ x_1, x_2, Q^2 $\\
+~\\
+$ p\bar{p} \ra \text{2 jets} + X $\\
+$ \{x_1, x_2, Q^2\} \ra \{\theta_1, \theta_2, P_T\} $\\
+\begin{figure}[H]
+	\centering
+	\feynmandiagram [horizontal = a to b]{
+		a [\pa=p] -- [fermion] b -- [fermion] c [\pa=$ j_1 $],
+		d [\pa=p] -- [fermion] b -- [fermion] e [\pa=$ j_2 $],
+	};
+\end{figure}
+\begin{equation}\label{key}
+P_T = \sqrt{p_x^2 + p_y^2}
+\end{equation}
+net longitudinal momentum
+\begin{equation}\label{key}
+(x_1 - x_2)E_p
+\end{equation}
+where $ E_p $ is the energy og the proton.\\
+def rapidity
+\begin{equation}\label{key}
+y = \dfrac{1}{2}\ln\dfrac{E + p_z}{E - p_z}
+\end{equation}
+high-energy jets: $ p_z =\approx E\cos\theta $
+\begin{equation}\label{key}
+y \approx \dfrac{1}{2}\ln(...) = -\ln\tan\dfrac{\theta}{2} \equiv \eta
+\end{equation}
+
+\subsubsection{The Drell-Yan process}
+\begin{figure}[H]
+	\centering
+	\feynmandiagram [horizontal = c to d]{
+		a [\pa=p] -- [fermion] b,
+		b -- [fermion, \el=$x_1 p_1$] c --  [fermion, \el=$ x_2 p_2 $] b2,
+		b2 -- [fermion] a2 [\pa=$ \bar{p} $],
+		c -- [photon] d,
+		e [\pa=$ \mu^+ $] -- [fermion,\el=$ p_4 $] d -- [fermion,\el=$ p_3 $] f[\pa=$ \mu^- $],
+	};
+\end{figure}
+
+\begin{equation}\label{key}
+\dd[2]\sigma = ...
+\end{equation}
+
+\begin{equation}\label{key}
+\dd{\sigma}{y}{M} = \dfrac{8\pi\alpha^2}{9Ms} f\qty(\dfrac{M}{\sqrt{s}}\e^y,\dfrac{M}{\sqrt{s}}\e^{-y})
+\end{equation}
+
+\subsubsection{Jet Production at the LHC}
+parton level diagram
+\begin{figure}[H]
+	\centering
+	\feynmandiagram [vertical = b to e]{
+		a [\pa=q] -- [fermion] b -- [fermion] c [\pa=q],
+		b -- [gluon] e,
+		d [\pa=q] -- [fermion] e -- [fermion] f [\pa=q],
+	};
+\end{figure}
+\begin{equation}\label{key}
+\dv{\hat\sigma}{Q^2} = \dfrac{4\pi\alpha_S^2}{9Q^4}\qty[1 + \qty(1 - \dfrac{Q^2}{\hat{s}})^2]
+\end{equation}
+hat means parton level
+\begin{equation}\label{key}
+\dv{\sigma}{Q^2} = \dv{\hat\sigma}{Q^2} g(x_1,x_2)\dd x_1 \dd x_2
+\end{equation}
+
+homework Jun 5\\
+10.6 10.7\\
+
+\section{The Weak Interaction}
+\subsection{}
+\begin{table}[H]
+	\begin{tabular}{|c|c|}
+		\hline
+		QED/QCD & weak\\ \hline
+		massless gauge boson & massive gauge boson\\ \hline
+		vector intrxn & vector \& axial vector\\ \hline
+	\end{tabular}
+\end{table}
+\subsection{Parity}
+parity transf.
+\begin{equation}\label{key}
+\hP\psi(\vb{x},t) = \psi(-\vb{x},t)
+\end{equation}
+must be unitary and Hermitian.\\
+and $ P = \pm 1 $.
+
+\subsubsection{Intrinsic Parity}
+(4.9) shows thr parity op. for Dirac spinors is $ \gamma^0 $.\\
+For spin-half particles, $ P = +1 $; for anti-particles, $ P = -1 $.\\
+For vector bosons responsible for the EM, strong, weak forces
+\begin{equation}\label{key}
+P(\gamma) = P(\g) = P(\W^\pm) = P(\Z) = -1
+\end{equation}
+
+\subsubsection{Parity Conservation in QED}
+\begin{figure}[H]
+	\centering
+	\feynmandiagram [vertical = b to e]{
+		a [\pa=$ e^- $] -- [fermion] b -- [fermion] c [\pa=$ e^- $],
+		b -- [photon] e,
+		d [\pa=q] -- [fermion] e -- [fermion] f [\pa=q],
+	};
+\end{figure}
+\begin{equation}\label{key}
+-\I \mathcal{M} = \bar{u}(p_3)[\I e Q \gamma^\mu] u(p_1)\dfrac{-\I g_{\mu\nu}}{q^2} \bar{u}(p_4)[\I e Q_q \gamma_\nu] u(p_2)
+\end{equation}
+\begin{equation}\label{key}
+\mathcal{M} = \dfrac{Q_q e^2}{q^2} j_e \cdot j_q
+\end{equation}
+\begin{equation}\label{key}
+j_e^\mu = ...
+\end{equation}
+Parity transf.
+\begin{equation}\label{key}
+\hP u = \gamma^0 u
+\end{equation}
+\begin{equation}\label{key}
+\hP \bar{u} = \hP u^\dagger \gamma^0 = ... = \bar{u}\gamma^0  \text{???}
+\end{equation}
+thus
+\begin{equation}\label{key}
+\hP j_e^0 = \bar{u}\gamma^0\gamma^0\gamma^0 u = j_e^0
+\end{equation}
+\begin{equation}\label{key}
+\hP j_e^k = ... = -j_e^k
+\end{equation}
+\begin{equation}\label{key}
+\hP j_e\cdot j_q = \hP(j_e^0 j_q^0 - j_e^k j_q^k) = j_e \cdot j_q
+\end{equation}
+thus, parity is conserved in QED.\\
+And also in QCD.\\
+e.g.
+\begin{equation}\label{key}
+\ce{\rho^0(1^-) -> \pi^+(0^-) + \pi^-(0^-)}
+\end{equation}
+where $ 1^- $ denotes $ J^P $.\\
+ang momentum conservation $ 1 = 0 + 0 + \ell \dra \ell = 1$\\
+parity consv. $ (-1) = (-1)(-1)(-1)^\ell $  $ \checkmark $
+\begin{equation}\label{key}
+\ce{\eta^0(0^-) -> \pi^+(0^-) + \pi^-(0^-)}
+\end{equation}
+where $ 1^- $ denotes $ J^P $.\\
+ang momentum conservation $ 0 = 0 + 0 + \ell \dra \ell = 0$\\
+parity consv. $ (-1) = (-1)(-1)(-1)^\ell $  $ \cross $\\
+~\\
+\begin{table}[H]
+	\begin{tabular}{|c|c|c|}
+		\hline
+		       & e.g. & $ P $ \\ \hline
+		scalar &  &  +1 \\ \hline
+		vector & $ \vb{x}, \vb{p} $ & -1 \\ \hline
+		pseudoscalar & $  h = \vb{S}\cdot\vb{p} $ & -1 \\ \hline
+		axial vector & $ \vb{L}, \vb{S}, \vb{B}, \bm\mu $ & +1 \\ \hline
+	\end{tabular}
+\end{table}
+
+\subsubsection{Parity Violation in Nuclear $ \beta $-decay}
+
+\subsection{V-A Structure of the Weak Interaction $ \bigstar $}
+\begin{equation}\label{key}
+j^\mu \propto \bar{u}(g_V\gamma^\mu + g_A\gamma^\mu \gamma^5)u = g_V j_V^\mu + g_A j_A^\mu
+\end{equation}
+...
+parity violation $ \propto \dfrac{g_V g_A}{g_V^2 + g_A^2} $\\
+Experiment shows maximal parity violation: $ \abs{g_V} = \abs{g_A} $\\
+and it looks like $ V - A $(V minus A)
+\begin{equation}\label{key}
+j^\mu = g\bar\psi\gamma^\mu(1 - \gamma^5)\psi
+\end{equation}
+Feynman rule
+\begin{equation}\label{key}
+...
+\end{equation}
+
+\subsection{Chiral Structure of the Weak Interaction}
+\begin{equation}\label{key}
+P_R = ...
+\end{equation}
+
+
+\begin{equation}\label{key}
+\bar\psi_{1L}\gamma^\mu \psi_{2R} = 0 = \bar\psi_{1R}\gamma^\mu \psi_{2L}
+\end{equation}
+
+Only L particles participate in charged weak current.\\
+...  R anti-particles ...\\
+
+
+$ E >> m \;\dra$ chiral states $ \approx $ helicity states
+
+\subsection{The W-boson Propagator}
+propagator of photon
+\begin{equation}\label{key}
+\dfrac{-\I g_{\mu\nu}}{q^2}
+\end{equation}
+of W-boson
+\begin{equation}\label{key}
+\dfrac{-\I}{q^2 - m_W^2}\qty(g_{\mu\nu} - \dfrac{q_\mu q_\nu}{m_W^2})
+\end{equation}
+
+\subsubsection{Fermi Theory}
+for low energy
+\begin{equation}\label{key}
+\dfrac{\I g_{\mu\nu}}{m_W^2}
+\end{equation}
+
+\subsection{Helicity in Pion Decay}
+$ \pi^\pm $, $ J^P = 0^- $, formed from $ \u\bar\d / \d\bar\u $.\\
+decay:
+\begin{eqnarray}
+&\pi^- \ra e^- \bar{\nu}_e\\
+&\pi^- \ra \mu^- \bar{\nu}_\mu\\
+\end{eqnarray}
+
+\section{Review}
+helicity 对重粒子是不是LI的。\\
+Jacobi\\
+
+\end{document}

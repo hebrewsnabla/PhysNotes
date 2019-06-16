@@ -1,0 +1,417 @@
+\documentclass[UTF8]{ctexart} % use larger type; default would be 10pt
+
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+
+%%% Examples of Article customizations
+% These packages are optional, depending whether you want the features they provide.
+% See the LaTeX Companion or other references for full information.
+
+%%% PAGE DIMENSIONS
+\usepackage{geometry} % to change the page dimensions
+\geometry{a4paper} % or letterpaper (US) or a5paper or....
+% \geometry{margin=2in} % for example, change the margins to 2 inches all round
+% \geometry{landscape} % set up the page for landscape
+%   read geometry.pdf for detailed page layout information
+
+\usepackage{graphicx} % support the \includegraphics command and options
+
+% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+
+%%% PACKAGES
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+% These packages are all incorporated in the memoir class to one degree or another...
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+%%% SECTION TITLE APPEARANCE
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+% (This matches ConTeXt defaults)
+
+%%% ToC (table of contents) APPEARANCE
+\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+%%% END Article customizations
+
+%%% The "real" document content comes below...
+
+\setlength{\parindent}{0pt}
+\usepackage{physics}
+\usepackage{amsmath}
+%\usepackage{symbols}
+\usepackage{AMSFonts}
+\usepackage{bm}
+%\usepackage{eucal}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{multicol}
+\usepackage{abstract}
+\usepackage{empheq}
+\usepackage{extarrows}
+\usepackage{textcomp}
+
+
+\DeclareMathOperator{\p}{\prime}
+\DeclareMathOperator{\ti}{\times}
+\DeclareMathOperator{\s}{\sum_{n=1}^{\infty}}
+\DeclareMathOperator{\intinf}{\int_0^\infty}
+\DeclareMathOperator{\intdinf}{\int_{-\infty}^\infty}
+\DeclareMathOperator{\suminf}{\sum_{n=0}^\infty}
+\DeclareMathOperator{\e}{\mathrm{e}}
+\renewcommand{\I}{\mathrm{i}}
+\DeclareMathOperator{\Arg}{\mathrm{Arg}}
+\DeclareMathOperator{\ra}{\rightarrow}
+\DeclareMathOperator{\llra}{\longleftrightarrow}
+\DeclareMathOperator{\lra}{\longrightarrow}
+\DeclareMathOperator{\dlra}{\Leftrightarrow}
+\DeclareMathOperator{\dra}{\Rightarrow}
+\newcommand{\dis}{\displaystyle}
+
+\DeclareMathOperator{\psis}{\psi^\ast}
+\DeclareMathOperator{\Psis}{\Psi^\ast}
+\DeclareMathOperator{\hi}{\hat{\vb{i}}}
+\DeclareMathOperator{\hj}{\hat{\vb{j}}}
+\DeclareMathOperator{\hk}{\hat{\vb{k}}}
+\DeclareMathOperator{\hr}{\hat{\vb{r}}}
+\DeclareMathOperator{\hT}{\hat{\vb{T}}}
+\DeclareMathOperator{\hH}{\hat{\vb{H}}}
+\DeclareMathOperator{\hL}{\hat{\vb{L}}}
+\DeclareMathOperator{\hp}{\hat{\vb{p}}}
+\DeclareMathOperator{\hx}{\hat{\vb{x}}}
+\DeclareMathOperator{\ha}{\hat{\vb{a}}}
+
+
+\DeclareMathOperator{\Tdv}{-\dfrac{\hbar^2}{2m}\dv[2]{x}}
+\DeclareMathOperator{\Tna}{-\dfrac{\hbar^2}{2m}\nabla^2}
+
+\numberwithin{equation}{subsection}
+
+\title{Notes of 137A\\
+Quantum Mechanics}
+\author{hebrewsnabla}
+%\date{} % Activate to display a given date or no date (if empty),
+         % otherwise the current date is printed 
+
+\begin{document}
+% \boldmath
+\maketitle
+
+\tableofcontents
+
+\newpage
+
+Prof Mina Aganagic\\
+bcourses.berkeley.edu\\
+office -- 407 Old LeConte\\
+office hour -- Th 2:00 - 3:00 p.m.\\
+HW 30\%, Mid 30\%, Final 40\% \\
+GSI: Christian Schmid\\
+Mid -- Th Oct 18 in class, Final -- Tu Dec 12\\
+~\\
+Text\\
+Griffths, Intro QM\\
+Feynman\\
+Morrison, Understanding Quantum Mechanics\\
+~\\
+
+\section{The Wavefunction}
+\setcounter{subsection}{5}
+\subsection{The Uncertainty Principle}
+Uncertainty
+\begin{equation}\label{key}
+\sigma_Q = \sqrt{\langle Q^2\rangle - \langle Q\rangle^2}
+\end{equation}
+Uncertainty Principle
+\begin{equation}\label{key}
+\sigma_x\sigma_p \geq \dfrac{\hbar}{2}
+\end{equation}
+
+\section{Time-independent Schr\"odinger Eq.}
+\subsection{Stationary State}
+\begin{equation}\label{key}
+\I\hbar\pdv{\Psi}{t} = \hat{\vb{H}}\Psi
+\end{equation}
+Assume
+\begin{equation}\label{key}
+V = V(x)
+\end{equation}
+\begin{equation}\label{key}
+\Psi(x,t) = \phi(t)\psi(x)
+\end{equation}
+thus
+\begin{equation}\label{key}
+\pdv{t}\Psi(x,t) = \dv{\phi(t)}{t}\psi(x)  \quad \pdv[2]{x}\Psi(x,t) = \phi(t)\pdv[2]{\psi(x)}{x}
+\end{equation}
+\begin{equation}\label{key}
+\I\hbar\dv{\phi(t)}{t}\psi(x) = -\dfrac{\hbar^2}{2m}\phi(t)\pdv[2]{\psi(x)}{x} + V(x)\phi(t)\psi(x)
+\end{equation}
+\begin{equation}\label{key}
+\dfrac{\I\hbar}{\phi(t)}\dv{\phi(t)}{t} = -\dfrac{\hbar^2}{2m\psi(x)}\pdv[2]{\psi(x)}{x} + V(x)
+\end{equation}
+thus
+\begin{equation}\label{key}
+\dfrac{\I\hbar}{\phi(t)}\dv{\phi(t)}{t} = E = -\dfrac{\hbar^2}{2m\psi(x)}\pdv[2]{\psi(x)}{x} + V(x)
+\end{equation}
+right side -- TISE\\
+left side --
+\begin{equation}\label{key}
+\I\hbar\dv{\phi(t)}{t} = E\phi(t)
+\end{equation}
+\begin{equation}\label{key}
+\phi(t) = \e^{-\I Et/\hbar}
+\end{equation}
+No time dependence of physically measurable quantities
+\begin{equation}\label{key}
+p(x,t) = \abs{\Psi(x,t)}^2 = \psis(x)\e^{\I Et/\hbar}\psi(x)\e^{-\I Et/\hbar}
+\end{equation}
+\begin{equation}\label{key}
+\dv{t}\langle Q(x,-\I\hbar\pdv{x})\rangle = 0
+\end{equation}
+\begin{equation}\label{key}
+\sigma_H = \sqrt{\langle \hat{\vb{H}}^2\rangle - \langle \hat{\vb{H}}\rangle^2} = 0
+\end{equation}
+~\\
+Every solution of TDSE can be written as linear combination of solutions with definite energies (sol of TISE)\\
+Assume "discrete spectrum" ...\\
+
+most general sol of SE
+\begin{equation}\label{key}
+\Psi(x,t) = \sum_n^\infty c_n\psi_n(x)\e^{-\I E_n t/\hbar}
+\end{equation}
+where $ c_n \in \mathbb{C}$.\\
+How to find $ c_n $?\\
+Assume initial condition $ \Psi(x,0) $\\
+Assume discrete \& non-degenerate spectrum: $ E_n \neq E_m $ if $ n\neq m $\\
+thus
+\begin{equation}\label{key}
+\Psi(x,0) = \sum_n^\infty c_n\psi_n(x)
+\end{equation}
+\begin{equation}\label{key}
+c_n = \int\dd x \Psi(x,0)\psis_n(x)
+\end{equation}
+
+\newpage
+9/11\\
+1-D hamil has no-degenerate eigenvalues\\
+if so
+\begin{equation}\label{key}
+-\dfrac{\hbar^2}{2m}\dv[2]{\psi_1}{x} + V(x)\psi_1 = E\psi_1
+\end{equation}
+\begin{equation}\label{key}
+-\dfrac{\hbar^2}{2m}\dv[2]{\psi_2}{x} + V(x)\psi_2 = E\psi_2
+\end{equation}
+\begin{equation}\label{key}
+-\dfrac{\hbar^2}{2m}\dv[2]{\psi_1}{x}\dfrac{1}{\psi_1} = -\dfrac{\hbar^2}{2m}\dv[2]{\psi_2}{x}\dfrac{1}{\psi_2}
+\end{equation}
+\begin{equation}\label{key}
+\psi_1\psi_2'' - \psi_2\psi_1'' = 0
+\end{equation}
+\begin{equation}\label{key}
+\dd{x}(\psi_2\psi_1' - \psi_1\psi_2') = 0
+\end{equation}
+\begin{equation}\label{key}
+\psi_2\psi_1' - \psi_1\psi_2' = Cons.
+\end{equation}
+since when $ x\ra\infty $, $ \psi_2\psi_1' - \psi_1\psi_2' \ra 0 $
+\begin{equation}\label{key}
+\psi_2\psi_1' - \psi_1\psi_2' = 0
+\end{equation}
+\begin{equation}\label{key}
+\dfrac{\psi_1'}{\psi_1} = \dfrac{\psi_2'}{\psi_2}
+\end{equation}
+\begin{equation}\label{key}
+\ln\psi_1 = \ln\psi_2 + Cons.
+\end{equation}
+\begin{equation}\label{key}
+\psi_1 = \psi_2\cdot Cons.
+\end{equation}
+
+superposition state is not 定态
+\begin{equation}\label{key}
+\Psi(x,t) = \dfrac{1}{\sqrt{2}}\qty(\psi_1(x)\e^{-\I E_1 t/\hbar} + \psi_2(x)\e^{-\I E_2 t/\hbar})
+\end{equation}
+...
+\begin{equation}\label{key}
+\langle x\rangle = \dfrac{1}{2}\qty(\bra{\psi_1}x\ket{\psi_1} + \bra{\psi_2}x\ket{\psi_2}) + \bra{\psi_1}x\ket{\psi_2}\cos\dfrac{(E_2 - E_1)t}{\hbar}
+\end{equation}
+
+\subsection{The Infinite Square Well}
+
+\subsection{SH Oscillator}
+\begin{equation}\label{key}
+V(x) = \dfrac{1}{2}m\omega^2 x^2
+\end{equation}
+Expand near a minimum
+\begin{equation}\label{key}
+V(x) = V(x_0) + \dfrac{1}{2}\dv[2]{V(x)}{x} (x - x_0)^2 + \cdots
+\end{equation}
+def $ k_{eff} = \dv[2]{x}V(x)$
+
+TISE for SHO
+\begin{equation}\label{key}
+-\dfrac{\hbar^2}{2m}\dv[2]{x}\Psi(x) + \dfrac{1}{2}m\omega^2 x^2\Psi(x) = E\Psi(x)
+\end{equation}
+\begin{equation}\label{key}
+\hH = \dfrac{\hp^2}{2m} + \dfrac{1}{2}m\omega^2 x^2
+\end{equation}
+def
+\begin{equation}\label{key}
+\hH = \dfrac{1}{2}\hbar\omega (\ha_+ \ha_- + \ha_-\ha_+)
+\end{equation}
+or
+\begin{equation}\label{key}
+\hH = \hbar\omega(\ha_+\ha_- + \dfrac{1}{2})
+\end{equation}
+where
+\begin{equation}\label{key}
+\ha_\pm = \dfrac{1}{\sqrt{2\hbar m\omega}}(\mp\I \hp + m\omega x)
+\end{equation}
+\begin{equation}\label{key}
+[\ha_-, \ha_+] = 1
+\end{equation}
+Noticing
+\begin{equation}\label{key}
+\begin{aligned}
+[\hH,\ha_+] &= \hbar\omega[\ha_+\ha_- + \dfrac{1}{2}, \ha_+]\\
+&= \hbar\omega\ha_+
+\end{aligned}
+\end{equation}
+we have
+\begin{equation}\label{key}
+\hH(\ha_+\psi(x)) = (E+\hbar\omega)(\ha_+\psi(x))
+\end{equation}
+Similarly
+\begin{equation}\label{key}
+\begin{aligned}
+[\hH,\ha_-] &= \hbar\omega[\ha_+\ha_- + \dfrac{1}{2}, \ha_-]\\
+&= \hbar\omega\ha_-
+\end{aligned}
+\end{equation}
+\begin{equation}\label{key}
+\hH(\ha_\psi(x)) = (E - \hbar\omega)(\ha_-\psi(x))
+\end{equation}
+
+
+\newpage
+9/18\\
+Ex.
+\begin{equation}\label{key}
+\Psi(x,0) = A\qty(3\e^{\I\theta_0}\sin\dfrac{\pi x}{a} + 2\cos\dfrac{\pi x}{2a})
+\end{equation}
+Calc $ A $, $ \Psi(x,t) $.\\
+Sol:
+\begin{equation}\label{key}
+\braket{\Psi}{\Psi} = \abs{A}^2\int_{-a}^a \qty(3\e^{-\I\theta_0}\sin\dfrac{\pi x}{a} + 2\cos\dfrac{\pi x}{2a})\qty(3\e^{\I\theta_0}\sin\dfrac{\pi x}{a} + 2\cos\dfrac{\pi x}{2a})\dd x = 1
+\end{equation}
+
+\newpage
+9/20\\
+suppose
+\begin{equation}\label{key}
+\ha_+\ha_- \psi(x) = u\psi(x)
+\end{equation}
+\begin{equation}\label{key}
+\bra{\psi}\ha_+\ha_-\ket{\psi} = u
+\end{equation}
+\begin{equation}\label{key}
+\bra{\psi}\ha_+\ha_-\ket{\psi} = \braket{\ha_-\psi}{\ha_-\psi}
+\end{equation}
+thus $ \ha_-\psi(x) = 0 $ iff $ u = 0 $.\\
+??\\
+
+\subsection{Free particle}
+$ \psi_k(x,t) $ is not a quantum state of a free particle
+\begin{equation}\label{key}
+\psi(x,t) = \sum_k a_k\psi_k(x,t)
+= \dfrac{1}{\sqrt{2\pi}}\intdinf \dd k \phi(k)\e^{\I k(x - \hbar kt/2m)}
+\end{equation}
+
+\newpage
+10/9\\
+\begin{equation}\label{key}
+\expval{Q^2} = \expval{Q}^2
+\end{equation}
+\begin{equation}\label{key}
+\bra{Q\psi}\ket{Q\psi} \bra{\psi}\ket{\psi} = \abs{\bra{\psi}\ket{Q\psi}}^2
+\end{equation}
+
+\section{Formalism}
+\subsection{}
+\subsection{}
+\subsection{Eigenfunctions of a Hermitian Operator}
+\subsubsection{Discrete Spectra}
+Let $ \{\ket{f_{q,A}}\}_A $ be a collection of orthogonal eigenvectors of eigenvalue $ q $.
+\begin{equation}\label{key}
+\bra{f_{q,A}}\ket{f_{q',B}} = \delta_{qq'}\delta_{AB}
+\end{equation}
+
+\subsubsection{Continuous Spectra}
+
+
+
+\subsection{Generalized Statistical Interpretation}
+If
+\begin{equation}\label{key}
+\ket{\Psi} = \sum_{q,A} c_{q,A}\ket{f_{q,A}}
+\end{equation}
+thus 
+\begin{equation}\label{key}
+c_{q,A} = \braket{f_{q,A}}{\Psi}
+\end{equation}
+
+\subsection{}
+
+\subsection{Dirac Notation}
+Identity operator
+\begin{equation}\label{key}
+\hat{I} = \sum_{q,A}\ket{f_{q,A}}\bra{f_{q,A}}
+\end{equation}
+
+\section{}
+\begin{equation}\label{key}
+[\hL, \hH] = 0
+\end{equation}
+\begin{equation}\label{key}
+[\hL_x, \hL_y] = \I\hbar\hL_z
+\end{equation}
+\begin{equation}\label{key}
+[\hL^2, \hL_x] = 0
+\end{equation}
+
+\begin{equation}\label{key}
+\qty[\Tna + \dfrac{\ell(\ell+1)}{2mr^2}\hbar^2]R(r) = E R(r)
+\end{equation}
+
+\begin{equation}\label{key}
+\hL_\pm = \hL_x \pm \I\hL_y
+\end{equation}
+\begin{equation}\label{key}
+[\hL_z, \hL_\pm] = \pm\hbar\hL_\pm
+\end{equation}
+If
+\begin{equation}\label{key}
+\hL_z f = \mu f
+\end{equation}
+\begin{equation}\label{key}
+\hL_z(\hL_\pm f) = (\mu + \hbar)(\hL_\pm f)
+\end{equation}
+
+
+
+
+
+
+\end{document}

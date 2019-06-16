@@ -1,0 +1,1316 @@
+%\documentclass[UTF8]{ctexart} % use larger type; default would be 10pt
+\documentclass[a4paper]{article}
+\usepackage{xeCJK}
+%\usepackage{ctex}
+%\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+
+%%% Examples of Article customizations
+% These packages are optional, depending whether you want the features they provide.
+% See the LaTeX Companion or other references for full information.
+
+%%% PAGE DIMENSIONS
+\usepackage{geometry} % to change the page dimensions
+\geometry{a4paper} % or letterpaper (US) or a5paper or....
+% \geometry{margin=2in} % for example, change the margins to 2 inches all round
+% \geometry{landscape} % set up the page for landscape
+%   read geometry.pdf for detailed page layout information
+
+\usepackage{graphicx} % support the \includegraphics command and options
+
+% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+
+%%% PACKAGES
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+% These packages are all incorporated in the memoir class to one degree or another...
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+%%% SECTION TITLE APPEARANCE
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+% (This matches ConTeXt defaults)
+
+%%% ToC (table of contents) APPEARANCE
+\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+%%% END Article customizations
+
+%%% The "real" document content comes below...
+
+\setlength{\parindent}{0pt}
+\usepackage{physics}
+\usepackage{amsmath}
+%\usepackage{symbols}
+\usepackage{AMSFonts}
+\usepackage{bm}
+%\usepackage{eucal}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{multicol}
+\usepackage{abstract}
+\usepackage{empheq}
+\usepackage{extarrows}
+\usepackage{textcomp}
+\usepackage{mhchem}
+\usepackage{braket}
+\usepackage{siunitx}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz-feynman}
+\usepackage{feynmp}
+
+
+\DeclareMathOperator{\p}{\prime}
+\DeclareMathOperator{\ti}{\times}
+
+\DeclareMathOperator{\e}{\mathrm{e}}
+\DeclareMathOperator{\I}{\mathrm{i}}
+\DeclareMathOperator{\Arg}{\mathrm{Arg}}
+\newcommand{\NA}{N_\mathrm{A}}
+\newcommand{\kB}{k_\mathrm{B}}
+
+\DeclareMathOperator{\ra}{\rightarrow}
+\DeclareMathOperator{\llra}{\longleftrightarrow}
+\DeclareMathOperator{\lra}{\longrightarrow}
+\DeclareMathOperator{\dlra}{\Leftrightarrow}
+\DeclareMathOperator{\dra}{\Rightarrow}
+
+%%%%%%%%%%%% QUANTUM MECHANICS %%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\bkk}[1]{\Braket{#1|#1}}
+\newcommand{\bk}[2]{\Braket{#1|#2}}
+\newcommand{\bkev}[2]{\Braket{#2|#1|#2}}
+
+\DeclareMathOperator{\na}{\bm{\nabla}}
+\DeclareMathOperator{\nna}{\nabla^2}
+\DeclareMathOperator{\drrr}{\dd[3]\vb{r}}
+
+\DeclareMathOperator{\psis}{\psi^\ast}
+\DeclareMathOperator{\Psis}{\Psi^\ast}
+\DeclareMathOperator{\hi}{\hat{\vb{i}}}
+\DeclareMathOperator{\hj}{\hat{\vb{j}}}
+\DeclareMathOperator{\hk}{\hat{\vb{k}}}
+\DeclareMathOperator{\hr}{\hat{\vb{r}}}
+\DeclareMathOperator{\hT}{\hat{\vb{T}}}
+\DeclareMathOperator{\hH}{\hat{H}}
+
+\DeclareMathOperator{\hL}{\hat{\vb{L}}}
+\DeclareMathOperator{\hp}{\hat{\vb{p}}}
+\DeclareMathOperator{\hx}{\hat{\vb{x}}}
+\DeclareMathOperator{\ha}{\hat{\vb{a}}}
+\DeclareMathOperator{\hS}{\hat{\vb{S}}}
+\DeclareMathOperator{\hSigma}{\hat{\bm\Sigma}}
+\DeclareMathOperator{\hJ}{\hat{\vb{J}}}
+
+\DeclareMathOperator{\Tdv}{-\dfrac{\hbar^2}{2m}\dv[2]{x}}
+\DeclareMathOperator{\Tna}{-\dfrac{\hbar^2}{2m}\nabla^2}
+
+%\DeclareMathOperator{\s}{\sum_{n=1}^{\infty}}
+\DeclareMathOperator{\intinf}{\int_0^\infty}
+\DeclareMathOperator{\intdinf}{\int_{-\infty}^\infty}
+%\DeclareMathOperator{\suminf}{\sum_{n=0}^\infty}
+\DeclareMathOperator{\sumnzinf}{\sum_{n=0}^\infty}
+\DeclareMathOperator{\sumnoinf}{\sum_{n=1}^\infty}
+\DeclareMathOperator{\sumndinf}{\sum_{n=-\infty}^\infty}
+\DeclareMathOperator{\sumizinf}{\sum_{i=0}^\infty}
+
+%%%%%%%%%%%%%%%%% PARTICLE PHYSICS %%%%%%%%%%%%%%%%
+\DeclareMathOperator{\hh}{\hat{h}}               % helicity
+\DeclareMathOperator{\hP}{\hat{\vb{P}}}          % Parity
+
+\DeclareMathOperator{\GeV}{\si{GeV}}
+\DeclareMathOperator{\LI}{\mathscr{L}.I.}
+\DeclareMathOperator{\g5}{\gamma^5}
+\DeclareMathOperator{\gmuu}{\gamma^\mu}
+\DeclareMathOperator{\gmud}{\gamma_\mu}
+\DeclareMathOperator{\gnuu}{\gamma^\nu}
+\DeclareMathOperator{\gnud}{\gamma_\nu}
+
+\newcommand{\dis}{\displaystyle}
+\numberwithin{equation}{section}
+
+\title{Notes of Particle Physics, LIU Zuowei}
+\author{hebrewsnabla}
+%\date{} % Activate to display a given date or no date (if empty),
+         % otherwise the current date is printed 
+
+\begin{document}
+% \boldmath
+\maketitle
+
+\tableofcontents
+
+\newpage
+
+\setcounter{section}{0}
+\section{Introduction}
+物理楼318, zuoweiliu@nju.edu.cn\\
+平时20 作业30 期末50\\
+
+References\\
+-- Mark Thomson "Modern Particle Physics"\\
+-- David Griffiths "Introduction to Elementary Particles"\\
+-- Francis Halzen \& Alan D. Martin "Quarks \& Leptons"\\
+
+\subsection{Elementary Particles}~\\
+p -- uud\\
+n -- ddu\\
+u -- upper quark, d -- down quark\\
+c -- s --\\
+t -- top b -- \\
+~\\
+Gen1 -- $ e^-/\nu_e/u/d $\\
+Gen2 -- $ \mu^-/\nu_\mu/c/s $\\
+Gen3 -- $ \tau^-/\nu_\tau/t/b $\\
+all have spin 1/2\\
+charge: u,c,t 2/3; d,s,b -1/3\\
+mass: $ m_t \approx 170 m_p $\\
+~\\
+Electromagnetic Interaction, EM -- proton\\
+Strong -- gluon\\
+Weak -- $ W^\pm/Z^0 $\\
+Gravity -- Higgs boson\\
+$ m_g = 125GeV $, $ m_Z = 91GeV $, $ m_W = 80GeV $ -- EW scale\\
+~\\
+
+\subsection{Feynman Diagrams}
+EM $ \alpha_{EM} = 1/137 $\\
+strong $ \alpha_s = 1 $\\
+weak $ \alpha_w = 1/30 $\\
+~\\
+small $ \alpha $ enables perturbative calculation\\
+Feynman rules\\
+
+\section{Underlying Concepts}
+\subsection{Natural Units}
+$ [kg, m, s] \ra [\si{GeV}, \hbar, c] $\\
+$ \hbar = c = 1 $
+mass: $ \si{GeV}/c^2 $ -- $ \si{GeV} $\\
+length: $ \hbar c/\GeV $ - $ \GeV^{-1} $\\
+time: $ \hbar/\si{GeV} $ -- $ \GeV^{-1} $\\
+
+$ E, \vb{p}, m \lra \GeV $\\
+$ t, l \lra \GeV^{-1} $\\
+$ \sigma \lra \GeV^{-2} $\\
+
+e.g. $ \ev{r^2}^{1/2} = 4.1\GeV^{-1} = ? $\\
+$ [L] = [E]^{-1}[\hbar][c] $\\
+$ \GeV^{-1} = \SI{1.6e-10}{J^{-1}}\cdot\SI{3e8}{m.s^{-1}}\cdot\SI{1.055e-34}{J.s} \approx \SI{0.8}{fm} $\\
+\paragraph{Heaviside-Lorentz Units}
+\begin{equation}\label{key}
+\epsilon_0 = \mu_0 = 1
+\end{equation}
+\begin{equation}\label{key}
+\alpha = \dfrac{e^2}{4\pi\epsilon_0\hbar c} \dra \dfrac{e^2}{4\pi} = \dfrac{1}{137}
+\end{equation}
+
+\subsection{Special Relativity}
+\subsubsection{The Lorentz Transformation}
+\begin{equation}\label{key}
+\vb{X}' = \bm{\Lambda}\vb{X}
+\end{equation}
+\begin{equation}\label{key}
+\mqty(t'\\x'\\y'\\z') 
+= \mqty(\gamma & 0 & 0 & -\gamma\beta\\
+        0 & 1 & 0 & 0\\
+        0 & 0 & 1 & 0\\
+        -\gamma\beta & 0 & 0 & \gamma)
+  \mqty(t\\x\\y\\z)
+\end{equation}
+where $ \gamma = (1 - \beta^2)^{-1/2} $.
+\begin{equation}\label{key}
+\vb{X} = \bm{\Lambda}^{-1}\vb{X}'
+\end{equation}
+\begin{equation}\label{key}
+\mqty(t\\x\\y\\z) 
+= \mqty(\gamma & 0 & 0 & \gamma\beta\\
+0 & 1 & 0 & 0\\
+0 & 0 & 1 & 0\\
+\gamma\beta & 0 & 0 & \gamma)
+\mqty(t'\\x'\\y'\\z')
+\end{equation}
+\begin{equation}\label{key}
+\bm{\Lambda}\bm{\Lambda}^{-1} = \vb{I}
+\end{equation}
+
+\subsubsection{4-Vectors \& Lorentz Invariant}
+contravariant 4-vector
+\begin{equation}\label{key}
+X^\mu = (t,x,y,z)
+\end{equation}
+when $ \mu \ra \mu' $, 
+\begin{equation}\label{key}
+X^{\mu'} = \Lambda^\mu_\nu X^\nu
+\end{equation}
+\begin{equation}\label{key}
+t^2 - x^2 - y^2 - z^2 = t'^2 - x'^2 - y'^2 - z'^2
+\end{equation}
+covariant 4-vector $ X_\mu = (t,-x,-y,-z) $\\
+$ X^\mu X_\mu = X^{\mu'} X_{\mu'} $ \# Ein sum convention\\
+thus $ X^\mu X_\mu = \mathscr{L}.I. $ \# Lorentz invariant\\
+\begin{equation}\label{key}
+X_\mu = G_\mu^\nu X^\nu
+\end{equation}
+\begin{equation}\label{key}
+G_\mu^\nu \equiv \mqty( 1 & 0 & 0 & 0\\
+                        0 & -1 & 0 & 0\\
+                        0 & 0 & -1 & 0\\
+                        0 & 0 & 0 & -1)
+\end{equation}
+~\\
+\paragraph{4-momentum}
+\begin{equation}\label{key}
+P^\mu = (E, p_x, p_y, p_z)
+\end{equation}
+\begin{equation}\label{key}
+P^\mu P_\mu = E^2 - \vb{p}^2 = m^2
+\end{equation}
+
+\paragraph{4-derivative}
+\begin{equation}\label{key}
+\mqty(\partial_{t'}\\\partial_{x'}\\\partial_{y'}\\\partial_{z'})
+= \mqty(\gamma & 0 & 0 & \gamma\beta\\
+0 & 1 & 0 & 0\\
+0 & 0 & 1 & 0\\
+\gamma\beta & 0 & 0 & \gamma)
+\mqty(\partial_{t}\\\partial_{x}\\\partial_{y}\\\partial_{z})
+\end{equation}
+i.e.
+\begin{equation}\label{key}
+\partial_{\mu'} = \Lambda_\mu^\nu \partial_\nu
+\end{equation}
+\begin{equation}\label{key}
+\partial^\mu\partial_\mu = \pdv[2]{t} - \nabla^2 \equiv \Box
+\end{equation}
+
+\subsubsection{Mandelstam Variables}
+
+\subsection{Non-relativistic QM}
+\subsubsection{Wave Mechanics \& Schr\"odinger Equation}
+\subsubsection{Prob. Dens. \& Prob. Current}
+
+\subsubsection{TD \& Conserved Quantities}
+
+\subsubsection{Commutation relations \& Compatible Observables}
+
+\subsubsection{Angular Momentum}
+
+\section{Decay Rates and Cross Sections}
+
+\subsection{Fermi's Golden Rule $ \bigstar $}
+Transition rate
+\begin{equation}\label{key}
+\Gamma_{fi} = 2\pi \abs{T_{fi}}^2\rho(E_i)
+\end{equation}
+
+\subsection{Phase Space and Wavefxn Normalization $ \bigstar $}
+$ \alpha \ra 1 + 2 $ \\
+
+1st order:
+\begin{equation}\label{key}
+T_{fi} = \Braket{f | H' | i} = \Braket{\psi_1^*\psi_2^* | H' | \psi_a}
+\end{equation}
+Born approx.:
+\begin{equation}\label{key}
+\psi(\vb{x}, t) = A\e^{\I(\vb{p}\cdot\vb{x} - Et)}
+\end{equation}
+Normalization in a box of side $ a $:
+\begin{equation}\label{key}
+\Braket{\psi | \psi} = 1 \dra A^2 = 1/a^3
+\end{equation}
+PBC gives
+\begin{equation}\label{key}
+\vb{p} = \vb{n}\dfrac{2\pi}{a}
+\end{equation}
+thus
+\begin{equation}\label{key}
+\dd[3]{\vb{p}} = \dd[3]{\vb{n}}\dfrac{(2\pi)^3}{V}
+\end{equation}
+\begin{equation}\label{key}
+\dd n \equiv \dd[3]\vb{n} \dd[3] p \dfrac{V}{(2\pi)^3} = 4\pi p^2\dd p \dfrac{V}{(2\pi)^3}
+\end{equation}
+\begin{equation}\label{key}
+\rho(E) = \dv{n}{E} = \dv{n}{p}\abs{\dv{p}{E}}
+\end{equation}
+Set $ V = 1 $, and there are $ N $ particles, thus $ N - 1 $ indep momenta
+\begin{equation}\label{key}
+\dd n = \prod_{i=1}^{N-1}\dd n_i = \prod_{i=1}^{N-1} \dfrac{\dd[3]\vb{p}_i}{(2\pi)^3}
+\end{equation}
+\begin{equation}\label{key}
+~
+\end{equation}
+
+\subsubsection{LI Phase Space}
+\begin{equation}\label{key}
+\Gamma_{fi} = \dfrac{1}{2E_a} \int \abs{\mathcal{M}_{fi}}^2\qty[(2\pi)^4\delta^4(\vb{p}_a - \vb{p}_1 - \vb{p}_2)] \dfrac{\dd[3]\vb{p}_1}{(2\pi)^3 2E_1} \dfrac{\dd[3]\vb{p}_2}{(2\pi)^3 2E_2}
+\end{equation}
+
+\subsubsection{Fermi G R Revisited}
+\begin{equation}\label{key}
+\Gamma_{fi} = 
+\end{equation}
+In CoM, $ E_a \ra m_a $\\
+next subsec.
+
+\subsection{Particle Decays $ \bigstar $}
+
+
+静止参考系中
+\begin{equation}\label{key}
+p_a = (m_a, 0)
+\end{equation}
+$ \therefore $
+\begin{equation}\label{key}
+\delta^3(\vb{p}_a - \vb{p}_1 - \vb{p}_2)\dd[3]\vb{p}_2 = 
+\end{equation}
+\begin{equation}\label{key}
+\Gamma = \dfrac{1}{2m_a} \int \abs{\mathcal{M}}^2 (2\pi)^4 \delta(m_a - E_1 - E_2)\dfrac{\dd[3]\vb{p}_1}{(2\pi)^6 4E_1E_2} 
+\end{equation}
+where $ \vb{p}_2 = -\vb{p}_1 $. thus $ E_2 = \sqrt{m_2^2 + p_1^2} $.\\
+and $ \dd[3]\vb{p}_1 = p_1^2\dd p_1\sin\theta\dd\theta\dd\phi $
+\begin{equation}\label{key}
+\Gamma = \dfrac{1}{8\pi^2 m_a} \int \abs{\mathcal{M}}^2 \delta(m_a - \sqrt{m_1^2 + p_1^2} - \sqrt{m_2^2 + p_1^2})\dfrac{p_1^2\dd p_1\dd\Omega}{4E_1E_2} 
+\end{equation}
+Since
+\begin{equation}\label{key}
+\intdinf \delta[f(x)]g(x)\dd x = \sum_i\dfrac{g(x_i)}{\abs{f'(x_i)}}  \quad \text{w/} f(x_i)=0
+\end{equation}
+thus
+\begin{equation}\label{key}
+\Gamma_{fi} = \dfrac{p^*}{32\pi^2 m_a^2} \int \abs{\mathcal{M}_{fi}}^2 \dd\Omega
+\end{equation}
+where $ m_a - \sqrt{m_1^2 + {p^*}^2} - \sqrt{m_2^2 + {p^*}^2} = 0 $
+
+\subsection{Interaction Cross Sections $ \bigstar $}
+tot \# of target particles
+\begin{equation}\label{key}
+\delta N = n_b v\delta t A
+\end{equation}
+interaction prob.
+\begin{equation}\label{key}
+\delta P = \dfrac{\delta N \sigma}{A} = n_b v \sigma \delta t
+\end{equation}
+
+interaction rate per target particle
+\begin{equation}\label{key}
+\Gamma_b =  \dv{P}{t} = n v \sigma = \sigma \phi_a
+\end{equation}
+\begin{equation}\label{key}
+\phi_a = \dfrac{\dd N_a}{\dd A \dd t} = \dfrac{n\dd A v\dd t}{\dd A\dd t} = n v
+\end{equation}
+total rate
+\begin{equation}\label{key}
+\Gamma_a n_a V = (n_a v) (n_b V) \sigma = \text{flux}\cross\text{\# target}\cross\sigma
+\end{equation}
+
+\subsubsection{$ \LI $ Flux}
+$ \ce{a + b -> 1 + 2} $
+\begin{equation}\label{key}
+\Gamma_{fi} = \dfrac{v_a + v_b}{V}\sigma
+\end{equation}
+\begin{equation}\label{key}
+\sigma = \dfrac{1}{4E_aE_b(v_a + v_b)} \int \abs{\mathcal{M}}^2 (2\pi)^4 \delta^4(p_a + p_b- p_1 - p_2) \dfrac{\dd[3]\vb{p}_1}{(2\pi)^3 2E_1} \dfrac{\dd[3]\vb{p}_2}{(2\pi)^3 2E_2}
+\end{equation}
+which is $ \LI $.\\
+$ \LI $ flux factor $ F = 4E_aE_b(v_a + v_b) $.
+
+\subsubsection{Scattering in the CoM frame}
+photo
+
+\begin{equation}\label{key}
+\sigma = \dfrac{\abs{\vb{p}_f}}{64\pi^2 s\abs{\vb{p}_i}} \int \abs{\mathcal{M}}^2 \dd\Omega
+\end{equation}
+
+\subsection{Diff. Xsec. $ \bigstar $}
+\begin{equation}\label{key}
+\sigma = \int\dv{\sigma}{\Omega}\dd\Omega
+\end{equation}
+\subsubsection{CoM Frame}
+\begin{equation}\label{key}
+\dv{\sigma}{\Omega^*} = \dfrac{1}{64\pi^2}\dfrac{p_f^*}{p_i^*} \abs{\mathcal{M}_{fi}}^2
+\end{equation}
+
+\begin{equation}\label{key}
+t = (p_i - p_3)^2   \quad \LI
+\end{equation}
+\begin{equation}\label{key}
+\dv{\sigma}{t} = \dfrac{1}{64\pi s} \dfrac{\abs{\mathcal{M}_{fi}}^2}{{p_i^*}^2}  \quad \LI
+\end{equation}
+
+\subsubsection{Lab Frame}
+$ \ce{e^- + p -> e^- + p} $
+\begin{equation}\label{key}
+\begin{aligned}
+p_1 &\approx (E_1, 0, 0, E_1)\\
+p_2 &= (m_p, 0, 0, 0)\\
+... 
+\end{aligned}
+\end{equation}
+\begin{equation}\label{key}
+p_i^* \approx \dfrac{(s - m_p^2)^2}{4s}
+\end{equation}
+where $ s = (p_1 + p_2)^2 = m_p^2 + 2E_1m_p $\\
+
+...
+
+
+\section{The Dirac Equation}
+\subsection{The Klein-Gordon Eq.}
+\begin{equation}\label{key}
+\hH^2 = \hp^2 + m^2
+\end{equation}
+where $ \hH = \dis\I\pdv{t} $, thus
+\begin{equation}\label{key}
+\pdv[2]{\psi}{t} = (\nabla^2 - m^2)\psi
+\end{equation}
+in $ \LI $ form
+\begin{equation}\label{key}
+(\partial^\mu\partial_\mu + m^2)\psi = 0
+\end{equation}
+
+\subsection{The Dirac Eq. $ \bigstar $}
+\begin{equation}\label{key}
+E\psi = (\bm\alpha\cdot\hp + \beta m)\psi
+\end{equation}
+\begin{equation}\label{key}
+\begin{aligned}
+-\pdv[2]{\psi}{t} &= (-\I\bm\alpha\cdot\na + \beta m)^2\psi\\
+&= ...
+\end{aligned}
+\end{equation}
+must satisfy
+\begin{equation}\label{key}
+\begin{aligned}
+&\alpha_x^2 = \alpha_y^2 = \alpha_z^2 = \beta^2 = I\\
+&\alpha_i\beta + \beta\alpha_i = 0\\
+&\alpha_i\alpha_j + \alpha_j\alpha_i = 0
+\end{aligned}
+\end{equation}
+------------
+\begin{equation}\label{key}
+\Tr(\alpha_i) = \Tr(\beta) = 0
+\end{equation}
+\begin{equation}\label{key}
+\lambda_{\alpha_i} = \pm 1
+\end{equation}
+\begin{equation}\label{key}
+len(\alpha_i) = len(\beta) = \mathrm{even number}
+\end{equation}
+\begin{equation}\label{key}
+\alpha_i^\dagger = \alpha_i \quad \beta^\dagger = \beta
+\end{equation}
+-------------\\
+Dirac spinor
+\begin{equation}\label{key}
+\psi = \mqty(\psi_1\\ \psi_2\\ \psi_3\\ \psi_4)
+\end{equation}
+There are infinite choices of $ \alpha $ and $ \beta $.\\
+Dirac-Pauli representation:
+\begin{equation}\label{key}
+\beta = \mqty(I &0\\ 0 &-I) \quad \alpha_i = \mqty(0 &\sigma_i\\ \sigma_i &0)
+\end{equation}
+\begin{equation}\label{key}
+\sigma_x = \mqty(0 & 1\\1 & 0) \quad \sigma_y = \mqty(0 & -\I\\ \I & 0) \quad \sigma_z = \mqty(1 & 0\\ 0 & -1)
+\end{equation}
+
+\subsection{Prob. Dens. \& Prob. Curr.}
+\begin{equation}\label{key}
+\I\pdv{\psi}{t} = -\I\bm\alpha\cdot\na \psi + m\beta\psi
+\end{equation}
+\begin{equation}\label{key}
+-\I\pdv{\psi^\dagger}{t} = \I\na\psi^\dagger\cdot\bm\alpha^\dagger + m\psi^\dagger\beta^\dagger
+\end{equation}
+\begin{equation}\label{key}
+\psi^\dagger\qty(-\I\bm\alpha\cdot\na \psi + m\beta\psi) - \qty(\I\na\psi^\dagger\cdot\bm\alpha^\dagger + m\psi^\dagger\beta^\dagger)\psi = \I\psi^\dagger\pdv{\psi}{t} + \I\pdv{\psi^\dagger}{t}\psi
+\end{equation}
+\begin{equation}\label{key}
+\na\cdot(\psi^\dagger \bm\alpha \psi) + \pdv{t}(\psi^\dagger \psi) = 0
+\end{equation}
+\begin{equation}\label{key}
+\na\cdot\vb{j} + \pdv{\rho}{t} = 0
+\end{equation}
+
+\subsection{Spin $ \bigstar $}
+\begin{equation}\label{key}
+[\hH_D, \hL] = [\bm\alpha\cdot\hp, \hr\cross\hp] = -\I \bm\alpha\cross\hp \neq = 0 
+\end{equation}
+\begin{equation}\label{key}
+\hS = \dfrac{1}{2}\hSigma = \dfrac{1}{2} \mqty(\bm\sigma & 0\\ 0 & \bm\sigma)
+\end{equation}
+\begin{equation}\label{key}
+[\alpha_i, \Sigma_j] = \mqty(0 & [\sigma_i, \sigma_j]\\ [\sigma_i, \sigma_j] & 0)
+\end{equation}
+\begin{equation}\label{key}
+[\hH_D, \hSigma] = 2\I(\bm\alpha\cross\hp) \dra [\hH_D, \hS] = \I(\bm\alpha\cross\hp)
+\end{equation}
+def
+\begin{equation}\label{key}
+\hJ = \hL + \hS
+\end{equation}
+\begin{equation}\label{key}
+[\hH_D, \hJ] = 0
+\end{equation}
+$ \hJ $ is a conserved quantity.\\
+\begin{equation}\label{key}
+\hS^2 = 
+\end{equation}
+\paragraph{EM -- magnetic moment $ \bigstar $}
+\begin{equation}\label{mag}
+E = -\bm\mu\cdot \vb{B}
+\end{equation}
+\begin{equation}\label{key}
+E\psi = (\bm\alpha\cdot\hp + \beta m)\psi
+\end{equation}
+minimal substitution
+\begin{equation}\label{key}
+\mqty{E \ra E - q\phi\\
+      \hp \ra \hp - q \vb{A}}
+\end{equation}
+where $ A = (\phi, \vb{A}) $
+\begin{equation}\label{key}
+(E - q\phi)\psi = [\bm\alpha\cdot(\hp - q \vb{A}) + \beta m]\psi
+\end{equation}
+\begin{equation}\label{key}
+\mqty{(E - q\phi - m)\psi_A = \bm\sigma\cdot(\hp - q\vb{A})\psi_B\\
+	  (E - q\phi + m)\psi_B = \bm\sigma\cdot(\hp - q\vb{A})\psi_A}
+\end{equation}
+Non-Rela limit: $ E \approx m >> q\phi $
+\begin{equation}\label{key}
+2m\psi_B = \bm\sigma\cdot(\hp - q\vb{A})\psi_A \quad \psi_B << \psi_A
+\end{equation}
+\begin{equation}\label{key}
+\begin{aligned}
+(E - q\phi - m)\psi_A &= \dfrac{1}{2m} [\bm\sigma\cdot(\hp - q\vb{A})]^2\psi_A\\
+&= \dfrac{1}{2m} [(\hp - q\vb{A})^2 + \I\sigma\cdot(\hp - q\vb{A})\cross(\hp - q\vb{A})]\psi_A\\
+&= \dfrac{1}{2m} [(\hp - q\vb{A})^2 + q\sigma\cdot(\na\cross\vb{A} + \vb{A}\cross\na)]\psi_A\\
+\end{aligned}
+\end{equation}
+\begin{equation}\label{key}
+(\na\cross\vb{A} + \vb{A}\cross\na)\psi_A = \vb{B}\psi_A
+\end{equation}
+\begin{equation}\label{key}
+E\psi_A = \qty[m + \dfrac{1}{2m}(\hp - q\vb{A})^2 + q\phi - \dfrac{q}{2m}\bm\sigma\cdot\vb{B}]\psi_A
+\end{equation}
+From $ \eqref{mag} $,
+\begin{equation}\label{key}
+\bm\mu = \dfrac{q}{2m}\bm\sigma = \dfrac{q}{m}\hS
+\end{equation}
+which is spin magnetic moment.\\
+Or,
+\begin{equation}\label{key}
+\bm\mu = g\dfrac{q}{2m}\hS
+\end{equation}
+Dirac Eq. explained $ g=2 $.\\
+orbital magnetic moment
+\begin{equation}\label{key}
+\bm\mu = \dfrac{q}{2m}\hL
+\end{equation}
+
+In fact, Schwinger gave a correction on $ g $ in 1948
+\begin{equation}\label{key}
+a = \dfrac{g - 2}{2} = \dfrac{\alpha}{2\pi}
+\end{equation}
+
+
+\subsection{Covariant Form of the Dirac Eq.}
+\begin{equation}\label{key}
+\beta(\I\pdv{t} + \bm\alpha\cdot\hp - \beta m)\psi = 0
+\end{equation}
+def
+\begin{equation}\label{key}
+\gamma^0 = \beta \quad \gamma^1 = \beta\alpha_x \quad \gamma^2 = \beta\alpha_y \quad \gamma^3 = \beta\alpha_z
+\end{equation}
+and since $ \beta^2 = I $
+\begin{equation}\label{cov}
+(\I\gamma^\mu \partial_\mu - m)\psi = 0
+\end{equation}
+where $ \partial_\mu = \qty(\pdv{t}, \pdv{x}, \pdv{y}, \pdv{z}) $\\
+Note: $ \gamma $ is not usual 4-vector, but $ \eqref{cov} $ is Lorentz covariant.
+
+\subsubsection{}
+
+\subsection{Sol. to the Dirac Eq. $ \bigstar $}
+Suppose
+\begin{equation}\label{key}
+\psi(\vb{r}, t) = u(E, \vb{p})\e^{\I(\vb{p}\cdot\vb{r} - Et)}
+\end{equation}
+where $ u $ is a 4-component Dirac spinor\\
+with $ \eqref{cov} $
+\begin{equation}\label{key}
+(\beta E - \beta\bm\alpha\cdot\vb{p} - m) u(E, \vb{p})\e^{\I(\vb{p}\cdot\vb{r} - Et)} = 0
+\end{equation}
+\begin{equation}\label{key}
+(\gamma^\mu P_\mu - m)u = 0
+\end{equation}
+\subsubsection{Particles at Rest}
+Since $ \vb{p} = 0 $
+\begin{equation}\label{key}
+(E\beta - m)u = 0
+\end{equation}
+\begin{equation}\label{key}
+E \mqty(1 & 0 & 0 & 0\\
+        0 & 1 & 0 & 0\\
+        0 & 0 & -1 & 0\\
+        0 & 0 & 0 & -1) \mqty(\phi_1\\\phi_2\\\phi_3\\\phi_4)
+ = m \mqty(\phi_1\\\phi_2\\\phi_3\\\phi_4)
+\end{equation}
+the eigenvectors are
+\begin{equation}\label{key}
+u_1 = N\mqty(1\\0\\0\\0) \quad u_2 = N\mqty(0\\1\\0\\0)
+\end{equation}
+with $ E = m $
+\begin{equation}\label{key}
+u_3 = N\mqty(0\\0\\1\\0) \quad u_4 = 
+\end{equation}
+with $ E = -m $\\
+
+How to explain negative energy?\\
+Feynman-Stueckelberg:
+\begin{equation}\label{key}
+\e^{-\I Et} \equiv \e^{\I E (-t)}
+\end{equation}
+E.g. holes in solid state physics. Holes "move" oppositely as the electrons move, like propagating "backward" in time.\\
+or anti-particles, like positron.
+
+
+\subsubsection{General Free-particle Sol.}
+\begin{equation}\label{key}
+(\gamma^\mu P_\mu - m)u = 0
+\end{equation}
+\begin{equation}\label{key}
+\mqty[\mqty(I& 0\\0 & -I) E 
+      - \mqty(0 & \bm\sigma\cdot\vb{p}\\
+              -\bm\sigma\cdot\vb{p} & 0)
+      - m\mqty(I & 0\\0 & I)] u = 0
+\end{equation}
+\begin{equation}\label{key}
+\mqty((E - m)I & -\bm\sigma\cdot\vb{p}\\
+      \bm\sigma\cdot\vb{p} & -(E + m)I) \mqty(u_A\\u_B) = 0
+\end{equation}
+\begin{equation}\label{uaub}
+u_A = \dfrac{\bm\sigma\cdot\vb{p}}{E - m}u_B \\
+u_B = \dfrac{\bm\sigma\cdot\vb{p}}{E + m}u_A
+\end{equation}
+\begin{equation}\label{key}
+u_A = .. = u_A
+\end{equation}
+thus we can choose $ u_A = \mqty(1\\0) $ or $ \mqty(0\\1) $
+
+
+\subsection{Antiparticles $ \bigstar $}
+\subsubsection{}
+\subsubsection{the Feynman-St\"uckelberg Interpretation}
+\begin{equation}\label{key}
+(\gamma^\mu P_\mu + m)v = 0
+\end{equation}
+\begin{equation}\label{key}
+\psi = v(p)\e^{\I Et - \I\vb{p}\cdot\vb{x}}
+\end{equation}
+...
+\begin{equation}\label{key}
+v_1 = N\mqty(...\\...\\0\\1) \quad v_2 = N\mqty(...\\...\\1\\0)
+\end{equation}
+kick out $ v_3 $, $ v_4 $, $ u_3 $, $ u_4 $ whose energy are negative.
+
+\subsubsection{Normalization}
+\begin{equation}\label{key}
+\rho = \psi^\dagger \psi = u_1^\dagger u_1 = \abs{N}^2 \dfrac{2E}{E + m}
+\end{equation}
+def
+\begin{equation}\label{key}
+\rho = 2E \quad N = \sqrt{E + m}
+\end{equation}
+
+\subsubsection{Operators for Antiparticles}
+\begin{equation}\label{key}
+\hH^{(v)} = -\I\pdv{t} \quad \hp^{(v)} = +\I\na
+\end{equation}
+thus
+\begin{equation}\label{key}
+\hL^{(v)} = -\hL^{(u)} \quad \hS^{(v)} = -\hS^{(u)}
+\end{equation}
+
+\subsubsection{Charge Conjugation}
+\begin{equation}\label{key}
+E \ra E - q\phi \quad \vb{p} \ra \vb{p} - q\vb{A}
+\end{equation}
+\begin{equation}\label{key}
+p_\mu \ra p_mu - qA_\mu \;\text{i.e.}\; \I\partial_\mu \ra \I\partial_\mu - qA_\mu
+\end{equation}
+for electron, $ q = -e $
+\begin{equation}\label{key}
+\gamma^\mu(\partial_\mu - \I e A_\mu)\psi + \I m\psi = 0
+\end{equation}
+take complex conj and pre-multiply $ -\I\gamma^2 $
+\begin{equation}\label{key}
+-\I\gamma^2 (\gamma^\mu)^* (\partial_\mu + \I e A_\mu)\psi^* - m\gamma^2\psi^* = 0
+\end{equation}
+since 
+\begin{equation}\label{key}
+\gamma^2\gamma^\mu = -\gamma^\mu\gamma^2
+\end{equation}
+for $ \mu \neq 2 $
+
+\subsection{Spin and Helicity States $ \bigstar $}
+$ \{u_1, u_2, v_1, v_2\} $ are not $ \hS_z $ eigenstates except $ \vb{p} = \pm p\hk $\\
+and $ [\hH_D, \hS_z] \neq 0 $, thus we can't find a basis of simultaneous eigenstates.\\
+def: helicity operator
+\begin{equation}\label{key}
+\hh \equiv \dfrac{\hS\cdot\vb{p}}{p}
+\end{equation}
+\begin{equation}\label{key}
+\hh = \dfrac{1}{2p}\mqty(\bm\sigma\cdot\vb{p} & 0\\
+                         0 & \bm\sigma\cdot\vb{p})
+\end{equation}
+\begin{equation}\label{key}
+[\hh, \hH_D] = 0
+\end{equation}
+suppose $ \hh u = \lambda u $
+\begin{equation}\label{key}
+\dfrac{1}{2p}\mqty(\bm\sigma\cdot\vb{p} & 0\\
+0 & \bm\sigma\cdot\vb{p}) u = \lambda u
+\end{equation}
+\begin{equation}\label{lamua}
+(\bm\sigma\cdot\vb{p})u_A = 2p\lambda u_A
+\end{equation}
+since $ (\bm\sigma\cdot\vb{p})^2 = p^2 $
+\begin{equation}\label{key}
+\lambda = \pm\dfrac{1}{2}
+\end{equation}
+according to $ \eqref{uaub} $
+\begin{equation}\label{key}
+(\bm\sigma\cdot\vb{p})u_A = (E+ m) u_B
+\end{equation}
+$ \therefore $
+\begin{equation}\label{key}
+u_B = \dfrac{2\lambda p}{E + m}u_A
+\end{equation}
+To solve $ \eqref{lamua} $, let
+\begin{equation}\label{key}
+\vb{p} = ...
+\end{equation}
+\begin{equation}\label{key}
+\hh = \dfrac{1}{2}\mqty(\cos\theta & \sin\theta \e^{-\I\phi}\\
+                         \sin\theta \e^{\I\phi} & -\cos\theta)
+\end{equation}
+assume $ u_A = \mqty(a\\b) $
+\begin{equation}\label{key}
+\dfrac{b}{a} = \e^{\I\phi}\tan\dfrac{\theta}{2}
+\end{equation}
+thus
+\begin{equation}\label{key}
+u_\uparrow = N\mqty(\cos\dfrac{\theta}{2}\\
+                    \e^{\I\phi}\sin\dfrac{\theta}{2}\\
+                    ...\\
+                    ...)
+\end{equation}
+
+\subsection{Intrinsic Parity of Dirac Fermions $ \bigstar $}
+parity transformation
+\begin{equation}\label{key}
+t' = t \quad x' = -x
+\end{equation}
+parity operator
+\begin{equation}\label{key}
+\psi' = \hP \psi \hP^2 = I
+\end{equation}
+\begin{equation}\label{key}
+~
+\end{equation}
+
+
+
+\begin{equation}\label{key}
+\gamma^0 \hP \propto I
+\end{equation}
+
+\section{Interaction by Particle Exchange}
+\subsection{1st and 2nd Order Perturbation Theory}
+
+\subsubsection{Time-Ordered Perturbation Theory}
+
+\subsection{Feynman Diagrams and Virtual Particles}
+
+\subsection{Intro to QED}
+Dirac Eq. + minimal substitution
+\begin{equation}\label{key}
+\partial_\mu \ra \partial_\mu + \I qA_\mu
+\end{equation}
+\begin{equation}\label{key}
+\I\pdv{\psi}{t} + \I\gamma^0 \bm\gamma\cdot\na \psi - q\gamma^0 \gamma^\mu A_\mu \psi - m\gamma^0\psi = 0
+\end{equation}
+\begin{equation}\label{key}
+\hH = (m\gamma^0 - \I\gamma^0\bm\gamma\cdot\na) + q\gamma^0 \gamma^\mu A_\mu
+\end{equation}
+
+这一节的例子可以不看。
+
+\subsection{Feynman Rules for QED}
+
+$ \ce{e^- e^- -> e^- e^-} $\\
+
+$ \ce{e^- e^+ -> \mu^- \mu^+} $\\
+\begin{equation}\label{key}
+-\I \mathcal{M} = 
+\end{equation}
+
+\section{e-p Annihilation}
+\begin{figure}[H]
+	\centering
+    \feynmandiagram [horizontal=a to b] {
+    	i1  -- [fermion] a -- [fermion] i2,
+    	a -- [photon, edge label=\(\gamma\), momentum'=\(k\)] b,
+    	f1  -- [fermion] b -- [fermion] f2,
+    };
+\end{figure}
+
+计算matrix element
+
+\subsection{Perturbation Theory}
+
+\subsection{e-p Annihilation}
+\begin{equation}\label{key}
+\mathcal{M} = ...
+\end{equation}
+
+\subsection{Spin Sums}
+
+
+
+
+\begin{equation}\label{key}
+\ev{\abs{\mathcal{M}}^2} = \dfrac{1}{4}\sum_{\text{spins}} \abs{\mathcal{M}}^2
+\end{equation}
+
+\subsection{Helicity Amplitudes}
+
+\subsection{The $ \mu $ and e Currents}
+
+\subsection{Cross Section}
+\begin{equation}\label{key}
+\mathcal{M}_{RL\ra RL} = e^2(1 + \cos\theta)
+\end{equation}
+\begin{equation}\label{key}
+\ev{\abs{\mathcal{M}}^2} = e^4 (1 + \cos^2 \theta)
+\end{equation}
+
+\begin{equation}\label{key}
+\dv{\sigma}{\Omega} = \dfrac{e^4 (1 + \cos^2 \theta)}{64\pi^2 s}
+\end{equation}
+
+\begin{equation}\label{key}
+\sigma = \dfrac{4\pi\alpha^2}{3s}
+\end{equation}
+
+total spin = $ \pm 1 \; \dra$ contribution to helicity amplitude. (because photon has spin 1)\\
+
+\subsection{}
+
+\subsection{Spin in e-p Anni.}
+\begin{equation}\label{key}
+\ket{1,+1}_\theta = \dfrac{1}{2}(1 - \cos\theta)\ket{1, -1} + \dfrac{1}{\sqrt{2}}\sin\theta\ket{1,0} + \dfrac{1}{2}(1 +  \cos\theta)\ket{1,+1}
+\end{equation}
+thus
+\begin{equation}\label{key}
+\mathcal{M}_{RL\ra RL} \propto \Braket{1,+1 | 1,+1}_\theta = \dfrac{1}{2}(1 + \cos\theta)
+\end{equation}
+
+
+\subsection{Chirality $ \bigstar $}
+def
+\begin{equation}\label{key}
+\gamma^5 = \I\gamma^0\gamma^1\gamma^2\gamma^3 = \mqty(0 & I \\ I & 0)
+\end{equation}
+in the limit $ E >> m $
+\begin{equation}\label{key}
+\g5 u_\uparrow = + u_\uparrow \quad \g5 u_\downarrow = -u_\downarrow
+\end{equation}
+def: left- and right-handed chiral states
+\begin{equation}\label{key}
+\g5 u_R = + u_R \quad \g5 u_L = -u_L
+\end{equation}
+\begin{equation}\label{key}
+u_R = N\mqty(c\\ s\e^{\I\phi}\\ c\\ s\e^{\I\phi}) \quad u_L = 
+\end{equation}
+chiral states are identical to massless helicity states.
+
+\subsubsection{Chiral Projection Operators}
+\begin{equation}\label{key}
+\begin{aligned}
+P_R &= \dfrac{1}{2}(1 + \g5)\\
+P_L &= \dfrac{1}{2}(1 - \g5)
+\end{aligned}
+\end{equation}
+features
+\begin{equation}\label{key}
+P_R + P_L = 1 \quad P_R P_R = 1 \quad P_R P_L = 0
+\end{equation}
+\begin{equation}\label{key}
+P_R u_R = u_R \quad ...
+\end{equation}
+\begin{equation}\label{key}
+P_L u_R = 0 \quad P_L u_L = u_L
+\end{equation}
+thus any spinor can be decomposed with
+\begin{equation}\label{key}
+u = a_R u_R + a_L u_L = P_R u + P_L u
+\end{equation}
+
+\subsubsection{Chirality in QED}
+\begin{equation}\label{key}
+\bar\psi \gmuu \phi
+\end{equation}
+
+\section{E-p Elastic Scattering}
+\subsection{Probing ...}
+
+\subsection{Rutherford and Mott Scattering $ \bigstar $}
+\begin{equation}\label{key}
+\mathcal{M}_{fi} = \dfrac{e^2}{q^2} \bar{u}_3 \gmuu u_1 g_{\mu\nu} \bar{u}_4 \gnuu u_2
+\end{equation}
+Helicity states
+\begin{equation}\label{key}
+u_\uparrow = ... \qquad u_\downarrow = ...
+\end{equation}
+where
+\begin{equation}\label{key}
+\kappa = \dfrac{p}{E + m_e} = \dfrac{\beta_e \gamma_e}{\gamma_e + 1}
+\end{equation}
+NR: $ \kappa \ra 0 $, R: $ \kappa \approx 1 $\\
+init $ \ce{e^-} $: $ (\theta, \phi)  = (0,0)$\\
+fin $ \ce{e^-} $: $ (\theta, \phi)  = (\theta,0)$\\
+\begin{equation}\label{key}
+\begin{aligned}
+j^e_{\uparrow\uparrow} &= (E + m_e)[(\kappa^2 + 1)c, 2\kappa s, 2\I\kappa s, 2\kappa c]\\
+&=
+\end{aligned}
+\end{equation}
+$ \kappa = 1 \dra j^e_{\uparrow\downarrow} = j^e_{\downarrow\uparrow} = 0 $, the same with last week.\\
+Helicity is effectively conserved at vertices in high energy limits.\\
+
+init p: $ \theta = 0, \phi = 0, \kappa = 0 $\\
+fin p: $ \theta = \eta, \phi = 0, \kappa \approx 0 $
+\begin{equation}\label{key}
+\begin{aligned}
+j^p_{\uparrow\uparrow} &= j^p_{\downarrow\downarrow} = 2m_p [c_\eta, 0, 0, 0]\\
+j^p_{\uparrow\downarrow} &= j^p_{\downarrow\uparrow} = -2m_p [s_\eta, 0, 0, 0]
+\end{aligned}
+\end{equation}
+all NR.\\
+\begin{equation}\label{key}
+\begin{aligned}
+\ev{\abs{\mu}^2} &= \dfrac{1}{4}\sum \abs{\mathcal{M}_{fi}^2} = \dfrac{4m_p^2 m_e^2 e^4(\gamma_e+1)^2}{q^4} [(1-\kappa^2)^2 + 4\kappa^2c^2]\\
+&= \dfrac{16m_p^2 m_e^2 e^4}{q^4} \qty[1 + \beta_e^2 \gamma_e^2 \cos^2\dfrac{\theta}{2}]\\
+\end{aligned}
+\end{equation}
+\begin{equation}\label{key}
+q^4 = ...
+\end{equation}
+i) $ \ce{e^-} $ is NR, $ 1 + \beta_e^2 \gamma_e^2 \cos^2\dfrac{\theta}{2} \approx 1 $ (Rutherford)\\
+ii) $ \ce{e^-} $ is R, $ 1 + \beta_e^2 \gamma_e^2 \cos^2\dfrac{\theta}{2} \approx \beta_e^2 \gamma_e^2 \cos^2\dfrac{\theta}{2} $ (Mott)\\
+
+\subsubsection{Rutherford Scattering}
+\begin{equation}\label{key}
+\ev{\abs{\mu}^2} = \dfrac{m_p^2 m_e^2 e^4}{p^4 \sin^4 (\theta/2)}
+\end{equation}
+\begin{equation}\label{key}
+\dv{\sigma}{\Omega} = \dfrac{1}{64\pi^2} \qty(\dfrac{1}{m_p + E_1 - E_1\cos\theta}) \ev{\abs{\mu}^2}
+\end{equation}
+Since
+\begin{equation}\label{key}
+E_1 \sim m_e << m_p
+\end{equation}
+we have
+\begin{equation}\label{key}
+\dv{\sigma}{\Omega} = ...
+\end{equation}
+
+\subsubsection{Mott Scattering}
+$ E \approx p_e $
+\begin{equation}\label{key}
+\ev{\abs{\mu}^2} = \dfrac{m_p^2 e^4}{E^2 \sin^4 (\theta/2)}\cos^2\dfrac{\theta}{2}
+\end{equation}
+\begin{equation}\label{key}
+\dv{\sigma}{\Omega} = ...
+\end{equation}
+
+\subsection{Form Factors $ \bigstar $}
+形状因子\\
+charge density $ Q\rho(\vb{r}') $, where $ \int \rho(\vb{r}') = 1 $\\
+potential
+\begin{equation}\label{key}
+V(\vb{r}) = \int \dfrac{Q\rho(\vb{r}')}{4\pi\abs{\vb{r} - \vb{r}'}} \dd[3]\vb{r}'
+\end{equation}
+In the Born approx., 
+\begin{equation}\label{key}
+\psi_i = \e^{\I(\vb{p}_1\cdot\vb{r} - Et)} \quad \psi_f = \e^{\I(\vb{p}_3\cdot\vb{r} - Et)}
+\end{equation}
+\begin{equation}\label{key}
+\begin{aligned}
+\mathcal{M}_{fi} &= \Braket{\psi_f | V(\vb{r}) | \psi_i} = \int \e^{\I \vb{q}\cdot\vb{r}} \int \dfrac{Q\rho(\vb{r}')}{4\pi\abs{\vb{r} - \vb{r}'}} \dd[3]\vb{r}' \dd[3]\vb{r}\\
+&= \int \e^{\I \vb{q}\cdot\vb{R}}
+ \int \dfrac{Q}{4\pi\abs{\vb{R}}}  \dd[3]\vb{R}
+ \int \rho(\vb{r}')\e^{\I\vb{q}\cdot\vb{r}'}\dd[3]\vb{r}'\\
+&\equiv \mathcal{M}_{fi}^{\text{pt}} F(\vb{q}^2)
+\end{aligned}
+\end{equation}
+pt: point-like\\
+Form factor
+\begin{equation}\label{key}
+F(\vb{q}^2) = \int \rho(\vb{r}')\e^{\I\vb{q}\cdot\vb{r}'}\dd[3]\vb{r}'
+\end{equation}
+i.e. Fourier transform of chg density distribution.
+\begin{equation}\label{key}
+F(0) = 1 \quad F(\infty) = 0
+\end{equation}
+
+Note 7.8 留数定理 $ \bigstar $
+\subsection{Relativistic e-p Elastic Scattering}
+\begin{equation}\label{key}
+\begin{aligned}
+&p_1 = (E_1, 0, 0 ,E_1)\\
+&p_2
+\end{aligned}
+\end{equation}
+\begin{equation}\label{key}
+q^2 = -2E_1E_3(1 - \cos\theta)
+\end{equation}
+def $ Q^2 = -q^2 $
+\begin{equation}\label{key}
+\begin{aligned}
+\dv{\sigma}{\Omega} &= \dfrac{1}{64\pi^2} \qty(\dfrac{E_3}{m_p E_1})^2 \ev{\abs{\mathcal{M}_{fi}}^2}\\
+&= \dfrac{\alpha^2}{4E_1^2\sin^4(\theta/2)} \dfrac{E_3}{E_1} \qty(\cos^2\dfrac{\theta}{2} + \dfrac{Q^2}{2m_p^2}\sin^2\dfrac{\theta}{2})
+\end{aligned}
+\end{equation}
+when $ Q^2 << m_p^2 $ and $ E_3 \approx E_1 $, reduced to Mott.
+
+\subsection{the Rosenbluth Formula}
+
+
+
+\subsubsection{Measuring G}
+\begin{equation}\label{key}
+\dv{\sigma}{\Omega} \Bigg/ \qty(\dv{\sigma}{\Omega})_{Mott} = \dfrac{G_E^2 + \tau G_M^2}{1 + \tau} + 2\tau G_M^2 \tan^2\dfrac{\theta}{2}
+\end{equation}
+
+G can be fit by a dipole function
+\begin{equation}\label{key}
+G_E^2(Q^2) = \dfrac{1}{(1 + Q^2/Q_0^2)^2}
+\end{equation}
+\begin{equation}\label{key}
+G_M^2(Q^2) = 2.79G_E^2(Q^2)
+\end{equation}
+charge distr.
+\begin{equation}\label{key}
+\rho(r) = \rho_0 \e^{-r/a}
+\end{equation}
+$ a = 0.24 fm $
+
+
+
+\subsubsection{Elastic Scattering at high $ Q^2 $}
+
+
+
+homework 0508\\
+chap7 2,3,4,5,8\\
+7.8 $ Q_0 $数据错了
+
+\section{Deep Inelastic Scattering (DIS)}
+\subsection{E-p Inelastic Scattering}
+$ \ce{e^- + p \ra e^- + X} $\\
+invariant mass of the hadronic system $ X $: $ W^2 = p_4^2 $\\
+elastic: $ W^2 = m_p^2 $\\
+\subsubsection{Kinematic Variables}
+\begin{equation}\label{key}
+Q^2 = -(p_1 - p_3)^2 = -(2m_e^2 - 2p_1p_3) = -2m_e^2 + 2E_1E_3 - 2\vb{p}_1\cdot\vb{p}_3
+\end{equation}
+inelastic $ -> $ high E, thus
+\begin{equation}\label{key}
+Q^2 = 2E_1E_3(1 - \cos\theta) = 
+\end{equation}
+def
+\begin{equation}\label{key}
+x \equiv \dfrac{Q^2}{2p_2 q} \quad y \equiv \dfrac{p_2 q}{p_2 p_1} \quad \nu \equiv \dfrac{p_2 q}{m_p}
+\end{equation}
+
+\begin{equation}\label{key}
+W^2 = (q + p_2)^2 = m_p^2 + q^2 + 2p_2 q
+\end{equation}
+\begin{equation}\label{key}
+W^2 + Q^2 - m_p^2 = 2p_2 q
+\end{equation}
+\begin{equation}\label{key}
+x \equiv \dfrac{Q^2}{Q^2 + W^2 - m_p^2} = \dfrac{Q^2}{2p_2 q}
+\end{equation}
+elastic: $ x = 1 $\\
+inelastic: $ 0 \leq x \leq 1$, since ...\\
+$ x $ expresses the elasticity.\\
+
+\begin{equation}\label{key}
+y = \dfrac{p_2 q}{p_2 p_1} = ... = 1 - \dfrac{E_3}{E_1}
+\end{equation}
+$ y $ expresses the inelasticity, or fractional energy loss of $ e^- $.
+
+\begin{equation}\label{key}
+\nu = ... = E_1 - E_3
+\end{equation}
+the kinematics of inelastic scattering can be described by any two of the Lorentz-invariant quantities $ x $, $ Q^2 $, $ y $ and $ \nu $, except $ \{y, \nu\} $.\\
+
+\subsubsection{IS at Low $ Q^2 $}
+\begin{equation}\label{key}
+\begin{aligned}
+W^2 &= m_p^2 + q^2 + 2p_2 q = m_p^2 + (p_1 - p_3)^2 + 2p_2(p_1 - p_3)\\
+&= m_p^2 -2E_1E_3(1 - \cos\theta) + 2m_p(E_1 - E_3)\\
+&= [m_p^2 + 2m_pE_1] - [2m_p + 2E_1(1 - \cos\theta)] E_3
+\end{aligned}
+\end{equation}
+
+...\\
+
+\subsection{Deep Inelastic Scattering $ \bigstar $}
+Elastic Rosenbluth formula
+\begin{equation}\label{key}
+\dv{\sigma}{\Omega} = ...
+\end{equation}
+Using def of $ Q^2 $ and $ y $
+\begin{equation}\label{key}
+\dv{\sigma}{\Omega} = \dfrac{4\pi\alpha^2}{Q^4} \qty[\dfrac{G_E^2 + \tau G_M^2}{1 + \tau} \qty(1 - y - \dfrac{m_p^2 y^2}{Q^2}) + \dfrac{1}{2}y^2 G_M^2]
+\end{equation}
+def: $ f_1(Q^2) = ... $, $ f_2(Q^2) = ... $
+\begin{equation}\label{key}
+\dv{\sigma}{Q^2} = \dfrac{4\pi\alpha^2}{Q^4} \qty[\qty(1 - y - \dfrac{m_p^2 y^2}{Q^2}) f_2(Q^2) + \dfrac{1}{2}y^2 f_1(Q^2)]
+\end{equation}
+
+\subsubsection{Structure Func.}
+\begin{equation}\label{key}
+\dv{\sigma}{x}{Q^2} = \dfrac{4\pi\alpha^2}{Q^4} \qty[\qty(1 - y - \dfrac{m_p^2 y^2}{Q^2}) \dfrac{F_2(x,Q^2)}{x} + y^2 F_1(x,Q^2)]
+\end{equation}
+deep IS: $ Q^2 >> m_p^2 y^2 $
+\begin{equation}\label{key}
+\dv{\sigma}{x}{Q^2} = \dfrac{4\pi\alpha^2}{Q^4} \qty[\qty(1 - y) \dfrac{F_2(x,Q^2)}{x} + y^2 F_1(x,Q^2)]
+\end{equation}
+\paragraph{SLAC's 2 striking features}
+Bjorken scaling
+\begin{equation}\label{key}
+F_1(x,Q^2) \ra F_1(x) \qquad F_2(x,Q^2) \ra F_2(x)
+\end{equation}
+almost independent of $ Q^2 $. point-like constituents within the proton.\\
+Callan-Gross relation
+\begin{equation}\label{key}
+F_2(x) = 2x F_1(x)
+\end{equation}
+
+\subsection{Elec-quark Scattering}
+[e-p scat. cross sect.] = [pdf(slow)] $ \cross $ [e-q scat. cross sect.(fast)]\\
+pdf: parton distribution function $ \bigstar $\\
+
+e-q scat. in CoM frame
+\begin{equation}\label{key}
+\dv{\sigma}{\Omega} = \dfrac{Q_q^2e^4}{8\pi^2 s} \dfrac{1 + \tfrac{1}{4}(1 + \cos\theta)^2}{1 - \cos\theta)^2}
+\end{equation}
+$ \LI $ form
+\begin{equation}\label{key}
+\dv{\sigma}{q^2} = \dv{\sigma}{\Omega}\abs{\dv{\Omega}{q^2}} = ...
+\end{equation}
+
+\subsection{The Quark Model}
+\paragraph{Infinite Momentum Frame}
+$\quad  E_p >> m_p $\\
+the struck quark
+\begin{equation}\label{key}
+p_q = \xi p_2 = (\xi E_2, 0, 0, \xi E_2)
+\end{equation}
+
+homework May 15\\
+8.2 8.3 8.6 8.8\\
+
+\begin{equation}\label{key}
+(\xi p_2 + q)^2 = m_q^2  \quad (\xi p_2)^2 = m_q^2
+\end{equation}
+\begin{equation}\label{key}
+\xi = \dfrac{-q^2}{2p_2 q} = x
+\end{equation}
+
+\begin{equation}\label{key}
+\dv{\sigma}{q^2} = \dfrac{2\pi\alpha^2 Q_q^2}{q^4}\qty[1 + \qty(1 + \dfrac{q^2}{s_q})^2]
+\end{equation}
+where $ s_q = (p_1 + xp_2)^2 = xs $\\
+And 
+\begin{equation}\label{key}
+y_q = \dfrac{xp_2 q}{xp_2 p_1} = y \quad x_q = 1 (\text{e-q is elastic})
+\end{equation}
+\begin{equation}\label{key}
+\dfrac{q^2}{s_q} = \dfrac{-(s_q - m_q^2)x_q y_q}{s_q} = -y
+\end{equation}
+\begin{equation}\label{key}
+\dv{\sigma}{q^2} = \dfrac{2\pi\alpha^2 Q_q^2}{q^4}\qty[1 + \qty(1 - y)^2]
+\end{equation}
+\begin{equation}\label{key}
+\dv{\sigma}{Q^2} = \dfrac{4\pi\alpha^2 Q_q^2}{Q^4}\qty[1 - y + \dfrac{y^2}{2}]
+\end{equation}
+
+\subsubsection{PDF}
+\begin{equation}\label{key}
+\dv{\sigma}{x}{Q^2} = \dfrac{4\pi\alpha^2}{Q^4}\qty[(1-y) + \dfrac{y^2}{2}]\sum_i Q_i^2 q_i(x)
+\end{equation}
+which predicts Bjorken scaling and CG relation.\\
+
+\subsubsection{Determination of the PDFs}
+But PDFs cannot be computed in QFT.
+\begin{equation}\label{key}
+F_2^{ep} = x\qty(\dfrac{4}{9}u^p(x) + \dfrac{1}{9}d^p(x) + \dfrac{4}{9}\bar{u}^p(x) + \dfrac{1}{9}\bar{d}^p(x))
+\end{equation}
+valence quark: $ p = uud, n = udd $\\
+sea quark: any flavor can be produced via gluon, so anti-quark be taken into the eq above. $ \bigstar $\\
+\begin{equation}\label{key}
+F_2^{en} = x\qty(\dfrac{4}{9}u^n(x) + \dfrac{1}{9}d^n(x) + \dfrac{4}{9}\bar{u}^n(x) + \dfrac{1}{9}\bar{d}^n(x))
+\end{equation}
+From symm
+\begin{equation}\label{key}
+u^n(x) = d^p(x)
+\end{equation}
+thus, def
+\begin{equation}\label{key}
+F_2^{ep} = x\qty(\dfrac{4}{9}u(x) + \dfrac{1}{9}d(x) + \dfrac{4}{9}\bar{u}(x) + \dfrac{1}{9}\bar{d}(x))
+\end{equation}
+\begin{equation}\label{key}
+F_2^{en} = x\qty(\dfrac{4}{9}d(x) + \dfrac{1}{9}u(x) + \dfrac{4}{9}\bar{d}(x) + \dfrac{1}{9}\bar{u}(x))
+\end{equation}
+\begin{equation}\label{key}
+\int_0^1 F_2^{ep}(x)\dd x = ... \equiv \dfrac{4}{9}f_u + \dfrac{1}{9}f_d
+\end{equation}
+\begin{equation}\label{key}
+\int_0^1 F_2^{en}(x)\dd x \equiv \dfrac{4}{9}f_d + \dfrac{1}{9}f_n
+\end{equation}
+By experiment
+\begin{equation}\label{key}
+f_u = 0.36 \quad f_d = 0.18
+\end{equation}
+
+\subsubsection{Valence and Sea Quarks}
+
+$ x\ra 0 $, $ R \ra 1 $\\
+$ x \ra 1 $, $ R \ra 1/4 $, while $ R_{naive} = 2/3 $.\\
+why?
+
+
+
+
+
+
+
+
+
+\end{document}
