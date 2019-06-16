@@ -1,0 +1,325 @@
+\documentclass[UTF8]{ctexart} % use larger type; default would be 10pt
+
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+
+%%% Examples of Article customizations
+% These packages are optional, depending whether you want the features they provide.
+% See the LaTeX Companion or other references for full information.
+
+%%% PAGE DIMENSIONS
+\usepackage{geometry} % to change the page dimensions
+\geometry{a4paper} % or letterpaper (US) or a5paper or....
+% \geometry{margin=2in} % for example, change the margins to 2 inches all round
+% \geometry{landscape} % set up the page for landscape
+%   read geometry.pdf for detailed page layout information
+
+\usepackage{graphicx} % support the \includegraphics command and options
+
+% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+
+%%% PACKAGES
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+% These packages are all incorporated in the memoir class to one degree or another...
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+%%% SECTION TITLE APPEARANCE
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+% (This matches ConTeXt defaults)
+
+%%% ToC (table of contents) APPEARANCE
+\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+%%% END Article customizations
+
+%%% The "real" document content comes below...
+
+\setlength{\parindent}{0pt}
+\usepackage{physics}
+\usepackage{amsmath}
+%\usepackage{symbols}
+\usepackage{AMSFonts}
+\usepackage{bm}
+%\usepackage{eucal}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{multicol}
+\usepackage{abstract}
+\usepackage{empheq}
+\usepackage{extarrows}
+\usepackage{fontenc}
+\usepackage{textcomp}
+
+
+\DeclareMathOperator{\p}{\prime}
+\DeclareMathOperator{\ti}{\times}
+\DeclareMathOperator{\s}{\sum_{n=1}^{\infty}}
+\DeclareMathOperator{\intinf}{\int_0^\infty}
+\DeclareMathOperator{\intdinf}{\int_{-\infty}^\infty}
+\DeclareMathOperator{\suminf}{\sum_{n=0}^\infty}
+\DeclareMathOperator{\sumin}{\sum_{i=1}^n}
+\DeclareMathOperator{\e}{\mathrm{e}}
+\renewcommand{\I}{\mathrm{i}}
+\DeclareMathOperator{\llra}{\longleftrightarrow}
+\DeclareMathOperator{\lra}{\longrightarrow}
+\DeclareMathOperator{\dlra}{\Leftrightarrow}
+\DeclareMathOperator{\dra}{\Rightarrow}
+\newcommand{\txra}{\textrightarrow}
+\newcommand{\dis}{\displaystyle}
+\newcommand{\dbar}{{\mathchar'26\mkern-11mu\mathrm{d}}}
+\numberwithin{equation}{subsection}
+
+\title{Notes of JU Guoxing TD\&SP}
+\author{hebrewsnabla}
+%\date{} % Activate to display a given date or no date (if empty),
+         % otherwise the current date is printed 
+
+\begin{document}
+% \boldmath
+\maketitle
+\setcounter{section}{22}
+\section{Photon}
+\subsection{Classic Thermodynamics of Electromagnetic Radiation}
+Energy density
+\begin{equation}\label{key}
+u = \dfrac{U}{V} = n\hbar\omega
+\end{equation}
+pressure
+\begin{equation}\label{key}
+pV = \dfrac{1}{3}Nm\langle v^2\rangle
+\end{equation}
+for photon
+\begin{equation}\label{key}
+p = \dfrac{1}{3}nmc^2
+\end{equation}
+
+\section{Phonon}
+\subsection{Einstein Model}
+
+\subsection{Debye Model}
+
+\section{Relativistic Gas}
+\subsection{}
+\subsection{Ultrarelativistic Gas}
+\begin{equation}\label{key}
+E = pc = \hbar kc
+\end{equation}
+single-particle partition function
+\begin{equation}\label{key}
+Z_1 = \intinf\e^{-\beta\hbar kc}g(k)\dd k
+\end{equation}
+where
+\begin{equation}\label{key}
+g(k)\dd k = \dfrac{Vk^2\dd k}{2\pi^2}
+\end{equation}
+Let $x = \beta\hbar kc$
+\begin{equation}\label{key}
+Z_1 = \dfrac{V}{2\pi^2}\qty(\dfrac{1}{\beta\hbar c})^3\intinf\e^{-x}x^2\dd x = \dfrac{V}{\pi^2}\qty(\dfrac{1}{\beta\hbar c})^3
+\end{equation}
+or $Z_1 = \dfrac{V}{\Lambda^3}$\\
+~\\
+N-particle partition fxn
+\begin{equation}\label{key}
+Z_N = \dfrac{Z_1^N}{N!}
+\end{equation}
+
+\subsection{Adiabatic Expansion}
+\begin{equation}\label{key}
+VT^3 = Cons.
+\end{equation}
+
+
+\section{Real Gases}
+\subsection{vdW Gas}
+\begin{equation}\label{key}
+\qty(p + \dfrac{a}{V_m^2})(V_m - b) = RT
+\end{equation}
+critical point (临界点)
+\begin{equation}\label{key}
+\qty(\pdv{p}{V}) = -\dfrac{RT}{(V - b)^2} + \dfrac{2a}{V^3} = 0
+\end{equation}
+\begin{equation}\label{key}
+\qty(\pdv[2]{p}{V}) = ...
+\end{equation}
+...\\
+critical vol
+\begin{equation}\label{key}
+V_c = 3b
+\end{equation}
+critical temp
+\begin{equation}\label{key}
+T_c = \dfrac{8a}{27Rb}
+\end{equation}
+critical pres
+\begin{equation}\label{key}
+p_c = \dfrac{a}{27b^2}
+\end{equation}
+thus
+\begin{equation}\label{key}
+\dfrac{p_c V_c}{RT_c} = \dfrac{3}{8}
+\end{equation}
+
+
+
+
+\subsection{Dieterici Equation}
+vdW Eq.
+\begin{equation}\label{key}
+\begin{aligned}
+p &= \dfrac{RT}{V -b} - \dfrac{a}{V_m^2}\\
+&\equiv p_{rep} + p_{attr}
+\end{aligned}
+\end{equation}
+Dieterici Eq.
+\begin{equation}\label{key}
+p = p_{rep}\e^{-\dfrac{a}{RTV}}
+\end{equation}
+
+\subsection{Virial Expansion}
+\begin{equation}\label{key}
+\dfrac{pV_m}{RT} = 1 + \dfrac{B}{V_m} + \dfrac{C}{V_m^2} + \cdots
+\end{equation}
+B, C, etc., are called virial coefficients.\\
+Try to drive B:
+\begin{equation}\label{key}
+U = \sum_{i=1}^N\dfrac{p_i^2}{2m} + \sum_{i<j}V(\abs{\vb{r}_i - \vb{r}_j})
+\end{equation}
+\begin{equation}\label{key}
+Z = \dfrac{1}{N!h^{3N}}
+\end{equation}
+...
+\begin{equation}\label{key}
+p = ...
+\end{equation}
+
+Using hard sphere model
+\begin{equation}\label{key}
+V(r) = \left\{
+\begin{aligned}
+&\infty & r<r_0\\
+&-\varepsilon\qty(\dfrac{r_0}{r})^6 & r>r_0
+\end{aligned}\right.
+\end{equation}
+we have
+\begin{equation}\label{key}
+B = b - \dfrac{a\beta}{N}
+\end{equation}
+where
+\begin{equation}\label{key}
+a = ... \quad b = ...
+\end{equation}
+
+\subsection{The Law of Corresponding States}
+Def
+\begin{equation}\label{key}
+\tilde{p} = \dfrac{p}{p_c},\quad \tilde{V} = \dfrac{V}{V_c},\quad \tilde{T} = \dfrac{T}{T_c}
+\end{equation}
+thus
+\begin{equation}\label{key}
+\qty(\tilde{p} + \dfrac{3}{\tilde{V}^2}) = \dfrac{8\tilde{T}}{3\tilde{V} - 1}
+\end{equation}
+
+
+\section{Cooling Real Gas}
+\subsection{The Joule Expansion}
+U unchanged. Irreversible.\\
+Joule coefficient
+\begin{equation}\label{key}
+\mu_J = \qty(\pdv{T}{V})_U
+\end{equation}
+thus
+\begin{equation}\label{key}
+\mu_J = -\qty(\pdv{T}{U})_V\qty(\pdv{U}{V})_T = -\dfrac{1}{C_V}\qty[T\qty(\pdv{p}{T})_V - p]
+\end{equation}
+For ideal gas
+\begin{equation}\label{key}
+\mu_J = 0
+\end{equation}
+For vdW gas
+\begin{equation}\label{key}
+\mu_J = -\dfrac{a}{C_V V^2}
+\end{equation}
+\begin{equation}\label{key}
+\Delta T = ...
+\end{equation}
+
+\subsection{Isothermal Expansion}
+\begin{equation}\label{key}
+\qty(\pdv{U}{V})_T = T\qty(\pdv{p}{T})_V - p
+\end{equation}
+\begin{equation}\label{key}
+\Delta U = \int_{V_1}^{V_2}\qty[T\qty(\pdv{p}{T})_V - p]\dd V
+\end{equation}
+For ideal gas
+\begin{equation}\label{key}
+\Delta U = 0
+\end{equation}
+For vdW gas
+\begin{equation}\label{key}
+...
+\end{equation}
+
+\subsection{Joule-Kelvin Expansion}
+aka Joule-Thomson expansion.
+
+
+\section{Phase Transitions}
+\subsection{Latent Heat}
+
+\subsection{Chemical Potential and Phase Changes}
+Phase equilibrium
+\begin{equation}\label{key}
+\mu_1 = \mu_2
+\end{equation}
+
+\subsection{Clausius-Clapeyron Equation}
+\begin{equation}\label{key}
+\mu_1(p,T) = \mu_2(p,T)
+\end{equation}
+\begin{equation}\label{key}
+\dd\mu_1 = \dd\mu_2
+\end{equation}
+with Gibbs-Duhem Eq.:
+\begin{equation}\label{key}
+\dd\mu = - s\dd T + v\dd p
+\end{equation}
+where $s = \dfrac{S}{N},\; v = \dfrac{V}{N}$\\
+thus
+\begin{equation}\label{key}
+-s_1\dd T + v_1\dd p = -s_2\dd T + v_2\dd p
+\end{equation}
+\begin{equation}\label{key}
+\dv{p}{T} = \dfrac{s_2 - s_1}{v_2 - v_1}
+\end{equation}
+Def latent per particle
+\begin{equation}\label{key}
+\ell = T\Delta s
+\end{equation}
+thus
+\begin{equation}\label{key}
+\dv{p}{T} = \dfrac{\ell}{T(v_2 - v_1)}
+\end{equation}
+or
+\begin{equation}\label{key}
+\dv{p}{T} = \dfrac{L}{T(V_2 - V_1)}
+\end{equation}
+
+
+
+
+
+\end{document}

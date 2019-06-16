@@ -1,0 +1,525 @@
+\documentclass[UTF8]{ctexart} % use larger type; default would be 10pt
+
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+
+%%% Examples of Article customizations
+% These packages are optional, depending whether you want the features they provide.
+% See the LaTeX Companion or other references for full information.
+
+%%% PAGE DIMENSIONS
+\usepackage{geometry} % to change the page dimensions
+\geometry{a4paper} % or letterpaper (US) or a5paper or....
+% \geometry{margin=2in} % for example, change the margins to 2 inches all round
+% \geometry{landscape} % set up the page for landscape
+%   read geometry.pdf for detailed page layout information
+
+\usepackage{graphicx} % support the \includegraphics command and options
+
+% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+
+%%% PACKAGES
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+% These packages are all incorporated in the memoir class to one degree or another...
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+%%% SECTION TITLE APPEARANCE
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+% (This matches ConTeXt defaults)
+
+%%% ToC (table of contents) APPEARANCE
+\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+%%% END Article customizations
+
+%%% The "real" document content comes below...
+
+\setlength{\parindent}{0pt}
+\usepackage{physics}
+\usepackage{amsmath}
+%\usepackage{symbols}
+\usepackage{AMSFonts}
+\usepackage{bm}
+%\usepackage{eucal}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{multicol}
+\usepackage{abstract}
+\usepackage{empheq}
+\usepackage{extarrows}
+\usepackage{textcomp}
+\usepackage{mhchem}
+\usepackage{braket}
+
+
+\DeclareMathOperator{\p}{\prime}
+\DeclareMathOperator{\ti}{\times}
+
+\DeclareMathOperator{\e}{\mathrm{e}}
+\renewcommand{\I}{\mathrm{i}}
+\DeclareMathOperator{\kb}{k_{\mathrm{B}}}
+\DeclareMathOperator{\Arg}{\mathrm{Arg}}
+
+\DeclareMathOperator{\ra}{\rightarrow}
+\DeclareMathOperator{\llra}{\longleftrightarrow}
+\DeclareMathOperator{\lra}{\longrightarrow}
+\DeclareMathOperator{\dlra}{\Leftrightarrow}
+\DeclareMathOperator{\dra}{\Rightarrow}
+
+\newcommand{\bkk}[1]{\Braket{#1|#1}}
+\newcommand{\bk}[2]{\Braket{#1|#2}}
+\newcommand{\bkev}[2]{\Braket{#2|#1|#2}}
+
+\DeclareMathOperator{\na}{\bm{\nabla}}
+\DeclareMathOperator{\nna}{\nabla^2}
+\DeclareMathOperator{\drrr}{\dd[3]\vb{r}}
+
+\DeclareMathOperator{\psis}{\psi^\ast}
+\DeclareMathOperator{\Psis}{\Psi^\ast}
+\DeclareMathOperator{\hi}{\hat{\vb{i}}}
+\DeclareMathOperator{\hj}{\hat{\vb{j}}}
+\DeclareMathOperator{\hk}{\hat{\vb{k}}}
+\DeclareMathOperator{\hr}{\hat{\vb{r}}}
+\DeclareMathOperator{\hT}{\hat{\vb{T}}}
+\DeclareMathOperator{\hH}{\hat{\vb{H}}}
+\DeclareMathOperator{\hp}{\hat{\vb{p}}}
+\DeclareMathOperator{\hx}{\hat{\vb{x}}}
+\DeclareMathOperator{\ha}{\hat{\vb{a}}}
+\DeclareMathOperator{\Tdv}{-\dfrac{\hbar^2}{2m}\dv[2]{x}}
+\DeclareMathOperator{\Tna}{-\dfrac{\hbar^2}{2m}\nabla^2}
+
+%\DeclareMathOperator{\s}{\sum_{n=1}^{\infty}}
+\DeclareMathOperator{\intinf}{\int_0^\infty}
+\DeclareMathOperator{\intdinf}{\int_{-\infty}^\infty}
+%\DeclareMathOperator{\suminf}{\sum_{n=0}^\infty}
+\DeclareMathOperator{\sumnzinf}{\sum_{n=0}^\infty}
+\DeclareMathOperator{\sumnoinf}{\sum_{n=1}^\infty}
+\DeclareMathOperator{\sumndinf}{\sum_{n=-\infty}^\infty}
+\DeclareMathOperator{\sumizinf}{\sum_{i=0}^\infty}
+
+
+\newcommand{\dis}{\displaystyle}
+\numberwithin{equation}{section}
+
+\title{Notes of 141A\\
+Solid State Physics}
+\author{hebrewsnabla}
+%\date{} % Activate to display a given date or no date (if empty),
+         % otherwise the current date is printed 
+
+\begin{document}
+% \boldmath
+\maketitle
+
+\tableofcontents
+
+\newpage
+
+\setcounter{section}{6}
+\section{Energy Bands}
+\subsection{Nearly Free Elec Model}
+\begin{equation}\label{key}
+\begin{aligned}
+U(x) &= U_0 \qty[\cos^4\dfrac{\pi x}{a} - \dfrac{3}{8}]\\
+&= ...\\
+&= U_0 \qty(\dfrac{1}{2}\cos\dfrac{2\pi x}{a} + \dfrac{1}{8}\cos\dfrac{4\pi x}{a})
+\end{aligned}
+\end{equation}
+\begin{equation}\label{key}
+(\lambda_k - \epsilon)C_k + \sum_G U_G C_{k-G} = 0
+\end{equation}
+solve reduced problem near degenerate points
+\begin{equation}\label{key}
+\mqty(\lambda_k - \epsilon & U_g\\
+      U_g^\ast & \lambda_{k-g} - \epsilon)
+\mqty(C_k \\ C_{k-g}) = 0  \quad (g = \dfrac{2\pi}{a})
+\end{equation}
+\begin{equation}\label{key}
+(\lambda_k - \epsilon)^2 - \abs{U_g}^2 = 0
+\end{equation}
+\begin{equation}\label{key}
+\epsilon = \dfrac{\hbar^2 k^2}{2m} \pm \dfrac{U_0}{4}
+\end{equation}
+or
+\begin{equation}\label{key}
+\epsilon = \dfrac{\hbar^2 (k+G_1)^2}{2m} \pm \dfrac{U_0}{16}
+\end{equation}
+
+\subsection{Bloch Oscillators}
+Semi-classical eq. of motion
+\begin{equation}\label{key}
+\hbar\dv{\vb{k}}{t} = \vb{F} = -e\vb{E}
+\end{equation}
+\begin{equation}\label{key}
+v_{grp} = \dfrac{1}{\hbar}\dv{\varepsilon}{k}
+\end{equation}
+consider
+\begin{equation}\label{key}
+\varepsilon(k) = \varepsilon_0(1 - \cos ka)
+\end{equation}
+\begin{equation}\label{key}
+v = \dfrac{a\varepsilon_0}{\hbar}\sin ka
+\end{equation}
+\begin{equation}\label{key}
+\begin{aligned}
+x &= \int \dfrac{a\varepsilon_0}{\hbar}\sin ka \dd t\\
+&= \dfrac{a\varepsilon_0}{\hbar} \int \sin ka \dd k \dv{t}{k}\\
+&= ...\\
+&= -\dfrac{\varepsilon_0}{eE}\qty(\cos\dfrac{-eEa}{\hbar} - 1)
+\end{aligned}
+\end{equation}
+
+\begin{equation}\label{key}
+T = \dfrac{\Delta k}{\dd k/\dd t} = \dfrac{2\pi/a}{eE/\hbar} = ...
+\end{equation}
+scattering time $ \tau >> T $. \\
+
+suppose $ \vb{F} = m^\ast \vb{a} $
+\begin{equation}\label{key}
+m^\ast = \hbar\dfrac{\dd k/\dd t}{\dd v_g/\dd t} = \hbar \qty(\dv{v_g}{k})^{-1} = \hbar^2 \qty(\pdv[2]{\varepsilon}{k})^{-1}
+\end{equation}
+
+
+\subsection{Consequence of Band Structure}
+even \# of elec's per unit cell -- insulator -- \ce{C, Si, Ge}\\
+odd \# of elec's per unit cell -- metal -- \ce{Cu, Ag, Au}\\
+Ins -- $ E_g > 2\; eV $\\
+Semiconductor -- $ E_g < 2; eV $\\
+
+\subsubsection{Density of States}
+Van Hove Singularities of DoS
+
+\section{Semiconductors}
+
+\subsection{Photoconductivity}
+\begin{equation}\label{key}
+\vb{J}_n = \dfrac{1}{V}\int_{unocc} e D(\vb{k}_e) \vb{v}_e(\vb{k}_e)\dd[3]\vb{k}_e
+\end{equation}
+\begin{equation}\label{key}
+\dv{\vb{k}_e}{t} = \dfrac{-e}{\hbar}(\vb{E} + \dfrac{1}{c}\vb{v}_e \cross\vb{B})
+\end{equation}
+\begin{equation}\label{key}
+\vb{v}_e(\vb{k}_e) = \dfrac{1}{\hbar}\pdv{E_v(\vb{k}_e)}{\vb{k}_e}
+\end{equation}
+Holes: Def 
+\begin{equation}\label{key}
+\vb{k}_n = -\vb{k}_e \quad E_n = -E_v
+\end{equation}
+\begin{equation}\label{key}
+\vb{v}_n(\vb{k}_n) = \dfrac{1}{\hbar}\pdv{E_n(\vb{k}_n)}{\vb{k}_n} = \dfrac{1}{\hbar}\pdv{(-E_v(-\vb{k}_e))}{(-\vb{k}_e)} = \vb{v}_e(\vb{k}_e)
+\end{equation}
+Holes: + charge, evolves like particle, $ m^\ast > 0 $
+
+\subsection{Intrinsic Mobility}
+\begin{equation}\label{key}
+\vb{J}_{tot} = \vb{J}_e + \vb{J}_h
+\end{equation}
+\begin{equation}\label{key}
+\sigma_{tot} = \sigma_e + \sigma_h
+\end{equation}
+\begin{equation}\label{key}
+\sigma_e = \dfrac{n_e e^2 \tau_e}{\abs{m_e^\ast}}
+\end{equation}
+\begin{equation}\label{key}
+\sigma_h = \dfrac{n_h e^2 \tau_h}{\abs{m_h^\ast}}
+\end{equation}
+def: mobility
+\begin{equation}\label{key}
+\mu = \dfrac{e\tau}{m^\ast}
+\end{equation}
+\begin{equation}\label{key}
+\sigma_{tot} = n_e e \mu_e + n_h e \mu_h
+\end{equation}
+
+
+\subsection{Impurity Conductivity / Doping}
+\begin{equation}\label{key}
+n_e(T) \neq n_h(T) \quad\dra\quad \text{doping}
+\end{equation}
+Impurity atoms that can give up an electron are called donors.
+\subsubsection{Donor States}
+the donated elec moves in the coulomb potential $ -e/\epsilon r $
+
+\begin{equation}\label{key}
+N_d = \dfrac{\#donors}{Vol.} \quad N_a = \dfrac{\#acceptors}{Vol.}
+\end{equation}
+\begin{equation}\label{key}
+n_e(T) = 2\qty(\dfrac{m_e k_B T}{2\pi\hbar^2})^{3/2}\e^{-(E_c - \mu)/k_B T}
+\end{equation}
+\begin{equation}\label{key}
+n_p(T) = 2\qty(\dfrac{m_h k_B T}{2\pi\hbar^2})^{3/2}\e^{-(\mu - E_v)/k_B T}
+\end{equation}
+Intrinsic: 
+\begin{equation}\label{key}
+n_i(T) = \sqrt{n_e(T)n_p(T)}
+\end{equation}
+\begin{equation}\label{key}
+\mu_i(T) = E_v + \dfrac{1}{2}E_g + \dfrac{3}{4}k_B T\ln\dfrac{m_h}{m_e}
+\end{equation}
+\begin{equation}\label{key}
+\dfrac{N_d - N_a}{n_i(T)} = 2\sinh\dfrac{\mu - \mu_i}{k_B T}
+\end{equation}
+
+\subsection{Hall Effect w/ 2 Carrier Types}
+Kittel 8.3\\
+mobilities:
+\begin{equation}\label{key}
+\mu_e = \dfrac{e\tau_e}{m_e} \quad \mu_h = \dfrac{e\tau_h}{m_h}
+\end{equation}
+($ m_e $ is eff mass)\\
+Recall conductivity tensor w/ B-field
+\begin{equation}\label{key}
+\sigma = \dfrac{\sigma_0}{(1 + \omega_c^2\tau^2)^2} 
+		\mqty(1 & -\omega_c\tau\\
+			  -\omega_c\tau & 1)
+\end{equation}
+where $ \sigma_0 = \dfrac{n e^2 \tau_e}{m_e}$, $ \omega_c = \dfrac{eB}{m_e c} $.\\
+transverse current ($ \omega_c\tau << 1 $)
+\begin{equation}\label{key}
+j_y(e) = \sigma_0(\omega_c\tau E_x + E_y) = n e \mu_e (\dfrac{\mu_e B}{c}E_x + E_y)
+\end{equation}
+\begin{equation}\label{key}
+j_y(h) = p e \mu_h (\dfrac{-\mu_h B}{c}E_x + E_y)
+\end{equation}
+longitudinal curr
+\begin{equation}\label{key}
+j_x = j_x(e) + j_x(h) = (n e \mu_e + p e \mu_h)E_x
+\end{equation}
+tot transverse curr = 0, thus
+\begin{equation}\label{key}
+(n\mu_e^2 - p\mu_h^2)\dfrac{eB}{c} E_x + (n\mu_e + p\mu_h)e E_y = 0
+\end{equation}
+\begin{equation}\label{key}
+E_y = -E_x \dfrac{B}{c}\dfrac{n\mu_e^2 - p\mu_h^2}{n\mu_e + p\mu_h}
+\end{equation}
+\begin{equation}\label{key}
+R_H = \dfrac{E_y}{j_x B} = -\dfrac{1}{e c}\dfrac{n\mu_e^2 - p\mu_h^2}{(n\mu_e + p\mu_h)^2}
+\end{equation}
+
+\subsection{Tight-binding}
+start w/ AOs (1-D)
+\begin{equation}\label{key}
+\psi_k(r) = \sum_j c_j\phi(r - r_j)
+\end{equation}
+($ \phi $ is s orb)\\
+Bloch Th.
+\begin{equation}\label{key}
+\psi_k(r) = \e^{\I k r} u(r)
+\end{equation}
+if $ c_j = \dfrac{1}{\sqrt{N}}\e^{\I kr} $
+\begin{equation}\label{key}
+\Braket{\psi_k | \hH | \psi_k} = \dfrac{1}{N}\sum_j\sum_m \e^{\I k(r_j - r_m)}\Braket{\phi_m | \hH | \phi_j}
+\end{equation}
+let $ \rho_m = r_m - r_j $, suppose only nearest neighbor interacts
+\begin{equation}\label{key}
+\Braket{\psi_k | \hH | \psi_k} = \dfrac{1}{N}\sum_m\e^{\I k\rho_m}\int\dd V \phi^*(r - \rho_m)\hH\phi(r)
+\end{equation}
+($ r - r_j \ra r $)\\
+Let
+\begin{equation}\label{key}
+-\varepsilon_0 = \int\dd V \phi^*(r)\hH\phi(r) \quad -t = \int\dd V \phi^*(r - \rho)\hH\phi(r)
+\end{equation}
+\begin{equation}\label{key}
+E = -\varepsilon_0 - t\sum_{n.n.}\e^{-\I k\rho_{n.n.}}
+\end{equation}
+for cubic lattice (1-D)
+\begin{equation}\label{key}
+E = -\varepsilon_0 -t (1 + 2\cos ka)
+\end{equation}
+consider a lattice w/ 2-atom basis
+\begin{equation}\label{key}
+\psi_k(r) = \alpha_k\psi_k^A(r) + \beta_k\psi_k^B(r)
+\end{equation}
+\begin{equation}\label{key}
+H_{AB} = \Braket{\psi_k^A | \hH | \psi_k^B}
+= \mqty( AHA & AHB\\
+		BHA & BHB)
+= \mqty(-\varepsilon_1 & \sum_{n.n.}\e^{-\I k\rho_{n.n.}}\\
+		\sum_{n.n.}\e^{\I k\rho_{n.n.}} & -\varepsilon_2)
+\end{equation}
+\begin{equation}\label{key}
+H_{AB} \mqty(\alpha\\ \beta) = E_k \mqty(\alpha\\ \beta)
+\end{equation}
+
+\begin{equation}\label{key}
+H = \mqty(-\varepsilon_1 & t(1 + \e^{-\I ka})\\
+		t(1 + \e^{\I ka}) & -\varepsilon_2)
+\end{equation}
+\begin{equation}\label{key}
+\det(H - E_k I) = 0
+\end{equation}
+\begin{equation}\label{key}
+E_k = \dfrac{1}{2}(\varepsilon_1 + \varepsilon_2) \pm \sqrt{...}
+\end{equation}
+
+\subsection{p-n Junctions}
+p-n jcn\\
+-- diode\\
+-- half-transistor\\
+-- solar cell\\
+-- LED\\
+-- laser\\
+~\\
+
+\begin{equation}\label{key}
+I = I_{CB} + I_{VB}
+\end{equation}
+conduction band, valence band
+\begin{equation}\label{key}
+I_{CB} = I_{nr} - I_{ng}
+\end{equation}
+recomb, generation
+\begin{equation}\label{key}
+I_{nr} \sim \e^{-e(\Delta\phi - V)\beta}
+\end{equation}
+\begin{equation}\label{key}
+I_{ng} \sim \e^{-e\Delta\phi\beta}
+\end{equation}
+\begin{equation}\label{key}
+ICB = Ing(\e^{eV\beta} - 1)
+\end{equation}
+\begin{equation}\label{key}
+IVB = Ihr - Ihg
+\end{equation}
+\begin{equation}\label{key}
+IVB = Ihg(\e^{eV\beta} - 1)
+\end{equation}
+\begin{equation}\label{key}
+I = (Ing + Ihg)(\e^{eV\beta} - 1)
+\end{equation}
+LED\\
+Solar cell\\
+Schottkey barrier\\
+p-n-p jcn
+
+\section{Tight Binding}
+Start: Localized picture\\
+\begin{equation}\label{key}
+\begin{aligned}
+\Psi_{\vb{k}} &= \dfrac{1}{\sqrt{N}} \sum_{j=1}^N C_{\vb{k},j} \phi(\vb{r} - \vb{r}_j)\\
+&= \dfrac{1}{\sqrt{N}} \sum_{j=1}^N \e^{\I\vb{k}\cdot\vb{r}_j} \phi(\vb{r} - \vb{r}_j) \quad \text{(Bloch Th.)}
+\end{aligned}
+\end{equation}
+\begin{equation}\label{key}
+\begin{aligned}
+\varepsilon(\vb{k}) &= \bkev{\hH}{\Psi_{\vb{k}}} = \dfrac{1}{N} \bkev{\hH}{\sum_{j=1}^N \e^{\I\vb{k}\cdot\vb{r}_j} \phi(\vb{r} - \vb{r}_j)}\\
+&= \dfrac{1}{N} \sum_j \sum_n \e^{\I\vb{k}\cdot(\vb{r}_j - \vb{r}_n)} \Braket{\phi(\vb{r} - \vb{r}_n) | \hH | \phi(\vb{r} - \vb{r}_j)}
+\end{aligned}
+\end{equation}
+Let
+\begin{equation}\label{key}
+\bm{\rho}_m =  \vb{r}_j - \vb{r}_n \quad \bm{\xi}_n = \vb{r} - \vb{r}_n
+\end{equation}
+\begin{equation}\label{key}
+\begin{aligned}
+\varepsilon(\vb{k}) &= \dfrac{1}{N} \sum_m \sum_n \e^{\I\vb{k}\cdot\bm{\rho}_m} \Braket{\phi(\bm{\xi}_n) | \hH | \phi(\bm{\xi}_n - \bm{\rho}_m)}\\
+&= \sum_m \e^{\I\vb{k}\cdot\bm{\rho}_m} \Braket{\phi(\bm{\xi}) | \hH | \phi(\bm{\xi} - \bm{\rho}_m)}\\
+&\equiv \sum_m \e^{\I\vb{k}\cdot\bm{\rho}_m} I(\rho_m)
+\end{aligned}
+\end{equation}
+Overlap integral
+\begin{equation}\label{key}
+I(\rho_m) = \Braket{\phi(\vb{r}) | \hH | \phi(\vb{r} - \bm{\rho}_m)}
+\end{equation}
+Now neglect all non-neighbor interaction.\\
+when $ \rho_m = \rho $($ t $: hopping amplitude.)
+\begin{equation}\label{key}
+-t = I(\rho) = \Braket{\phi(\vb{r}) | \hH | \phi(\vb{r} - \bm{\rho})}
+\end{equation}
+when $\rho_m = 0 $
+\begin{equation}\label{key}
+-\alpha = \Braket{\phi(\vb{r}) | \hH | \phi(\vb{r})}
+\end{equation}
+thus
+\begin{equation}\label{key}
+\varepsilon(\vb{k}) = -\alpha -t \sum_m \e^{\I\vb{k}\cdot\bm{\rho}_m}
+\end{equation}
+
+\subsection{1-D Crystal}
+\begin{equation}\label{key}
+\begin{aligned}
+\varepsilon(k) &= ... = -\alpha -2t\cos ka\\
+&= -\alpha - 2t\qty(1 - \dfrac{k^2 a^2}{2})\\
+&= -\alpha - 2t + t k^2 a^2
+\end{aligned}
+\end{equation}
+let
+\begin{equation}\label{key}
+m^* = \dfrac{\hbar^2}{2ta^2}
+\end{equation}
+\begin{equation}\label{key}
+\varepsilon(k) = -\alpha - 2t + \dfrac{\hbar^2 k^2}{2m^*}
+\end{equation}
+
+\subsection{Graphene Tight-binding}
+General tight-binding for 2 atom-basis
+\begin{equation}\label{key}
+\psi_k = a_k \psi_k^{(A)}(r) + b_k \psi_k^{(B)}(r)
+\end{equation}
+\begin{equation}\label{key}
+\psi_k^{(B)}(r) = \sum_j c_j \phi^{(B)}(r - r_j)
+\end{equation}
+
+
+\section{Screening}
+\begin{equation}\label{key}
+D(k,\omega) = \varepsilon(k,\omega) E(k,\omega)
+\end{equation}
+\subsection{Static Screening}
+$\omega = 0 $
+\begin{equation}\label{key}
+E(r) = \sum_k \e^{\I k\cdot r} E(k)
+\end{equation}
+\begin{equation}\label{key}
+\rho(r) = \sum_k \e^{\I k\cdot r} \rho(k)
+\end{equation}
+\begin{equation}\label{key}
+D(r) = \sum_k \e^{\I k\cdot r} D(k)
+\end{equation}
+
+\begin{equation}\label{key}
+\na \cdot E = \na \cdot \qty(\sum_k \e^{\I k\cdot r} E(k)) =  4\pi \sum_k \e^{\I k\cdot r} \rho(k)
+\end{equation}
+\begin{equation}\label{key}
+\na\cdot D = \na\cdot \qty(\sum_k \e^{\I k\cdot r} \varepsilon(k) E(k)) = 4\pi \sum_k \e^{\I k\cdot r} \rho_{ext}(k)
+\end{equation}
+$ \therefore $
+\begin{equation}\label{key}
+\varepsilon(k) = \dfrac{\rho_{ext}(k)}{\rho(k)} = 1 - \dfrac{\rho_{ind}(k)}{\rho(k)}
+\end{equation}
+In terms of potential, ...\\
+
+\subsection{Calculating $ \rho_{ind} $ Using Thomas-Fermi Theory of Screening}
+\begin{equation}\label{key}
+\Tdv \psi_i(r) = E_i \psi_i(r)
+\end{equation}
+\begin{equation}\label{key}
+V = -e\phi(r)
+\end{equation}
+$ \phi(r) $ varies slowly enough that
+\begin{equation}\label{key}
+E_i = \dfrac{\hbar^2 k^2}{2m} - e\phi(r)
+\end{equation}
+
+
+
+
+
+
+
+
+\end{document}

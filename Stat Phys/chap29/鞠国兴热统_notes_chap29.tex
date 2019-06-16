@@ -1,0 +1,161 @@
+\documentclass[UTF8]{ctexart} % use larger type; default would be 10pt
+
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+
+%%% Examples of Article customizations
+% These packages are optional, depending whether you want the features they provide.
+% See the LaTeX Companion or other references for full information.
+
+%%% PAGE DIMENSIONS
+\usepackage{geometry} % to change the page dimensions
+\geometry{a4paper} % or letterpaper (US) or a5paper or....
+% \geometry{margin=2in} % for example, change the margins to 2 inches all round
+% \geometry{landscape} % set up the page for landscape
+%   read geometry.pdf for detailed page layout information
+
+\usepackage{graphicx} % support the \includegraphics command and options
+
+% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+
+%%% PACKAGES
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+% These packages are all incorporated in the memoir class to one degree or another...
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+%%% SECTION TITLE APPEARANCE
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+% (This matches ConTeXt defaults)
+
+%%% ToC (table of contents) APPEARANCE
+\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+%%% END Article customizations
+
+%%% The "real" document content comes below...
+
+\setlength{\parindent}{0pt}
+\usepackage{physics}
+\usepackage{amsmath}
+%\usepackage{symbols}
+\usepackage{AMSFonts}
+\usepackage{bm}
+%\usepackage{eucal}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{multicol}
+\usepackage{abstract}
+\usepackage{empheq}
+\usepackage{extarrows}
+\usepackage{fontenc}
+\usepackage{textcomp}
+
+
+\DeclareMathOperator{\p}{\prime}
+\DeclareMathOperator{\ti}{\times}
+\DeclareMathOperator{\s}{\sum_{n=1}^{\infty}}
+\DeclareMathOperator{\intinf}{\int_0^\infty}
+\DeclareMathOperator{\intdinf}{\int_{-\infty}^\infty}
+\DeclareMathOperator{\suminf}{\sum_{n=0}^\infty}
+\DeclareMathOperator{\sumin}{\sum_{i=1}^n}
+\DeclareMathOperator{\e}{\mathrm{e}}
+\renewcommand{\I}{\mathrm{i}}
+\DeclareMathOperator{\llra}{\longleftrightarrow}
+\DeclareMathOperator{\lra}{\longrightarrow}
+\DeclareMathOperator{\dlra}{\Leftrightarrow}
+\DeclareMathOperator{\dra}{\Rightarrow}
+\newcommand{\txra}{\textrightarrow}
+\newcommand{\dis}{\displaystyle}
+\newcommand{\dbar}{{\mathchar'26\mkern-11mu\mathrm{d}}}
+\numberwithin{equation}{subsection}
+
+\title{Notes of JU Guoxing TD\&SP}
+\author{hebrewsnabla}
+%\date{} % Activate to display a given date or no date (if empty),
+         % otherwise the current date is printed 
+
+\begin{document}
+% \boldmath
+\maketitle
+\setcounter{section}{28}
+\section{Bose-Einstein and Fermi-Dirac Distributions}
+\subsection{}
+\subsection{Wave Function of Identical Particles}
+\subsection{The Statistics of Identical Particles}
+suppose energy of each particle is $E$
+\begin{equation}\label{key}
+\mathcal{Z} = \sum_N \sum_\alpha \e^{\beta(\mu N - E_\alpha)} = \sum_N \e^{N\beta(\mu - E)}
+\end{equation}
+thus
+\begin{equation}\label{key}
+\langle n\rangle = \dfrac{\sum_N N\e^{N\beta(\mu - E)}}{\sum_N \e^{N\beta(\mu - E)}} = -\dfrac{1}{\beta \mathcal{Z}}\pdv{\mathcal{Z}}{E} = -\dfrac{1}{\beta}\pdv{\ln\mathcal{Z}}{E}
+\end{equation}
+for fermions
+\begin{equation}\label{Z_fer}
+\mathcal{Z} = \sum_{N=0}^1 \e^{N\beta(\mu - E)} = 1 + \e^{\beta(\mu - E)}
+\end{equation}
+Fermi-Dirac distribution fxn
+\begin{equation}\label{key}
+f_D(E) \equiv \langle n\rangle = \dfrac{\e^{\beta(\mu - E)}}{1 + \e^{\beta(\mu - E)}} = \dfrac{1}{\e^{\beta(E-\mu) + 1}}
+\end{equation}
+for bosons
+\begin{equation}\label{Z_bos}
+\mathcal{Z} = \sum_{N=0}^\infty \e^{N\beta(\mu - E)} = \dfrac{1}{1 - \e^{\beta(\mu - E)}}
+\end{equation}
+Bose-Einstein distribution fxn
+\begin{equation}\label{key}
+f_B(E) \equiv \langle n\rangle = \dfrac{\e^{\beta(\mu - E)}}{1 - \e^{\beta(\mu - E)}} = \dfrac{1}{\e^{\beta(E-\mu)} - 1}
+\end{equation}
+
+\section{Quantum Gases and Condensates}
+\subsection{non-interacting q fluid}
+\begin{equation}\label{key}
+\mathcal{Z} = \prod_k \mathcal{Z}_k^{2S+1}
+\end{equation}
+where $\mathcal{Z}_k$ refers to $\eqref{Z_fer}\eqref{Z_bos}$\\
+i.e.
+\begin{equation}\label{key}
+\mathcal{Z}_k = (1\pm\e^{(\mu-E)})^{\pm 1}
+\end{equation}
+grand potential
+\begin{equation}\label{key}
+\begin{aligned}
+\Phi &= -\dfrac{1}{\beta}\ln\mathcal{Z}\\
+&= \mp \dfrac{2S + 1}{\beta}\sum_k\ln(1\pm\e^{(\mu-E)})\\
+&= \mp \dfrac{1}{\beta} \intinf \ln(1\pm\e^{(\mu-E)})g(E)\dd E
+\end{aligned}
+\end{equation}
+\begin{equation}\label{key}
+g(k)\dd k = \dfrac{4\pi k^2\dd k}{(2\pi/L)^3}(2S + 1) = \dfrac{(2S+1)Vk^2\dd k}{2\pi^2}
+\end{equation}
+\begin{equation}\label{key}
+g(E)\dd E = \dfrac{(2S+1)VE^{1/2}\dd E}{4\pi^2}\qty(\dfrac{2m}{\hbar^2})^{3/2}
+\end{equation}
+thus
+\begin{equation}\label{key}
+\begin{aligned}
+\Phi &= \mp\dfrac{(2S+1)V}{4\pi^2\beta} \qty(\dfrac{2m}{\hbar^2})^{3/2} \intinf \ln(1\pm\e^{\beta(\mu-E)})E^{1/2}\dd E\\
+&= \mp\dfrac{(2S+1)V}{4\pi^2\beta} \qty(\dfrac{2m}{\hbar^2})^{3/2} \intinf \ln(1\pm\e^{\beta(\mu-E)})\dfrac{2}{3}\dd(E^{3/2})\\
+&= \mp\dfrac{2}{3}\dfrac{(2S+1)V}{4\pi^2\beta} \qty(\dfrac{2m}{\hbar^2})^{3/2} \qty{\qty[\ln(1\pm\e^{\beta(\mu-E)})E^{3/2}]\Big|_0^\infty - \intinf E^{3/2}\dfrac{\mp\beta\e^{\beta(\mu - E)}}{1\pm\e^{\beta(\mu-E)}}\dd E}\\
+&= \mp\dfrac{2}{3}\dfrac{(2S+1)V}{4\pi^2\beta} \qty(\dfrac{2m}{\hbar^2})^{3/2} \qty{ 0 \pm \beta\intinf E^{3/2}\dfrac{1}{\e^{\beta(E-\mu)} \pm 1}\dd E }\\
+&= \dfrac{2}{3}\dfrac{(2S+1)V}{4\pi^2} \qty(\dfrac{2m}{\hbar^2})^{3/2} \intinf\dfrac{E^{3/2}}{\e^{\beta(E-\mu)} \pm 1}\dd E 
+\end{aligned}
+\end{equation}
+
+
+
+\end{document}

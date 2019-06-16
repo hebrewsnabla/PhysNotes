@@ -1,0 +1,636 @@
+\documentclass[UTF8]{ctexart} % use larger type; default would be 10pt
+
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+
+%%% Examples of Article customizations
+% These packages are optional, depending whether you want the features they provide.
+% See the LaTeX Companion or other references for full information.
+
+%%% PAGE DIMENSIONS
+\usepackage{geometry} % to change the page dimensions
+\geometry{a4paper} % or letterpaper (US) or a5paper or....
+% \geometry{margin=2in} % for example, change the margins to 2 inches all round
+% \geometry{landscape} % set up the page for landscape
+%   read geometry.pdf for detailed page layout information
+
+\usepackage{graphicx} % support the \includegraphics command and options
+
+% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+
+%%% PACKAGES
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+% These packages are all incorporated in the memoir class to one degree or another...
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+%%% SECTION TITLE APPEARANCE
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+% (This matches ConTeXt defaults)
+
+%%% ToC (table of contents) APPEARANCE
+\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+%%% END Article customizations
+
+%%% The "real" document content comes below...
+
+\setlength{\parindent}{0pt}
+\usepackage{physics}
+\usepackage{amsmath}
+%\usepackage{symbols}
+\usepackage{AMSFonts}
+\usepackage{bm}
+%\usepackage{eucal}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{multicol}
+\usepackage{abstract}
+\usepackage{empheq}
+\usepackage{extarrows}
+\usepackage{textcomp}
+\usepackage{mhchem}
+\usepackage{braket}
+
+
+\DeclareMathOperator{\p}{\prime}
+\DeclareMathOperator{\ti}{\times}
+
+\DeclareMathOperator{\e}{\mathrm{e}}
+\renewcommand{\I}{\mathrm{i}}
+\DeclareMathOperator{\kb}{k_{\mathrm{B}}}
+\DeclareMathOperator{\Arg}{\mathrm{Arg}}
+
+\DeclareMathOperator{\ra}{\rightarrow}
+\DeclareMathOperator{\llra}{\longleftrightarrow}
+\DeclareMathOperator{\lra}{\longrightarrow}
+\DeclareMathOperator{\dlra}{\Leftrightarrow}
+\DeclareMathOperator{\dra}{\Rightarrow}
+
+\DeclareMathOperator{\na}{\bm{\nabla}}
+\DeclareMathOperator{\nna}{\nabla^2}
+\DeclareMathOperator{\drrr}{\dd[3]\vb{r}}
+
+\DeclareMathOperator{\psis}{\psi^\ast}
+\DeclareMathOperator{\Psis}{\Psi^\ast}
+\DeclareMathOperator{\hi}{\hat{\vb{i}}}
+\DeclareMathOperator{\hj}{\hat{\vb{j}}}
+\DeclareMathOperator{\hk}{\hat{\vb{k}}}
+\DeclareMathOperator{\hr}{\hat{\vb{r}}}
+\DeclareMathOperator{\hT}{\hat{\vb{T}}}
+\DeclareMathOperator{\hH}{\hat{\vb{H}}}
+\DeclareMathOperator{\hp}{\hat{\vb{p}}}
+\DeclareMathOperator{\hx}{\hat{\vb{x}}}
+\DeclareMathOperator{\ha}{\hat{\vb{a}}}
+\DeclareMathOperator{\Tdv}{-\dfrac{\hbar^2}{2m}\dv[2]{x}}
+\DeclareMathOperator{\Tna}{-\dfrac{\hbar^2}{2m}\nabla^2}
+
+%\DeclareMathOperator{\s}{\sum_{n=1}^{\infty}}
+\DeclareMathOperator{\intinf}{\int_0^\infty}
+\DeclareMathOperator{\intdinf}{\int_{-\infty}^\infty}
+%\DeclareMathOperator{\suminf}{\sum_{n=0}^\infty}
+\DeclareMathOperator{\sumnzinf}{\sum_{n=0}^\infty}
+\DeclareMathOperator{\sumnoinf}{\sum_{n=1}^\infty}
+\DeclareMathOperator{\sumndinf}{\sum_{n=-\infty}^\infty}
+\DeclareMathOperator{\sumizinf}{\sum_{i=0}^\infty}
+
+
+\newcommand{\dis}{\displaystyle}
+\numberwithin{equation}{section}
+
+\title{Notes of 141A\\
+Solid State Physics}
+\author{hebrewsnabla}
+%\date{} % Activate to display a given date or no date (if empty),
+         % otherwise the current date is printed 
+
+\begin{document}
+% \boldmath
+\maketitle
+
+\tableofcontents
+
+\newpage
+
+vibrations, phonon\\
+conductivity\\
+magnetism, spin\\
+many-body physics, superconductivity\\
+
+\setcounter{section}{-1}
+\section{Review}
+\subsection{Atoms}
+\begin{equation}\label{key}
+\hat{\vb{H}} = -\dfrac{1}{2}\nabla^2 - \dfrac{1}{r}
+\end{equation}
+
+\subsection{Bonding}
+ --covalent\\
+ --ionic\\
+ --vdW\\
+ --metallic\\
+\subsubsection{Covalent}
+\ce{H2}\\
+\begin{equation}\label{key}
+\hat{\vb{H}} = -\dfrac{1}{2}\nabla^2 - \dfrac{1}{r_A} - \dfrac{1}{r_B}
+\end{equation}
+\begin{equation}\label{key}
+\hat{\vb{H}}\Psi = E\Psi
+\end{equation}
+use variational principle
+\begin{equation}\label{key}
+\Phi = C_A\Psi_A + C_B\Psi_B
+\end{equation}
+\begin{equation}\label{key}
+\begin{aligned}
+\langle H\rangle &= \bra{\Phi}\hat{\vb{H}}\ket{\Phi}\\
+&= \bra{C_A\Psi_A + C_B\Psi_B}\hat{\vb{H}}\ket{C_A\Psi_A + C_B\Psi_B}\\
+&= \cdots
+\end{aligned}
+\end{equation}
+\begin{equation}\label{key}
+\begin{aligned}
+E &= \dfrac{\bra{\Phi}\hat{\vb{H}}\ket{\Phi}}{\braket{\Phi}{\Phi}}\\
+&= \cdots
+\end{aligned}
+\end{equation}
+\begin{equation}\label{key}
+\pdv{\Phi}{C_A} = 0 \quad \pdv{\Phi}{C_B} = 0
+\end{equation}
+\begin{equation}\label{key}
+\mqty(H_{AA}-E & H_{AB}-ES\\
+      H_{AB}-ES & H_{BB}-E)
+\mqty(C_A\\C_B) = 0
+\end{equation}
+
+\subsubsection{vdW Bonds}
+dipole interaction
+\begin{equation}\label{key}
+\vb{E}_{dipole} \propto \dfrac{1}{r^3}
+\end{equation}
+\begin{equation}\label{key}
+\vb{P}_{induced} \propto \vb{E}
+\end{equation}
+thus
+\begin{equation}\label{key}
+U_{dipole} \propto \vb{E}\cdot\vb{P} \propto -\dfrac{1}{r^6}
+\end{equation}
+~\\
+repulsive $ \propto \dfrac{1}{r^12} $\\
+L-J potential ...\\
+
+\subsubsection{Ionic Bonding}
+electropositive atom -- low ionization potential (电离能)\\
+electronegative atom -- large electron affinity (电子亲和性)\\
+E.g. \ce{NaCl}\\
+Na -- $ E_I = 5.1eV $, Cl -- $ E_A = 3.6eV $\\
+Charge transfer -- $ -7.9eV $\\
+total $ 5.1 - 3.6 - 7.9 $\\
+\begin{equation}\label{key}
+U_{ij} = \pm\dfrac{e^2}{4\pi\epsilon+0 r_{ij}} + \dfrac{B}{r_{ij}^2}
+\end{equation}
+
+\subsubsection{Metallic Bonding}
+Cu, Ag, Au -- extended covalent bonds\\
+ion cohesion\\
+
+\section{Crystal Structure}
+"diamond" crystal\\
+FCC lattice -- Cu\\
+
+\subsection{definition}
+Bravais Lattice\\
+\begin{enumerate}
+	\item infinite set of points so that everything looks the same no matter where you stand
+	\item set of points defined by $ \vb{r}_n = n_1\vb{a}_1 + n_2\vb{a}_2 + n_3\vb{a}_3 $ 
+\end{enumerate}
+
+primitive cell: smallest periodic space filling volume\\
+
+E.g. \ce{CuO2} layers
+
+1 dot / unit cell\\
+Wigner Seitz unit cell\\
+
+symmetry of crystals: mapping that returns original lattice\\
+-- translational\\
+-- rotational\\
+-- inversion\\
+-- reflection\\
+~\\
+bravais 14 lattice\\
+array of descrete points generated by translational operations
+\begin{equation}\label{key}
+\vb{R} = n_1\vb{a}_1 + n_2 ...
+\end{equation}
+where $ \vb{a}_i $ lattice translation vectors
+\begin{enumerate}
+	\item triclinic - 2 三方
+	\item monoclinic - 2
+	\item orthorhumbic - 4
+	\item tetragonal - 2
+	\item cubic - 3
+		\subitem simple cubic 简单立方
+		\subitem face-centered cubic / FCC / 面心立方\\
+		 		-- Cu, Ag, Au, Ni, Al (soft metals); NaCl; Diamond, Si, Ge
+		\subitem body-centered cubic / BCC / 体心立方\\
+				-- Fe, V, Ta, Nb, W, Mo, Cr (brittle except Ta)
+	\item trigonal - 1
+	\item hexagonal - 1
+\end{enumerate}
+
+Index Crystal Planes: Miller Indices
+
+crystals of inert atoms\\
+L-J potential\\
+\begin{equation}\label{key}
+U(r) = ...
+\end{equation}
+first term: phenomenological repulsive potential to account for Pauli exclusion\\
+second term: attractive potential due to spontaneous induced dipole.\\
+
+Ionic crystals\\
+\begin{equation}\label{key}
+U_{tot} = N(z\lambda\e^{-\tfrac{q}{\rho}} - \dfrac{\alpha q^2}{R})
+\end{equation}
+$ z $ -- coordination number of the lattice\\
+$ \alpha = \dis\sum_j \dfrac{(\pm)}{p_{ij}} $ -- Madelung Cons.
+
+
+\newpage
+8/29\\
+\section{Wave Diffraction and Reciprocal Lattice}
+Periodicity is important -- band gap, diffraction\\
+
+\subsection{reciprocal lattice}
+for 1D lattice, $ \{\vb{T}\} = \{ja\hat{\vb{x}}\} $.\\
+Suppose $ n(x) $ is the elec density\\
+thus $ n(x) = n(x+T) $\\
+...
+\begin{equation}\label{key}
+n(x) = \sum_j n_j\e^{\I g_j x}
+\end{equation}
+where $ g_j = \dfrac{2\pi}{\lambda_j} $\\
+since $ \lambda_j = \dfrac{a}{j} $
+\begin{equation}\label{key}
+g_j = \dfrac{2\pi}{a}j
+\end{equation}
+aka reciprocal lattice vectors.
+
+\begin{equation}\label{key}
+\begin{aligned}
+\int_0^a n(x)\e^{-g_j' x}\dd x\\
+&= n_j' a + \sum_{j\neq j'}\int_0^a n_j \e^{\tfrac{2\pi}{a}(j - j')x}\dd x\\
+&= n_j' a
+\end{aligned}
+\end{equation}
+\begin{equation}\label{key}
+n_j = \dfrac{1}{a}\int_0^a n(x)\e^{-g_j x}\dd x
+\end{equation}
+
+Generalize to 3D\\
+\begin{equation}\label{key}
+n(\vb{r}) = \sum_{\vb{G}} n_{\vb{G}}\e^{\I\vb{G}\cdot\vb{r}}
+\end{equation}
+\begin{equation}\label{key}
+\vb{G} = \nu_1 \vb{b}_1 + \nu_2 \vb{b}_2 + \nu_3 \vb{b}_3
+\end{equation}
+\begin{equation}\label{key}
+n(\vb{r}) = n(\vb{r} + \vb{T})
+\end{equation}
+\begin{equation}\label{key}
+\vb{T} = u_1\vb{a}_1 + u_2\vb{a}_2 + u_3\vb{a}_3
+\end{equation}
+\begin{equation}\label{key}
+\vb{G}\cdot\vb{T} = 2\pi n
+\end{equation}
+
+\subsection{diffraction}
+Bragg Law ...\\
+diffraction\\
+picture ...
+\begin{equation}\label{key}
+\vb{E}_T = \vb{E}_1 +\vb{E}_2
+\end{equation}
+$ \vb{k} = \dfrac{2\pi}{\lambda}\hat{\vb{n}} $, $ \vb{k}' = \dfrac{2\pi}{\lambda}\hat{\vb{n}'} $
+\begin{equation}\label{key}
+\Delta r = \vb{r}\cdot\hat{\vb{n}} - \vb{r}\cdot\hat{\vb{n}'}
+\end{equation}
+\begin{equation}\label{key}
+\Delta\phi = \vb{r}\cdot k\hat{\vb{n}} - \vb{r}\cdot k\hat{\vb{n}'}
+= \vb{r}\cdot(\vb{k} - \vb{k}')
+\end{equation}
+\begin{equation}\label{key}
+\begin{aligned}
+I &= \abs{\vb{E}_1 + \vb{E}_2}^2\\
+&= \abs{\int\vb{E}\dd[3]\vb{r}}^2\\
+&\propto \abs{\int n(\vb{r})\e^{\I\Delta\phi}\dd[3]\vb{r}}^2\\
+&\propto \abs{\int n(\vb{r})\e^{\I\vb{r}\cdot(\vb{k} - \vb{k}')}\dd[3]\vb{r}}^2
+\end{aligned}
+\end{equation}
+the amplitude
+\begin{equation}\label{key}
+\begin{aligned}
+F_{k'k} &= \int n(\vb{r})\e^{\I\vb{r}\cdot(\vb{k} - \vb{k}')} \dd[3]\vb{r}\\
+&= \int \e^{-\I\vb{r}\cdot\vb{k}'} n(\vb{r}) \e^{\I\vb{r}\cdot\vb{k}} \dd[3]\vb{r}\\
+&= \bra{k'}n(r)\ket{k}
+\end{aligned}
+\end{equation}
+aka Born approx.\\
+~\\
+\begin{equation}\label{key}
+n(r) = \sum_G n_G \e^{\I\vb{G}\cdot\vb{r}}
+\end{equation}
+
+\begin{equation}\label{key}
+\begin{aligned}
+F_{k'k} &= \sum_G n_G \int \e^{\I(\vb{G} - (\vb{k} - \vb{k}'))\cdot\vb{r}} \dd[3]\vb{r}\\
+&= \sum_G n_G \delta(\vb{G} - (\vb{k} - \vb{k}'))
+\end{aligned}
+\end{equation}
+Xray spot -- $ \vb{G} = \vb{k} - \vb{k}' $
+
+\newpage
+9/7\\
+\begin{equation}\label{key}
+\vb{k}' - \vb{k} = \vb{G}
+\end{equation}
+\begin{equation}\label{key}
+\vb{k}\cdot\qty(\dfrac{1}{2}\vb{G}) = \abs{\dfrac{1}{2}\vb{G}}^2
+\end{equation}
+
+\setcounter{section}{3}
+\section{Phonons I. Crystal Vibrations}
+Phonons: Quantized lattice vibrations\\
+
+\begin{equation}\label{key}
+\omega = 2\sqrt{\dfrac{C}{m}}\abs{\sin\dfrac{1}{2}ka}
+\end{equation}
+-- phonon dispersion relation\\
+zeros: $ \dfrac{1}{2}ka = n\pi \;\dra\; k = \dfrac{2\pi n}{a}$
+
+\newpage
+9/10\\
+photo ..
+\begin{equation}\label{key}
+u_s^k(t) = u_0\e^{\I(ksa-\omega t)}
+\end{equation}
+\begin{equation}\label{key}
+\omega(k) = 2\sqrt{\dfrac{c}{m}}\abs{\sin\dfrac{1}{2}ka}
+\end{equation}
+\begin{equation}\label{key}
+G = \dfrac{2\pi}{a}P, \quad P\in\mathbb{Z}
+\end{equation}
+\begin{equation}\label{key}
+u_s^{k+G} = 
+\end{equation}
+
+$ \omega $ vs $ k $ -- $ E=\hbar\omega $ vs $ p=\hbar k $\\
+
+limit\\
+1. long wavelength limit\\
+$ \lambda \ra\infty $, $ k\ra 0 $
+\begin{equation}\label{key}
+\omega(k) \ra 2\sqrt{\dfrac{c}{m}}\abs{\dfrac{1}{2}ka} \propto k
+\end{equation}
+acoustic \\
+\begin{equation}\label{key}
+v_p = \dfrac{\omega}{k} = 
+\end{equation}
+\begin{equation}\label{key}
+v_g = \dv{\omega}{k} = 
+\end{equation}
+2. short wl limit\\
+$ k\ra\dfrac{\pi}{a} $\\
+\begin{equation}\label{key}
+v_g = 0
+\end{equation}
+
+\newpage
+9/12\\
+Phonon scattering\\
+
+9/19\\
+\section{Phonons II. Thermal Properties}
+\subsection{Phonon Heat Capacity}
+%\begin{equation}\label{key}
+%\begin{aligned}
+%U(r) &= \sum_k \hbar\omega_k n_k(T)\\
+%&= \int_0^{\omega_D}\hbar\omega n(\omega)D(\omega)\dd\omega
+%\end{aligned}
+%\end{equation}
+%\begin{equation}\label{key}
+%C(T) = \pdv{U(T)}{T} = ...
+%\end{equation}
+\begin{equation}\label{key}
+U(T) = \sum_{k,p} \expval{n_{k,p}}_T \hbar\omega_{k,p}
+\end{equation}
+\begin{equation}\label{key}
+\begin{aligned}
+\expval{n} &= \dfrac{\dis\sumnzinf n \e^{-n\hbar\omega/\kb T}}{\dis\sumnzinf \e^{-n\hbar\omega/\kb T}} \quad \text{(Bose-Einstein Distr.)}\\
+&= ...\\
+&= \dfrac{1}{\e^{\hbar\omega/\kb T} - 1}
+\end{aligned}
+\end{equation}
+\begin{equation}\label{key}
+\begin{aligned}
+U(T) = \int_0^{\omega_{max}} \hbar\omega f(\omega)
+\end{aligned}
+\end{equation}
+High temp, Debye model, $ T >> \theta_D $
+\begin{equation}\label{key}
+C = 3Nk_B
+\end{equation}
+Low temp, Einstein model, $ T << \theta_D $
+\begin{equation}\label{key}
+C(T) = ... = \dfrac{12\pi^4 Nk_B}{5}\qty(\dfrac{T}{\theta_D})^3
+\end{equation}
+$ \hbar\omega_{max} = k_B T $, $ k_{max} = \dfrac{k_B T}{\hbar v} $\\
+fraction of modes excited = $ \qty(\dfrac{k_{max}}{k_D})^3 $\\
+\# of modes excited = $ 3N \qty(\dfrac{k_{max}}{k_D})^3 $
+\begin{equation}\label{key}
+\begin{aligned}
+U(T) &= (\text{\# of modes excited})\langle E\rangle_{mode}\\
+&= 3N\qty(\dfrac{k_{max}}{k_D})^3k_B T\\
+&= 3N\qty(\dfrac{T}{\theta_D})^3k_B T\\
+&= 
+\end{aligned}
+\end{equation}
+\begin{equation}\label{key}
+C(T) = ...
+\end{equation}
+
+\subsection{Anharmonic Crystal Interactions / Thermal Expansion}
+true potential of phonons are not hyperbolic but L-J-like\\
+\begin{equation}\label{key}
+U = Cx^2 - gx^3 + ...
+\end{equation}
+\begin{equation}\label{key}
+\langle x\rangle_T = \dfrac{\int_x x P_T(x)\dd x}{\int_x P_T(x)\dd x}
+\end{equation}
+\begin{equation}\label{key}
+P_T(x) \propto \e^{-U(x)/k_B T}
+\end{equation}
+\begin{equation}\label{key}
+\begin{aligned}
+\langle x\rangle_T &= \dfrac{\int_x x \e^{-U(x)/k_B T}\dd x}{\int_x \e^{-U(x)/k_B T}\dd x}\\
+&= ...\\
+&= \dfrac{3g}{4C^2}k_B T
+\end{aligned}
+\end{equation}
+
+\subsection{Thermal Conductivity}
+energy flux
+\begin{equation}\label{key}
+j = \dfrac{\text{enrgy}}{\text{time}\cdot\text{area}} = \dfrac{P}{A} = -K\dv{T}{x}
+\end{equation}
+K -- thermal conductivity\\
+similar to $ j = \sigma E $\\
+\begin{equation}\label{key}
+j = \rho v
+\end{equation}
+
+\newpage
+10/2 ankit\\
+\subsection{Sommerfeld Model}
+3D
+\begin{equation}\label{key}
+N = \dfrac{4}{3}\pi k^3\qty(\dfrac{L}{2\pi})^3 = ...
+\end{equation}
+\begin{equation}\label{key}
+D(\varepsilon) = ... \propto \varepsilon^{1/2}
+\end{equation}
+2D
+\begin{equation}\label{key}
+N = \pi k^2\qty(\dfrac{L}{2\pi})^2 = ...
+\end{equation}
+\begin{equation}\label{key}
+D(\varepsilon) = ... \propto 1
+\end{equation}\begin{equation}\label{key}
+1D
+N = 2k\qty(\dfrac{L}{2\pi}) = ...
+\end{equation}
+\begin{equation}\label{key}
+D(\varepsilon) = ... \propto \varepsilon^{-1/2}
+\end{equation}
+
+\subsection{Heat Capacity}
+\begin{equation}\label{key}
+U = \int_0^\infty \dd\varepsilon D(\varepsilon)f(\varepsilon)\varepsilon
+\end{equation}
+\begin{equation}\label{key}
+N = \int_0^\infty \dd\varepsilon D(\varepsilon)f(\varepsilon)
+\end{equation}
+In metals, $ T << T_F $\\
+Use Sommerfeld expansion\\
+Consider integral of the form
+\begin{equation}\label{key}
+\intdinf H(\varepsilon)f(\varepsilon)\dd\varepsilon
+\end{equation}
+\begin{equation}\label{key}
+K(\varepsilon) = \int_{-\infty}^\varepsilon H(\varepsilon')\dd\varepsilon'
+\end{equation}
+\begin{equation}\label{key}
+H = \dv{K}{\varepsilon}
+\end{equation}
+\begin{equation}\label{key}
+\intdinf H(\varepsilon)f(\varepsilon)\dd\varepsilon = \intdinf K(\varepsilon)(-\dv{f}{\varepsilon})\dd\varepsilon
+\end{equation}
+\begin{equation}\label{key}
+K(\varepsilon) = K(\mu) + \sum_{n=1}^\infty \dfrac{1}{n!}\dv[n]{K}{\varepsilon} (\varepsilon - \mu)^n
+\end{equation}
+\begin{equation}\label{key}
+\begin{aligned}
+\intdinf H(\varepsilon)f(\varepsilon)\dd\varepsilon &= \intdinf K(\mu)(-\dv{f}{\varepsilon})\dd\varepsilon + \sum_{n=1}^\infty \intdinf \dfrac{1}{n!}\dv[n]{K}{\varepsilon} (\varepsilon - \mu)^n \qty(-\dv{f}{\varepsilon})\dd\varepsilon\\
+&= K(\mu) + ...\\
+&= \int_{-\infty}^\mu H(\varepsilon)\dd\varepsilon + \dfrac{\pi^2}{6}(k_B T)^2 H(\mu) + \mathcal{O}((K_B T)^4)
+\end{aligned}
+\end{equation}
+thus
+\begin{equation}\label{key}
+U = ...
+\end{equation}
+\begin{equation}\label{key}
+N = ...
+\end{equation}
+
+\section{Free Electron Fermi Gas}
+\subsection{Electrical Conductivity and Ohm's Law}
+\begin{equation}\label{key}
+\hbar\qty(\dv{t} + \dfrac{1}{\tau})\vb{k} = -e\vb{E}
+\end{equation}
+\subsection{Motion in Magnetic Fields}
+$ \vb{B} = B\hk $, $ \vb{v} = \dfrac{\hbar\vb{k}}{m} $
+\begin{equation}\label{key}
+m\qty(\dv{t} + \dfrac{1}{\tau})\vb{v} = -e\qty(\vb{E} + \dfrac{\vb{v}\ti\vb{B}}{c})
+\end{equation}
+...
+\begin{equation}\label{key}
+\mqty(J_x\\ J_y) = \bm{\sigma}\mqty(E_x\\ E_y)
+\end{equation}
+$ J_x = n(-e)v_x $
+\begin{equation}\label{key}
+\bm{\sigma} = \dfrac{\sigma_{DC}}{1 + \omega_0^2\tau^2}\mqty(1 & -\omega_0\tau\\ \omega_0\tau & 1)
+\end{equation}
+$ \sigma_{DC} = \dfrac{n e^2\tau}{m} $
+
+\begin{equation}\label{key}
+\bm{\rho} = \bm{\sigma}^{-1} = \dfrac{1}{\sigma
+_{DC}}\mqty(1 & \omega_0\tau\\ \omega_0\tau & 1)
+\end{equation}
+\subsubsection{Hall Effect}
+
+\subsection{AC Conductivity}
+$ \vb{E} \sim \vb{E}_0 \e^{\-I\omega t} $, $ \omega >> 1/\tau $, $ \omega_c = \dfrac{e B}{m c} $, $ \vb{B} = B\hk $
+\begin{equation}\label{key}
+m\qty(\dv{t} + \dfrac{1}{\tau})\vb{v} = -e\qty(\vb{E} + \dfrac{\vb{v}\ti\vb{B}}{c})
+\end{equation}
+assume $ \vb{v} = \vb{v}_0\e^{\I\omega t} $\\
+...
+\begin{equation}\label{key}
+\mqty(J_x\\ J_y) = \bm{\sigma}\mqty(E_x\\ E_y)
+\end{equation}
+\begin{equation}\label{key}
+\begin{aligned}
+\sigma_{xx} = \sigma_{yy} &= \dfrac{\omega_p^2\tau(1 - \I\omega\tau)}{4\pi[(1 - \I\omega\tau)^2 + (\omega_c\tau)^2]}\\
+\sigma_{xy} = -\sigma_{yx} &= \dfrac{\omega_p^2\omega_c\tau^2}{4\pi[(1 - \I\omega\tau)^2 + (\omega_c\tau)^2]}
+\end{aligned}
+\end{equation}
+\begin{equation}\label{key}
+\omega_p = \dfrac{4\pi ne^2}{m}
+\end{equation}
+\begin{equation}\label{key}
+\bm{\sigma} = \dfrac{\omega_p^2}{4\pi\omega}\mqty(\I & \omega_c/\omega\\ -\omega_c/\omega & \I) 
+\end{equation}
+
+\subsection{Complex Dielectric Function}
+\begin{equation}\label{key}
+\begin{aligned}
+\na\cdot\vb{D} = 4\pi\rho_f\\
+\na\cdot\vb{B} = 0\\
+\na\ti\vb{E} + \dfrac{1}{c}\pdv{\vb{H}}{t} = 0\\
+\na\ti\vb{H} - \dfrac{1}{c}\pdv{\vb{D}}{t} = \dfrac{4\pi}{c}\vb{J}_f
+\end{aligned}
+\end{equation}
+\begin{equation}\label{key}
+\na\cdot\vb{J} = -\pdv{\rho}{t}
+\end{equation}
+
+
+
+
+
+\end{document}

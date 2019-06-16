@@ -1,0 +1,430 @@
+\documentclass[UTF8]{ctexart} % use larger type; default would be 10pt
+
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+
+%%% Examples of Article customizations
+% These packages are optional, depending whether you want the features they provide.
+% See the LaTeX Companion or other references for full information.
+
+%%% PAGE DIMENSIONS
+\usepackage{geometry} % to change the page dimensions
+\geometry{a4paper} % or letterpaper (US) or a5paper or....
+% \geometry{margin=2in} % for example, change the margins to 2 inches all round
+% \geometry{landscape} % set up the page for landscape
+%   read geometry.pdf for detailed page layout information
+
+\usepackage{graphicx} % support the \includegraphics command and options
+
+% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+
+%%% PACKAGES
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+% These packages are all incorporated in the memoir class to one degree or another...
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+%%% SECTION TITLE APPEARANCE
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+% (This matches ConTeXt defaults)
+
+%%% ToC (table of contents) APPEARANCE
+\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+%%% END Article customizations
+
+%%% The "real" document content comes below...
+
+\setlength{\parindent}{0pt}
+\usepackage{physics}
+\usepackage{amsmath}
+%\usepackage{symbols}
+\usepackage{AMSFonts}
+\usepackage{bm}
+%\usepackage{eucal}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{multicol}
+\usepackage{abstract}
+\usepackage{empheq}
+\usepackage{extarrows}
+\usepackage{fontenc}
+\usepackage{textcomp}
+
+
+\DeclareMathOperator{\p}{\prime}
+\DeclareMathOperator{\ti}{\times}
+\DeclareMathOperator{\s}{\sum_{n=1}^{\infty}}
+\DeclareMathOperator{\intinf}{\int_0^\infty}
+\DeclareMathOperator{\intdinf}{\int_{-\infty}^\infty}
+\DeclareMathOperator{\suminf}{\sum_{n=0}^\infty}
+\DeclareMathOperator{\sumin}{\sum_{i=1}^n}
+\DeclareMathOperator{\e}{\mathrm{e}}
+\renewcommand{\I}{\mathrm{i}}
+\DeclareMathOperator{\llra}{\longleftrightarrow}
+\DeclareMathOperator{\lra}{\longrightarrow}
+\DeclareMathOperator{\dlra}{\Leftrightarrow}
+\DeclareMathOperator{\dra}{\Rightarrow}
+\newcommand{\txra}{\textrightarrow}
+\newcommand{\dis}{\displaystyle}
+\newcommand{\dbar}{{\mathchar'26\mkern-11mu\mathrm{d}}}
+\numberwithin{equation}{subsection}
+
+\title{Notes of JU Guoxing TD\&SP}
+\author{hebrewsnabla}
+%\date{} % Activate to display a given date or no date (if empty),
+         % otherwise the current date is printed 
+
+\begin{document}
+% \boldmath
+\maketitle
+\setcounter{section}{18}
+\section{Equipartition of Energy}
+\subsection{Equipartition Theorem}
+
+\section{Partition Function}
+Energy Fluctuation:\\
+$ \langle(E - \langle E\rangle)^2\rangle $\\
+Relative fluctuation:\\
+\begin{equation}\label{key}
+\dfrac{\langle(E - \langle E\rangle)^2\rangle}{\langle E\rangle^2} \propto \dfrac{1}{N}
+\end{equation}
+\subsection{}
+\subsection{Obtain functions of State}
+\subsubsection{Internal E}
+\begin{equation}\label{key}
+U = \dfrac{\sum_i E_i \e^{-\beta E_i}}{\sum_i \e^{-\beta E_i}} = \dfrac{\sum_i E_i \e^{-\beta E_i}}{Z}
+\end{equation}
+while
+\begin{equation}\label{key}
+-\dv{Z}{\beta} = \sum_i E_i \e^{-\beta E_i}
+\end{equation}
+thus
+\begin{equation}\label{key}
+U = -\dfrac{1}{Z}\dv{Z}{\beta} = -\dv{\ln Z}{\beta}
+\end{equation}
+\subsubsection{Entropy}
+
+E.g. 20.3\\
+a) 2-evel system. Energy level $-\Delta/2,\Delta/2$.\\
+\begin{equation}\label{key}
+Z = 
+\end{equation}
+Find $U, F, S$\\
+Discussion:\\
+Def: characteristic temperature (特征温度) $k_B T_{ch} = E$\\
+1) High temperature limit: $\beta\Delta = \dfrac{\Delta}{k_B T} << 1$\\
+i.e. $T >> T_{ch}$\\
+2) Low temperature limit: $\beta\Delta = \dfrac{\Delta}{k_B T} >> 1$\\
+\begin{equation}\label{key}
+U = -\dfrac{\Delta}{2}
+\end{equation}
+ground state occupied.\\
+特征温度附近，热容量有极大值，称为Schottky反常。\\
+~\\
+b) simple harmonic oscillator
+\begin{equation}\label{key}
+Z = 
+\end{equation}
+Discussion:\\
+Def: Einstein characteristic Temp $k_B \theta_E = \hbar\omega$\\
+1) $T >> \theta_E$
+
+
+
+\subsection{}
+
+\subsection{Combining Partition Functions}
+
+\section{Statistical Mechanics for Ideal Gas}
+\subsection{Density of States}
+box $V = L\ti L\ti L$\\
+wave vector
+\begin{equation}\label{key}
+\vb{k} = \dfrac{\vb{p}}{\hbar}
+\end{equation}
+wave fxn
+\begin{equation}\label{key}
+\psi(x,y,z) = \qty(\dfrac{2}{3})^{3/2} \sin(k_x x)\sin(k_y y)\sin(k_z z)
+\end{equation}
+PBC:
+\begin{equation}\label{key}
+\psi(x,y,z) = \psi(x+L, y, z) = ...
+\end{equation}
+\begin{equation}\label{key}
+k_x = \dfrac{2\pi n_x}{L}
+\end{equation}
+\begin{equation}\label{key}
+k_y = ...
+\end{equation}
+\begin{equation}\label{key}
+E = \dfrac{1}{2m}p^2 = \dfrac{2\pi^2\hbar^2}{mL^2}(n_x^2 + n_y^2 + n_z^2)
+\end{equation}
+in k space, every state occupy a volume $(2\pi/L)^3$, (in n space, vol = 1)\\
+thus in momentum space, the volume of a state 
+\begin{equation}\label{key}
+\qty(\dfrac{2\pi\hbar}{L})^3 = \dfrac{h^3}{V}
+\end{equation}
+thus density of state
+\begin{equation}\label{key}
+g(\vb{p})\dd[3]\vb{p} = \dfrac{V}{h^3}\dd[3]\vb{p}
+\end{equation}
+\begin{equation}\label{key}
+g(\vb{k})\dd[3]\vb{k} = \dfrac{V}{(2\pi)^3}\dd[3]\vb{k}
+\end{equation}
+in spheric coord
+\begin{equation}\label{key}
+g(p,\theta,\phi)\dd p\dd\theta\dd\phi = \dfrac{Vp^2\sin\theta}{h^3}\dd p\dd\theta\dd\phi
+\end{equation}
+\begin{equation}\label{key}
+g(p)\dd p = \dfrac{Vp^2}{h^3}\dd p\int_0^\pi\sin\theta\dd\theta\int_0^{2\pi}\dd\phi = \dfrac{4\pi V}{h^3}p^2\dd p
+\end{equation}
+\begin{equation}\label{key}
+\begin{aligned}
+g(k)\dd k &= g(p)\dd p = g(p)\dv{p}{k}\dd k = \dfrac{4\pi V}{h^3}p^2 \hbar\dd k\\
+&= \dfrac{V}{2\pi^2}k^2\dd k
+\end{aligned}
+\end{equation}
+$\because$
+\begin{equation}\label{key}
+\dd E = \dfrac{p\dd p}{m}
+\end{equation}
+\begin{equation}\label{key}
+\begin{aligned}
+g(E)\dd E = g(p)\dd p = \dfrac{4\pi V}{h^3}\sqrt{2mE} m\dd E
+\end{aligned}
+\end{equation}
+
+\subsection{Quantum Density}
+single-particle parti fxn of ideal gas
+\begin{equation}\label{key}
+\begin{aligned}
+Z_1 &= \intinf\e^{-\beta E(k)}g(k)\dd k\\
+&= \dfrac{V}{2\pi^2}\intinf \e^{-\beta\hbar^2 k^2/2m}k^2\dd k\\
+&= \dfrac{V}{\hbar^3}\qty(\dfrac{m}{2\pi\beta})^{3/2}
+\end{aligned}
+\end{equation}
+def: quantum density
+\begin{equation}\label{key}
+n_Q = \dfrac{Z_1}{V} = \dfrac{1}{\hbar^3}\qty(\dfrac{m}{2\pi\beta})^{3/2}
+\end{equation}
+thermal wavelength (热波长)
+\begin{equation}\label{key}
+\lambda_{th} = \hbar\sqrt{\dfrac{2\pi\beta}{m}} = h\sqrt{\dfrac{\beta}{2\pi m}}
+\end{equation}
+\begin{equation}\label{key}
+Z_1 = \dfrac{V}{\lambda_{th}}
+\end{equation}
+
+\subsection{Distinguishability (可分辨性)}
+for distinguishable particles
+\begin{equation}\label{key}
+Z_N = (Z_1)^N
+\end{equation}
+indistinguishable but non-degenerate (非简并)
+\begin{equation}\label{key}
+Z_N = \dfrac{Z_1^N}{N!}
+\end{equation}
+for ideal gas, non-degeneracy requires
+\begin{equation}\label{key}
+N << \text{number of }E_\ell
+\end{equation}
+or number density
+\begin{equation}\label{key}
+n << n_Q
+\end{equation}
+that's a good approximation in room temp, but not good for electron in metals.
+
+\subsection{State Functions of Ideal Gas}
+\begin{equation}\label{key}
+\begin{aligned}
+\ln Z_N &= N(\ln V - 3\ln\lambda_{th}) - \ln N!\\
+&= N\ln V + \dfrac{3}{2}N\ln T + Cons. = N\ln V - \dfrac{3}{2}N\ln\beta + Cons.
+\end{aligned}
+\end{equation}
+\begin{equation}\label{key}
+U = -\dv{\ln Z_N}{\beta} = \dfrac{3}{2}\dfrac{N}{\beta}
+\end{equation}
+\begin{equation}\label{key}
+C_V = \dfrac{3}{2}k_B
+\end{equation}
+\begin{equation}\label{key}
+\begin{aligned}
+F &= -\dfrac{1}{\beta}\ln Z_N\\
+&= -\dfrac{N}{\beta}\ln V - \dfrac{3N}{2\beta}\ln T - \dfrac{Cons.}{\beta}\\
+&= -Nk_B T\ln V - \dfrac{3N}{2}k_B T\ln T - Cons.\cdot k_B T
+\end{aligned}
+\end{equation}
+\begin{equation}\label{key}
+p = -\qty(\pdv{F}{T})_T = \dfrac{Nk_B T}{V}
+\end{equation}
+---------------
+\begin{equation}\label{key}
+\begin{aligned}
+\ln Z_N &= N\ln V - 3N\ln\lambda_{th}) - N\ln N + N\\
+&=N\qty(1 + \ln\dfrac{V}{N\lambda^3})
+\end{aligned}
+\end{equation}
+\begin{equation}\label{key}
+F = ...
+\end{equation}
+\begin{equation}\label{key}
+S = ...
+\end{equation}
+\begin{equation}\label{key}
+G = ...
+\end{equation}
+
+\subsection{Gibbs Paradox}
+
+\subsection{Heat Capacity of Diatomic Gas}
+
+
+
+
+\section{Chemical Potential}
+\subsection{Definition}
+\begin{equation}\label{key}
+\dd U = T\dd S - p\dd V + \mu\dd N
+\end{equation}
+\begin{equation}\label{key}
+\mu = \qty(\pdv{U}{N})_{S,V}
+\end{equation}
+
+\subsection{Meaning of CP}
+\begin{equation}\label{key}
+\dd S = \qty(\pdv{S}{U})_{N,V}\dd U + \qty(\pdv{S}{V})_{N,U}\dd V + \qty(\pdv{S}{N})_{U,V}\dd N
+\end{equation}
+\begin{equation}\label{key}
+\dd S = \dfrac{\dd U}{T} + \dfrac{p\dd V}{T} - \dfrac{\mu\dd N}{T}
+\end{equation}
+$\therefore$
+\begin{equation}\label{key}
+\qty(\pdv{S}{N})_{U,V} = -\dfrac{\mu}{T}
+\end{equation}
+
+
+\subsection{Grand Partition Function (巨配分函数)}
+system $\epsilon, N, V$\\
+reservoir $U >> \epsilon, \mathcal{N} >> N$\\
+thus, entropy of reservoir
+\begin{equation}\label{key}
+S(U-\epsilon,\mathcal{N}-N) = S(U,\mathcal{N}) - \dfrac{1}{T}\epsilon + \dfrac{\mu}{T}N
+\end{equation}
+\begin{equation}\label{key}
+\Omega = \e^{S/k_B} = \e^{S(U,\mathcal{N})}
+\end{equation}
+\begin{equation}\label{key}
+\ln\Omega(U-\epsilon,\mathcal{N}-N) = \ln\Omega(U,\mathcal{N}) - \qty(\pdv{\ln\Omega}{N})(-N) + \qty(\pdv{\ln\Omega}{E})(-\epsilon)
+\end{equation}
+\begin{equation}\label{key}
+\alpha = \qty(\pdv{\ln\Omega}{N}) = -\dfrac{\mu}{k_B T}
+\end{equation}
+\begin{equation}\label{key}
+\beta = \qty(\pdv{\ln\Omega}{E}) = \dfrac{1}{k_B T}
+\end{equation}
+\begin{equation}\label{key}
+P = \dfrac{1}{\Xi}\e^{-\alpha N - \beta E_s}
+\end{equation}
+grand partition function
+\begin{equation}\label{key}
+\Xi = 
+\sum_{N=0}^\infty \sum_s \e^{\beta(\mu N - E_s)}
+\end{equation}
+or
+\begin{equation}\label{key}
+\Xi = \sum_{N=0}^\infty \sum_s \e^{\alpha N - \beta E_s}  \quad(\alpha = \beta\mu)
+\end{equation}
+-------------~\\
+\begin{equation}\label{key}
+\begin{aligned}
+\langle N\rangle &= \dfrac{1}{\Xi}\sum_N\sum_s N \e^{\alpha N - \beta E_s}\\
+&= \dfrac{1}{\Xi}\sum_N\sum_s \qty(-\pdv{\alpha}) \e^{\alpha N - \beta E_s} = -\pdv{\alpha}\ln\Xi
+\end{aligned}
+\end{equation}
+\begin{equation}\label{key}
+\begin{aligned}
+U &= \langle E\rangle = \dfrac{1}{\Xi}\sum_N\sum_s E_s \e^{\alpha N - \beta E_s}\\
+&= \dfrac{1}{\Xi}\sum_N\sum_s \qty(-\pdv{\beta}) \e^{\alpha N - \beta E_s} = -\pdv{\beta}\ln\Xi
+\end{aligned}
+\end{equation}
+\begin{equation}\label{key}
+X = 
+\end{equation}
+
+\subsection{Grand Potential}
+\begin{equation}\label{key}
+\Phi_G = -k_B T\ln\Xi
+\end{equation}
+Since
+\begin{equation}\label{key}
+S = k_B\qty(\ln\Xi - \alpha\pdv{\alpha}\ln\Xi - \beta\pdv{\beta}
+\ln\Xi)
+\end{equation}
+\begin{equation}\label{key}
+\langle N\rangle = -\pdv{\alpha}\ln\Xi
+\end{equation}
+\begin{equation}\label{key}
+U = -\pdv{\beta}\ln\Xi
+\end{equation}
+thus
+\begin{equation}\label{key}
+S = k_B(\ln\Xi + \alpha\langle N\rangle + \beta U) = k_B\ln\Xi - \dfrac{\mu}{T}\langle N\rangle + \dfrac{1}{T}U
+\end{equation}
+\begin{equation}\label{key}
+\Phi_G = U - TS - \mu\langle N\rangle = F - \mu\langle N\rangle
+\end{equation}
+\begin{equation}\label{key}
+\dd\Phi_G = -S\dd T -p\dd V -\langle N\rangle\dd\mu
+\end{equation}
+
+\subsection{}
+\begin{equation}\label{key}
+S = \dfrac{1}{T}U + \dfrac{p}{T}V - \dfrac{\mu}{T}N
+\end{equation}
+i.e.
+\begin{equation}\label{key}
+U -TS + pV = \mu N
+\end{equation}
+thus
+\begin{equation}\label{G = muN}
+G = \mu N
+\end{equation}
+($\mu$ - single particle Gibbs function)
+\begin{equation}\label{key}
+\Phi_G = F - \mu N = F - G = -pV
+\end{equation}
+Differentiate $\eqref{G = muN}$
+\begin{equation}\label{key}
+\dd G = \mu\dd N + N\dd\mu
+\end{equation}
+while
+\begin{equation}\label{key}
+\dd G = -S\dd T + V\dd p +\mu\dd N
+\end{equation}
+thus
+\begin{equation}\label{key}
+S\dd T - V\dd p + N\dd\mu = 0
+\end{equation}
+which is Gibbs-Duhem Equation.\\
+\paragraph{Fluctuation ...}
+
+\subsection{}
+
+\subsection{Conservation of Number of Particle}
+
+
+\end{document}

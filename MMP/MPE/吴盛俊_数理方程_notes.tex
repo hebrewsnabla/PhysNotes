@@ -1,0 +1,433 @@
+\documentclass[UTF8]{ctexart} % use larger type; default would be 10pt
+
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+
+%%% Examples of Article customizations
+% These packages are optional, depending whether you want the features they provide.
+% See the LaTeX Companion or other references for full information.
+
+%%% PAGE DIMENSIONS
+\usepackage{geometry} % to change the page dimensions
+\geometry{a4paper} % or letterpaper (US) or a5paper or....
+% \geometry{margin=2in} % for example, change the margins to 2 inches all round
+% \geometry{landscape} % set up the page for landscape
+%   read geometry.pdf for detailed page layout information
+
+\usepackage{graphicx} % support the \includegraphics command and options
+
+% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+
+%%% PACKAGES
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+% These packages are all incorporated in the memoir class to one degree or another...
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+%%% SECTION TITLE APPEARANCE
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+% (This matches ConTeXt defaults)
+
+%%% ToC (table of contents) APPEARANCE
+\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+%%% END Article customizations
+
+%%% The "real" document content comes below...
+
+\setlength{\parindent}{0pt}
+\usepackage{physics}
+\usepackage{amsmath}
+%\usepackage{symbols}
+\usepackage{AMSFonts}
+\usepackage{bm}
+%\usepackage{eucal}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{multicol}
+\usepackage{abstract}
+\usepackage{empheq}
+\usepackage{extarrows}
+\usepackage{textcomp}
+
+
+\DeclareMathOperator{\p}{\prime}
+\DeclareMathOperator{\ti}{\times}
+\DeclareMathOperator{\s}{\sum_{n=1}^{\infty}}
+\DeclareMathOperator{\intinf}{\int_0^\infty}
+\DeclareMathOperator{\intdinf}{\int_{-\infty}^\infty}
+\DeclareMathOperator{\suminf}{\sum_{n=0}^\infty}
+\DeclareMathOperator{\e}{\mathrm{e}}
+\renewcommand{\I}{\mathrm{i}}
+\DeclareMathOperator{\Arg}{\mathrm{Arg}}
+\DeclareMathOperator{\ra}{\rightarrow}
+\DeclareMathOperator{\llra}{\longleftrightarrow}
+\DeclareMathOperator{\lra}{\longrightarrow}
+\DeclareMathOperator{\dlra}{\Leftrightarrow}
+\DeclareMathOperator{\dra}{\Rightarrow}
+\newcommand{\dis}{\displaystyle}
+\numberwithin{equation}{section}
+
+\title{Notes of WU Shengjun MMP\\
+Part II: Mathematical Physical Equation}
+\author{hebrewsnabla}
+%\date{} % Activate to display a given date or no date (if empty),
+         % otherwise the current date is printed 
+
+\begin{document}
+% \boldmath
+\maketitle
+\setcounter{section}{6}
+\section{}
+\subsection{Math Model}
+\subsubsection{Oscillation of String}
+\begin{equation}\label{key}
+\pdv[2]{u}{t} - \dfrac{T}{\rho}\pdv[2]{u}{x} = \dfrac{F(x,t)}{\rho}
+\end{equation}
+\subsection{D'Alembert Eq.}
+\subsubsection{Infinite String}
+\begin{equation}\label{1}
+\qty(\pdv[2]{t} - a^2 \pdv[2]{x})u(x,t) = 0
+\end{equation}
+Denote
+\begin{equation}\label{key}
+\xi = x + at \quad \eta = x - at
+\end{equation}
+thus
+\begin{equation}\label{key}
+\pdv{x} = \pdv{\xi} + \pdv{\eta}
+\end{equation}
+\begin{equation}\label{key}
+\pdv[2]{x} = \pdv[2]{\xi} + 2\pdv[2]{}{\xi}{\eta} + \pdv[2]{\eta}
+\end{equation}
+\begin{equation}\label{key}
+\pdv[2]{t} = a^2 \qty(\pdv[2]{\xi} - 2\pdv[2]{}{\xi}{\eta} + \pdv[2]{\eta})
+\end{equation}
+$\eqref{1}$ can be rewritten as
+\begin{equation}\label{key}
+-4a^2 \pdv{}{\xi}{\eta} u(\xi,\eta) = 0
+\end{equation}
+i.e.
+\begin{equation}\label{key}
+\pdv{}{\xi}{\eta} u(\xi,\eta) = 0
+\end{equation}
+
+initial condition:
+\begin{equation}\label{key}
+u|_{t=0} = \phi(x)\quad \pdv{u}{t}|_{t=0} = \psi(x)
+\end{equation}
+suppose 
+\begin{equation}\label{key}
+u(x,t) = f_1(x+at) + f_2(x-at)
+\end{equation}
+thus
+\begin{equation}\label{key}
+\left\{\mqty{\phi(x) = f_1(x) + f_2(x)\\
+	\psi(x) = a(f_1^{\p}(x) - f_2^{\p}(x))}
+\right.
+\end{equation}
+\begin{equation}\label{key}
+f_1(x) - f_2(x) = \dfrac{1}{a}\int_{x_0}^x \psi(\xi)\dd\xi + f_1(x_0) - f_2(x_0)
+\end{equation}
+thus
+\begin{equation}\label{key}
+\left\{\mqty{f_1(x) = \dfrac{1}{2}\phi(x) + \dfrac{1}{2a}\int_{x_0}^x \psi(\xi)\dd\xi + \dfrac{1}{2}[f_1(x_0) - f_2(x_0)]~\vspace{10pt}\\
+f_2(x) = \dfrac{1}{2}\phi(x) - \dfrac{1}{2a}\int_{x_0}^x \psi(\xi)\dd\xi - \dfrac{1}{2}[f_1(x_0) - f_2(x_0)]}\right.
+\end{equation}
+\begin{equation}\label{key}
+\left\{\mqty{f_1(x+at) = \dfrac{1}{2}\phi(x+at) + \dfrac{1}{2a}\int_{x_0}^{x+at} \psi(\xi)\dd\xi + \dfrac{1}{2}[f_1(x_0) - f_2(x_0)]~\vspace{10pt}\\
+f_2(x-at) = \dfrac{1}{2}\phi(x-at) - \dfrac{1}{2a}\int_{x_0}^{x-at} \psi(\xi)\dd\xi - \dfrac{1}{2}[f_1(x_0) - f_2(x_0)]}\right.
+\end{equation}
+General solution (D'Alembert Eq.):
+\begin{equation}\label{key}
+\begin{aligned}
+u(x,t) &= f_1(x+at) + f_2(x-at)\\
+&=\dfrac{1}{2}[\phi(x+at) + \phi(x-at)] + \dfrac{1}{2a}\int_{x-at}^{x+at} \psi(\xi)\dd\xi
+\end{aligned}
+\end{equation}
+
+\subsubsection{Half infinite string}
+\paragraph{Odd Continuation}
+Boundary condition: $x\geq 0,\; u|_{x=0} = 0$.\\
+Odd continuation: $\phi{x} \ra \Phi(x),\; \psi(x) \ra \Psi(x)$
+\begin{equation}\label{key}
+\Phi(x) = \left\{\begin{aligned}
+&\phi(x) \quad & x\geq 0\\
+&-\phi(-x)\quad &x\leq 0
+\end{aligned}\right.
+\qquad\quad
+\Psi(x) = \left\{\begin{aligned}
+&\psi(x) \quad & x\geq 0\\
+&-\psi(-x)\quad &x\leq 0
+\end{aligned}\right.
+\end{equation}
+thus
+\begin{equation}\label{key}
+\begin{aligned}
+u(x,t) &=\dfrac{1}{2}[\Phi(x+at) + \Phi(x-at)] + \dfrac{1}{2a}\int_{x-at}^{x+at} \Psi(\xi)\dd\xi\\
+&=\left\{\mqty{\dfrac{1}{2}[\phi(x+at) + \phi(x-at)] + \dfrac{1}{2a}\int_{x-at}^{x+at} \psi(\xi)\dd\xi \quad t\leq\dfrac{x}{a}~\vspace{7pt}\\
+\dfrac{1}{2}[\phi(x+at) - \phi(-x+at)] + \dfrac{1}{2a}\int_{-x+at}^{x+at} \psi(\xi)\dd\xi \quad t\geq\dfrac{x}{a}}
+\right.
+\end{aligned}
+\end{equation}
+\paragraph{Even Continuation}
+...\\
+
+\section{Separation of Variables}
+Boundary conditions:\\
+Type I (Dirichlet): $u(x,t)|_s = f_1$\\
+Type II (Neumann): $\dis\pdv{u}{x}\rvert_s = f_2$\\
+Type III (Robin): $~$
+
+\subsection{}
+String oscillation
+\begin{equation}\label{key}
+\left\{
+\begin{aligned}
+&\pdv[2]{u}{t} - a^2\pdv[2]{u}{x} = 0 \quad (0 < x <\ell, t>0)\\
+&u|_{x=0} = 0,\; u|_{x=\ell} = 0 \quad (t>0)\\
+&u|_{t=0} = \phi(x),\; \pdv{u}{t}|_{t=0} = \psi(x) \quad(0\leq x\leq \ell)
+\end{aligned}\right.
+\end{equation}
+Suppose
+\begin{equation}\label{key}
+u(x,t) = X(x)T(t)
+\end{equation}
+thus
+\begin{equation}\label{key}
+X(x)T''(t) = a^2 X''(x)T(t)
+\end{equation}
+
+
+\subsection{非齐次}
+\subsubsection{Fourier}
+
+\subsubsection{冲量定理法}
+受迫振动
+\begin{equation}\label{key}
+\pdv[2]{u}{t} - a^2\pdv[2]{u}{x} = f(x,t)\\
+u|_{x=0} = 0,\; u|_{x=\ell} = 0\\
+u|_{t=0} = \phi(x),\; \pdv{u}{t}|_{t=0} = \psi(x)
+\end{equation}
+decomposition:
+\begin{equation}\label{key}
+u(x,t) = u_I(x,t) + u_{II}(x,t)
+\end{equation}
+which satisfies
+\begin{equation}\label{key}
+\pdv[2]{u_I}{t} - a^2\pdv[2]{u_I}{x} = 0\\
+u_I|_{x=0} = 0,\; u_I|_{x=\ell} = 0\\
+u_I|_{t=0} = \phi(x),\; \pdv{u_I}{t}|_{t=0} = \psi(x)
+\end{equation}
+\begin{equation}\label{key}
+\pdv[2]{u_{II}}{t} - a^2\pdv[2]{u_{II}}{x} = f(x,t)\\
+u_{II}|_{x=0} = 0,\; u_{II}|_{x=\ell} = 0\\
+u_{II}|_{t=0} = 0,\; \pdv{u_{II}}{t}|_{t=0} = 0
+\end{equation}
+$u_I$ goto $8.1$\\
+$u_{II}$ (冲量定理法)\\
+
+
+
+\subsection{(非齐次) Boundary Condition}
+\begin{equation}\label{key}
+\begin{aligned}
+&\pdv[2]{u}{t} - a^2\pdv[2]{u}{x} = f(x,t)\\
+&u|_{x=0} = \mu(t),\; u|_{x=\ell} = \nu(t)\\
+&u|_{t=0} = \phi(x),\; \pdv{u}{t}|_{t=0} = \psi(x)
+\end{aligned}
+\end{equation}
+Choose 
+
+\subsection{Poisson Equation}
+\begin{equation}\label{key}
+\left\{\begin{aligned}
+\nabla^2 u = f(\vb{r})\\
+u|_\Sigma = \phi(M)
+\end{aligned}\right.
+\end{equation}
+choose $v(\vb{r})$, s.t.
+\begin{equation}\label{key}
+\nabla^2 v = f(\vb{r})
+\end{equation}
+Let $u = v + w$
+\begin{equation}\label{key}
+\left\{\begin{aligned}
+\nabla^2 w = 0\\
+w|_\Sigma = \phi(M) - v|_\Sigma
+\end{aligned}\right.
+\end{equation}
+
+\section{Solving 2\textdegree ODE with Series}
+\subsection{}
+spheric coord
+\begin{equation}\label{key}
+\nabla^2_r = \dfrac{1}{r^2}\pdv{r}\qty(r^2\pdv{r})
+\end{equation}
+
+\subsubsection{Laplace Equation}
+\begin{equation}\label{key}
+\nabla^2 u = 0
+\end{equation}
+\paragraph{Spheric Coords}
+\begin{equation}\label{key}
+\dfrac{1}{r^2}\pdv{r}\qty(r^2\pdv{u}{r}) + \dfrac{1}{r^2\sin\theta}\pdv{\theta}\qty(\sin\theta\pdv{u}{\theta}) + \dfrac{1}{r^2\sin^2\theta}\pdv[2]{u}{\phi} = 0
+\end{equation}
+Let
+\begin{equation}\label{key}
+u(r,\theta,\phi) = R(r)Y(\theta,\phi)
+\end{equation}
+
+\paragraph{Cylindric Coords}
+
+\subsubsection{波动方程}
+
+\subsubsection{输运方程}
+
+\subsubsection{Helmholtz Equation}
+\paragraph{Spheric Coords}
+\paragraph{Cylindric Coords}
+
+\subsection{常点邻域上的级数解法}
+\begin{equation}\label{key}
+\dv[2]{w}{z} + p(z)\dv{w}{z} + q(z)w = 0
+\end{equation}
+\subsubsection{(常点) and Singularity}
+
+\subsubsection{常点邻域上的级数解}
+
+\subsubsection{Solving Legendre Eq. with Series}
+
+\subsection{Serial Solution in Neighborhood of Canonical Singularity}
+\subsubsection{}
+\subsubsection{}
+
+\subsubsection{Bessel Equation}
+
+\subsubsection{Imaginary Bessel Equation}
+
+\subsection{Sturm–Liouville Eigenvalue Problem}
+\subsubsection{Sturm–Liouville Eigenvalue Problem}
+Sturm–Liouville Equation
+\begin{equation}\label{key}
+\dv{x}\qty[k(x)\dv{y}{x}] - q(x)y + \lambda\rho(x)y = 0 \quad (a\leq x\leq b)
+\end{equation}
+
+\subsubsection{Eigenvalue Problem}
+
+\subsubsection{Generalized Fourier Series}
+
+
+
+
+
+\section{Spheric Function}
+\begin{equation}\label{key}
+\dfrac{1}{\sin\theta}\pdv{\theta}\qty(\sin\theta\pdv{Y}{\theta}) + \dfrac{1}{\sin^2 \theta}\pdv[2]{Y}{\phi} + \ell(\ell + 1)Y = 0
+\end{equation}
+\subsection{axis-symmetric}
+\begin{equation}\label{key}
+\dfrac{1}{\sin\theta}\pdv{\theta}\qty(\sin\theta\pdv{\Theta}{\theta})  + \ell(\ell + 1)\Theta = 0
+\end{equation}
+Let $x=\cos\theta$
+\begin{equation}\label{key}
+(1-x^2)\dv[2]{\Theta}{x} - 2x\dv{\Theta}{x} + \ell(\ell +1)\Theta = 0
+\end{equation}
+\subsubsection{Legendre Polynomial}
+\begin{equation}\label{key}
+P_\ell(x) = \sum_{k=0}^{[\ell/2]}(-1)^k \dfrac{(2\ell - 2k)!}{k!2^\ell (\ell - k)!(\ell - 2k)!}x^{\ell - 2k}
+\end{equation}
+\paragraph{Differential representation}~\\
+...\\
+\paragraph{Integral representation}~\\
+...\\
+
+\subsubsection{Second Legendre Function}
+
+\subsubsection{Orthogonality}
+
+\subsubsection{Normality}
+
+\subsubsection{Generalized Fourier Series}
+\begin{equation}\label{key}
+f(x) = \sum_{\ell=0}^\infty f_\ell P_\ell(x)
+\end{equation}
+
+\subsubsection{Axis-symmetric Solution of Laplace Function}
+
+
+\subsection{Associated Legendre Polynomial}
+Associated Legendre Equation
+\begin{equation}\label{key}
+(1 - x^2)\dv[2]{\Theta}{x} - 2x\dv{\Theta}{x} + \qty[\ell(\ell+1) - \dfrac{m^2}{1-x^2}]\Theta = 0
+\end{equation}
+
+\subsubsection{Associated Legendre Function}
+\paragraph{Expression}
+...\\
+\begin{equation}\label{key}
+P_\ell^m(x) = (1 - x^2)^{m/2} P_\ell^{[m]}(x)
+\end{equation}
+where
+\begin{equation}\label{key}
+P_\ell^{[m]}(x) = \dv[m]{P_\ell(x)}{x}
+\end{equation}
+and
+\begin{equation}\label{key}
+m = 0,1,2,\cdots,\ell
+\end{equation}
+
+\paragraph{Differential}
+
+\paragraph{Integral}
+
+\subsubsection{Orthogonality}
+\begin{equation}\label{key}
+\int_{-1}^1 P_k^m(x) P_\ell^m(x)\dd x = 0 \quad (k\neq\ell)
+\end{equation}
+or
+\begin{equation}\label{key}
+\int_0^\pi P_k^m(\cos\theta) P_\ell^m(\cos\theta)\sin\theta\dd\theta = 0
+\end{equation}
+
+\subsubsection{Module}
+\begin{equation}\label{key}
+(N_\ell^m)^2 = \int_{-1}^1[P_\ell^m(x)]^2\dd x = \sqrt{\dfrac{(\ell + m)!\cdot 2}{(\ell - m)!(2\ell + 1)}}
+\end{equation}
+
+\subsubsection{Generalized Fourier Series}
+\begin{equation}\label{key}
+\left\{
+\begin{aligned}
+& f(x) = \sum_{\ell=m}^\infty f_\ell P_\ell^m(x)\\
+& f_\ell = \dfrac{(\ell - m)!(2\ell + 1)}{(\ell + m)!\cdot 2}\int_{-1}^1 f(x) P_\ell^m(x)\dd x
+\end{aligned}\right.
+\end{equation}
+
+\subsubsection{递推}
+
+
+\subsection{General Spheric Function}
+\subsubsection{Spheric Function}
+\paragraph{Expression}
+\begin{equation}\label{key}
+Y_\ell^m(\theta,\phi) = P_\ell^m(\cos\theta)\left\{\mqty{\sin m\phi\\ \cos m\phi}\right\}
+\end{equation}
+where $\{ \}$ means both upper and lower expression is ok.
+
+\paragraph{Complex Form}
+
+\end{document}

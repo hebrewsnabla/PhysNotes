@@ -1,0 +1,550 @@
+\documentclass[UTF8]{ctexart} % use larger type; default would be 10pt
+
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+
+%%% Examples of Article customizations
+% These packages are optional, depending whether you want the features they provide.
+% See the LaTeX Companion or other references for full information.
+
+%%% PAGE DIMENSIONS
+\usepackage{geometry} % to change the page dimensions
+\geometry{a4paper} % or letterpaper (US) or a5paper or....
+% \geometry{margin=2in} % for example, change the margins to 2 inches all round
+% \geometry{landscape} % set up the page for landscape
+%   read geometry.pdf for detailed page layout information
+
+\usepackage{graphicx} % support the \includegraphics command and options
+
+% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+
+%%% PACKAGES
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+% These packages are all incorporated in the memoir class to one degree or another...
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+%%% SECTION TITLE APPEARANCE
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+% (This matches ConTeXt defaults)
+
+%%% ToC (table of contents) APPEARANCE
+\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+%%% END Article customizations
+
+%%% The "real" document content comes below...
+
+\setlength{\parindent}{0pt}
+\usepackage{physics}
+\usepackage{amsmath}
+%\usepackage{symbols}
+\usepackage{AMSFonts}
+\usepackage{bm}
+%\usepackage{eucal}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{multicol}
+\usepackage{abstract}
+\usepackage{empheq}
+\usepackage{extarrows}
+\usepackage{fontenc}
+\usepackage{textcomp}
+
+
+\DeclareMathOperator{\p}{\prime}
+\DeclareMathOperator{\ti}{\times}
+\DeclareMathOperator{\s}{\sum_{n=1}^{\infty}}
+\DeclareMathOperator{\intinf}{\int_0^\infty}
+\DeclareMathOperator{\intdinf}{\int_{-\infty}^\infty}
+\DeclareMathOperator{\suminf}{\sum_{n=0}^\infty}
+\DeclareMathOperator{\sumin}{\sum_{i=1}^n}
+\DeclareMathOperator{\e}{\mathrm{e}}
+\renewcommand{\I}{\mathrm{i}}
+\DeclareMathOperator{\ra}{\rightarrow}
+\DeclareMathOperator{\llra}{\longleftrightarrow}
+\DeclareMathOperator{\lra}{\longrightarrow}
+\DeclareMathOperator{\dlra}{\Leftrightarrow}
+\DeclareMathOperator{\dra}{\Rightarrow}
+\newcommand{\txra}{\textrightarrow}
+\newcommand{\dis}{\displaystyle}
+\newcommand{\dbar}{{\mathchar'26\mkern-11mu\mathrm{d}}}
+\numberwithin{equation}{subsection}
+
+\title{Notes of JU Guoxing TD\&SP}
+\author{hebrewsnabla}
+%\date{} % Activate to display a given date or no date (if empty),
+         % otherwise the current date is printed 
+
+\begin{document}
+% \boldmath
+\maketitle
+\setcounter{section}{3}
+\section{Temperature and Boltzmann Factor}
+\subsection{Thermal Equilibrium}
+\subsection{温度计}
+
+
+
+~\\
+compact - 紧致（数学译法） - 致密（物理译法）\\
+
+~\\
+
+\subsection{Microstates and Macrostates}
+\subsection{Description of Dynamic states of particles}
+\subsubsection{Classic Description}
+\subsubsection{Quantum Description}
+\subsubsection{Identical Particle System}
+\paragraph{Identity Principle}~\\
+Identical particles in quantum physics is indistinguishable.
+\paragraph{Boson \& Fermion}~\\
+光子的自旋简并度为2，不满足$2s+1$\\
+光子的静质量为0不是显然的，而是外推的结果。\\
+\paragraph{Bose, Fermi \& Boltzmann System}~\\
+Fermion - Pauli Exclusion - Fermi-Dirac Distribution\\
+Boson - no exclusion - Bose-Einstein Condensation (BEC)\\
+就量子本性来说不可分辨，但可以根据位置加以区分 - Localized system / Boltzmann system - Maxwell-Boltzmann Distribution.
+\subsubsection{Number of Microstates}
+$\varepsilon_l$ energy level\\
+$\varepsilon_s$ energy of state\\
+$\omega_l$ degeneracy of energy level\\
+$a_l$ number of particles of energy level\\
+~\\
+For systems w/ constant N, V, E
+\begin{equation}\label{key}
+\sum_l a_l = N\quad \sum_l \varepsilon_l a_l = E
+\end{equation}
+\paragraph{Boltzmann System}
+
+\subsection{}
+\subsection{Ensamble}
+\newpage
+Mar 27 \\
+S.Weinberg 还原论\\
+P.W.Anderson "More is different"\\
+Wilczek\\
+~\\
+\subsection{Canonical Ensamble \& Boltzmann Distribution}
+\paragraph{Canonical Ensamble}~\\
+Constant $N,\;V,\;T\;$\\
+与大热源(heat source, heat reservoir, heat bath; with huge heat capacity)仅有能量交换的平衡系统\\
+$\varepsilon =$ energy of system\\
+$E_r =$ energy of reservoir\\
+$\varepsilon + E_r = E $ (Cons.)
+~~~~~~~~~~$\varepsilon << E$\\
+
+\newpage
+非平衡态统计物理  普利高津  Belscu\\
+
+\setcounter{section}{10}
+\section{Energy}
+\subsection{}
+\subsection{First Law}
+\begin{equation}\label{key}
+\dd U = \dbar Q + \dbar W
+\end{equation}
+\begin{equation}\label{key}
+\dbar W = -p\dd V \quad \text{(对系统做功为正)}
+\end{equation}
+
+\subsection{Capacity}
+\begin{equation}\label{key}
+\begin{aligned}
+\dbar Q &= \dd U + p\dd V\\
+&=\qty(\pdv{U}{T})_V \dd T + \qty(\pdv{U}{V})_T\dd V + p\dd V
+\end{aligned}
+\end{equation}
+thus
+\begin{equation}\label{key}
+C_v \equiv \qty(\pdv{Q}{T})_V = \qty(\pdv{U}{T})_V
+\end{equation}
+\begin{equation}\label{key}
+C_p = \qty(\pdv{Q}{T})_p = \qty(\pdv{U}{T})_V + \qty[\qty(\pdv{U}{V})_T + p]\qty(\pdv{V}{T})_p
+\end{equation}
+\begin{equation}\label{key}
+C_p - C_V = \qty[\qty(\pdv{U}{V})_T + p]\qty(\pdv{V}{T})_p
+\end{equation}
+---------------------------- \\
+For ideal gas (one atom, per mol)
+\begin{equation}\label{key}
+C_v = \dfrac{3}{2}R
+\end{equation}
+\begin{equation}\label{key}
+C_p = C_V + [0+p]\dfrac{R}{p} = \dfrac{5}{2}R
+\end{equation}
+---------------------------- \\
+Def: adiabatic index
+\begin{equation}\label{key}
+\gamma = \dfrac{C_p}{C_V}
+\end{equation}
+
+\section{Isothermal \& Adiabatic Processes}
+\subsection{}
+\subsection{Isothermal Process of Ideal Gas}
+\paragraph{Attention:}
+能够在p-V图上表示出来的，一定是平衡态或近似为平衡态，这样才有确定的p，T，否则画不出来的。\\
+\begin{equation}\label{key}
+\dd T = 0\;\dra\; \dd U = 0
+\end{equation}
+\begin{equation}\label{key}
+\Delta Q = \int\dbar Q = -\int\dbar W = RT\ln\dfrac{V_2}{V_1}
+\end{equation}
+
+\subsection{Adiabatic Process of Ideal Gas}
+\begin{equation}\label{key}
+\dbar Q = 0
+\end{equation}
+\begin{equation}\label{key}
+\dd U = \dbar W
+\end{equation}
+\begin{equation}\label{key}
+C_V\dd T = -p\dd V = -\dfrac{RT}{V}\dd V
+\end{equation}
+\begin{equation}\label{key}
+\ln\dfrac{T_1}{T_2} = -\dfrac{RT}{C_V}\ln\dfrac{V_2}{V_1}
+\end{equation}
+while
+\begin{equation}\label{key}
+\gamma = 1 + \dfrac{R}{C_V}
+\end{equation}
+thus
+\begin{equation}\label{key}
+TV^{\gamma-1} = Cons.
+\end{equation}
+or
+\begin{equation}\label{key}
+pV^\gamma = Cons.
+\end{equation}
+\paragraph{Attention:}
+$pV = nRT$ is a state fxn, while $pV^\gamma = Cons.$ is a process fxn. (Although state fxn and process fxn may not be differed in Mechanics)
+
+\subsection{Adiabatic Atmosphere}
+
+
+\section{Heat Engine and the 2nd Law}
+\subsection{The 2nd Law}
+\subsubsection{Kelvin's Statement}
+Discussion:\\
+1) \\
+2) \\
+\subsubsection{Clausius' Statement}
+Discussion:\\
+1) \\
+2) \\
+\subsection{The Carnot Cycle}
+\paragraph{Cycle Process}~\\
+def\\
+working substance\\
+~\\
+Carnot engine runs between two heat source w/ temp $T_h$ and $T_\ell$\\
+A\txra B  isothermal
+\begin{equation}\label{c1}
+Q_h = RT_h\ln\dfrac{V_B}{V_A}
+\end{equation}
+B\txra C  adiabatic
+\begin{equation}\label{c2}
+\dfrac{T_h}{T_\ell}  =  \qty(\dfrac{V_C}{V_B})^{\gamma-1}
+\end{equation}
+C\txra D  isothermal
+\begin{equation}\label{c3}
+Q_\ell = -RT_\ell \ln\dfrac{V_D}{V_C}
+\end{equation}
+D\txra A  adiabatic
+\begin{equation}\label{c4}
+\dfrac{T_\ell}{T_h}  =  \qty(\dfrac{V_A}{V_D})^{\gamma-1}
+\end{equation}
+with $\eqref{c2},\eqref{c4}$
+\begin{equation}\label{key}
+\dfrac{V_C}{V_B}\dfrac{V_A}{V_D} = 1
+\end{equation}
+thus
+\begin{equation}\label{key}
+\dfrac{V_B}{V_A} = \dfrac{V_C}{V_D}
+\end{equation}
+with $\eqref{c1},\eqref{c3}$
+\begin{equation}\label{key}
+\dfrac{Q_h}{Q_\ell} = \dfrac{T_h}{T_\ell}
+\end{equation}
+%\begin{equation}\label{key}
+%W = Q_h - Q_\ell = R\qty(T_h\ln\dfrac{V_B}{V_A} + T_\ell \ln\dfrac{V_D}{V_C}) = R\ln\dfrac{V_B}{V_A}(T_h - T_\ell)
+%\end{equation}
+\begin{equation}\label{key}
+\eta = \dfrac{W}{Q_h} = \dfrac{Q_h - Q_\ell}{Q_h} = 1 - \dfrac{T_\ell}{T_h}
+\end{equation}
+
+\subsection{Carnot's Theorem}
+\subsection{}
+\subsection{}
+\subsection{}
+\subsection{Clausius' Theorem}
+For Carnot Cycle
+\begin{equation}\label{key}
+\dfrac{Q_h}{Q_\ell} = \dfrac{T_h}{T_\ell}
+\end{equation}
+thus
+\begin{equation}\label{key}
+\sum\dfrac{Q_{rev}}{T} = \dfrac{Q_h}{T_h} + \dfrac{-Q_\ell}{T_\ell} = 0
+\end{equation}
+i.e.
+\begin{equation}\label{key}
+\oint\dfrac{\dbar Q_{rev}}{T} = 0
+\end{equation}
+\paragraph{Clausius Inequality}
+\begin{equation}\label{key}
+\oint\dfrac{\dbar Q}{T} \leq 0
+\end{equation}
+
+\section{Entropy}
+\subsection{Definition}
+Prove $\displaystyle\int_A^B \dfrac{\dbar Q_R}{T}$ is path-independent\\
+def:
+\begin{equation}\label{key}
+\dd S = \dfrac{\dbar Q_R}{T}
+\end{equation}
+where "R" means reversible.
+\begin{equation}\label{key}
+S_B - S_A = \int_A^B \dfrac{\dbar Q_R}{T}
+\end{equation}
+For adiabatic process (aka isentropic process, 等熵过程)
+\begin{equation}\label{key}
+\dd S = 0
+\end{equation}
+
+\subsection{Irreversible Change}
+\begin{equation}\label{key}
+\oint \dfrac{\dbar Q_R}{T} = 0
+\end{equation}
+\begin{equation}\label{key}
+\oint \dfrac{\dbar Q}{T} \leq 0
+\end{equation}
+\begin{equation}\label{key}
+\int_A^B \dfrac{\dbar Q}{T} + \oint_B^A \dfrac{\dbar Q_R}{T} \leq 0
+\end{equation}
+\begin{equation}\label{key}
+\oint_A^B \dfrac{\dbar Q}{T} \leq \int_A^B \dfrac{\dbar Q_R}{T}
+\end{equation}
+\begin{equation}\label{key}
+\dd S  = \int_A^B \dfrac{\dbar Q_R}{T} \geq \oint_A^B \dfrac{\dbar Q}{T}
+\end{equation}
+For isolated system, $\dbar Q = 0$, thus
+\begin{equation}\label{key}
+\dd S \geq 0
+\end{equation}
+
+\subsection{Revisit First Law}
+For reversible process
+\begin{equation}\label{key}
+\dd U = T\dd S - p\dd V
+\end{equation}
+-------------------------------------~
+\paragraph{Attention: Also ok for irreversible process}~\\
+For irreversible process
+\begin{equation}\label{key}
+\dbar Q \leq T\dd S \quad \dbar W \geq -p\dd V
+\end{equation}
+------------------------------------~\\
+thus 
+\begin{equation}\label{T=pdvU}
+T = \qty(\pdv{U}{S})_V
+\end{equation}
+\begin{equation}\label{key}
+p = -\qty(\pdv{U}{V})_S
+\end{equation}
+\begin{equation}\label{key}
+\dfrac{p}{T} = -\qty(\pdv{U}{V})_S\qty(\pdv{S}{U})_V = \qty(\pdv{S}{V})_U
+\end{equation}
+
+\subsection{Joule Expansion (Irreversible)}
+isol sys, ideal gas. $V_0 \ra 2V_0$
+\begin{equation}\label{key}
+p_i V_0 = RT_i
+\end{equation}
+\begin{equation}\label{key}
+p_f\cdot 2V_0 = RT_f
+\end{equation}
+isol \txra
+\begin{equation}\label{key}
+T_i = T_f
+\end{equation}
+thus
+\begin{equation}\label{key}
+p_f = \dfrac{p_i}{2}
+\end{equation}
+Since $\dd U = 0$, thus
+\begin{equation}\label{key}
+T\dd S = p\dd V
+\end{equation}
+\begin{equation}\label{key}
+\Delta S = \int_{V_0}^{2V_0}\dfrac{p}{T}\dd V = \int_{V_0}^{2V_0}\dfrac{R}{V}\dd V = R\ln 2
+\end{equation}
+
+\subsection{Statistical Basis for Entropy}
+with $\eqref{T=pdvU}$, we have
+\begin{equation}\label{key}
+\dfrac{1}{T} = \qty(\pdv{S}{U})_V
+\end{equation}
+consider
+\begin{equation}\label{key}
+\dfrac{1}{k_B T} = \dv{\ln\Omega}{E}
+\end{equation}
+Def
+\begin{equation}\label{key}
+S = k_B \ln\Omega
+\end{equation}
+
+\subsection{Entropy of Mixing}
+gas1, p, T, xV, xN\\
+gas2, p ,T, (1-x)V, (1-x)N\\
+\txra gas1,2 p, T, V, N
+\begin{equation}\label{key}
+\begin{aligned}
+\Delta S &= \int_{xV}^V xNk_B\dfrac{\dd V}{V} + \int_{(1-x)V}^V (1-x)Nk_B\dfrac{\dd V}{V}\\
+&=-Nk_B[x\ln x + (1-x)\ln(1-x)]
+\end{aligned}
+\end{equation}
+
+\subsection{}
+\subsection{Entropy and Probability}
+A sys has $N$ micro-states (等概率), divided into some macro-states, each containing $n_i$ micro-states.
+\begin{equation}\label{key}
+\sum_i n_i = N
+\end{equation}
+thus
+\begin{equation}\label{key}
+P_i = \dfrac{n_i}{N}
+\end{equation}
+Entropy
+\begin{equation}\label{key}
+S_{tot} = S + S_{micro}
+\end{equation}
+where $S$ is connected to macro-states, which we can measure\\
+$S_{micro}$ is connected to micro-states
+\begin{equation}\label{key}
+S_{micro} = \sum_i P_i S_i = \sum_i P_i k_B \ln n_i
+\end{equation}
+thus
+\begin{equation}\label{key}
+\begin{aligned}
+S &= S_{tot} - S_{micro} = k_B \ln N - \sum_i P_i k_B \ln n_i\\
+&=k_B\qty(\ln\dfrac{n_i}{P_i} - )
+\end{aligned}
+\end{equation}
+
+\section{}
+
+\section{Thermodynamic Potentials}
+\subsection{Internal Energy}
+\begin{equation}\label{key}
+\dd U = T\dd S - p\dd V
+\end{equation}
+for isochoric process (等容过程)
+\begin{equation}\label{key}
+\dd U = T\dd S
+\end{equation}
+for reversible isochoric process
+\begin{equation}\label{key}
+\dd U = \dbar Q = C_V\dd T
+\end{equation}
+
+\subsection{Enthalpy}
+\begin{equation}\label{key}
+H \equiv U + pV
+\end{equation}
+thus
+\begin{equation}\label{key}
+\dd H = T\dd S + V\dd p
+\end{equation}
+For isobaric process (等压过程)
+\begin{equation}\label{key}
+\dd H = T\dd S
+\end{equation}
+for reversible isobaric process
+\begin{equation}\label{key}
+\dd H = \dbar Q_R = C_p\dd T
+\end{equation}
+
+\subsection{Helmholtz Function}
+\begin{equation}\label{key}
+F \equiv U - TS
+\end{equation}
+thus
+\begin{equation}\label{key}
+\dd F = -S\dd T -p\dd V
+\end{equation}
+
+\subsection{Gibbs Function}
+\begin{equation}\label{key}
+G \equiv H - TS = U + pV - TS
+\end{equation}
+thus 
+\begin{equation}\label{key}
+\dd G = -S\dd T + V\dd p
+\end{equation}
+
+---------------------------------~\\
+\paragraph{Gibbs-Helmholtz Equations}
+\begin{equation}\label{key}
+\begin{aligned}
+U &= F + TS = F - T\qty(\pdv{F}{T})_V\\
+ &= T^2 \dfrac{F - T\qty(\pdv{F}{T})_V}{T^2} = -T^2\qty(\pdv{T}\dfrac{F}{T})_V
+\end{aligned}
+\end{equation}
+\begin{equation}\label{key}
+H = -T^2\qty(\pdv{T}\dfrac{G}{T})_p
+\end{equation}
+
+\subsection{}
+
+\subsection{Maxwell Relations}
+\begin{equation}\label{key}
+\qty(\pdv{T}{V})_S = -\qty(\pdv{p}{S})_V
+\end{equation}
+\begin{equation}\label{key}
+\qty(\pdv{T}{p})_S = \qty(\pdv{V}{S})_p
+\end{equation}
+\begin{equation}\label{key}
+\qty(\pdv{S}{V})_T = \qty(\pdv{p}{T})_V
+\end{equation}
+\begin{equation}\label{key}
+\qty(\pdv{S}{p})_T = -\qty(\pdv{V}{T})_p
+\end{equation}
+
+E.g. 16.4
+\begin{equation}\label{key}
+C_V = \qty(\pdv{Q}{T})_V = T\qty(\pdv{S}{T})_V
+\end{equation}
+\begin{equation}\label{key}
+\qty(\pdv{C_V}{V})_T = \qty(\pdv{V}T\qty(\pdv{S}{T})_V)_T = T\qty(\pdv{T}\qty(\pdv{S}{V})_T)_V = T\qty(\pdv[2]{p}{T})_V
+\end{equation}
+Similarly
+\begin{equation}\label{key}
+\qty(\pdv{C_p}{p})_T = -T\qty(\pdv[2]{V}{T})_p
+\end{equation}
+
+isobaric expansivity (等压膨胀率)
+\begin{equation}\label{key}
+\beta_p = \dfrac{1}{V}\qty(\pdv{V}{T})_p
+\end{equation}
+adiabatic expansivity (绝热膨胀率)
+\begin{equation}\label{key}
+\beta_S = \dfrac{1}{V}\qty(\pdv{V}{T})_S
+\end{equation}
+
+
+
+
+\end{document}

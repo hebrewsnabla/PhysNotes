@@ -1,0 +1,367 @@
+\documentclass[UTF8]{ctexart} % use larger type; default would be 10pt
+
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+
+%%% Examples of Article customizations
+% These packages are optional, depending whether you want the features they provide.
+% See the LaTeX Companion or other references for full information.
+
+%%% PAGE DIMENSIONS
+\usepackage{geometry} % to change the page dimensions
+\geometry{a4paper} % or letterpaper (US) or a5paper or....
+% \geometry{margin=2in} % for example, change the margins to 2 inches all round
+% \geometry{landscape} % set up the page for landscape
+%   read geometry.pdf for detailed page layout information
+
+\usepackage{graphicx} % support the \includegraphics command and options
+
+% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+
+%%% PACKAGES
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+% These packages are all incorporated in the memoir class to one degree or another...
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+%%% SECTION TITLE APPEARANCE
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+% (This matches ConTeXt defaults)
+
+%%% ToC (table of contents) APPEARANCE
+\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+%%% END Article customizations
+
+%%% The "real" document content comes below...
+
+\setlength{\parindent}{0pt}
+\usepackage{physics}
+\usepackage{amsmath}
+%\usepackage{symbols}
+\usepackage{AMSFonts}
+\usepackage{bm}
+%\usepackage{eucal}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{multicol}
+\usepackage{abstract}
+\usepackage{empheq}
+\usepackage{extarrows}
+
+
+\DeclareMathOperator{\p}{\prime}
+\DeclareMathOperator{\ti}{\times}
+\DeclareMathOperator{\s}{\sum_{n=1}^{\infty}}
+\DeclareMathOperator{\intinf}{\int_0^\infty}
+\DeclareMathOperator{\intdinf}{\int_{-\infty}^\infty}
+\DeclareMathOperator{\suminf}{\sum_{n=0}^\infty}
+\DeclareMathOperator{\e}{\mathrm{e}}
+\renewcommand{\I}{\mathrm{i}}
+\DeclareMathOperator{\Arg}{\mathrm{Arg}}
+\DeclareMathOperator{\ra}{\rightarrow}
+\DeclareMathOperator{\llra}{\longleftrightarrow}
+\DeclareMathOperator{\lra}{\longrightarrow}
+\DeclareMathOperator{\dlra}{\Leftrightarrow}
+\DeclareMathOperator{\dra}{\Rightarrow}
+\newcommand{\dis}{\displaystyle}
+\numberwithin{equation}{section}
+
+\title{Notes of WU Shengjun MMP\\
+Part I: Complex Analysis}
+\author{hebrewsnabla}
+%\date{} % Activate to display a given date or no date (if empty),
+         % otherwise the current date is printed 
+
+\begin{document}
+% \boldmath
+\maketitle
+
+\section{Complex Function}
+\subsection{Complex Number}
+\begin{equation}\label{key}
+z=\rho\e^{\I\phi}
+\end{equation}
+$\rho$ is the modulus of $z$. $\phi$ is the argument of $z$, namely $\Arg z$.\\
+Def: $\arg z \in \{\Arg z\}$, $0 \leq \arg z < 2\pi$\\
+thus $\arg z$ is called the principle value of $Arg z$.
+
+\begin{equation}\label{key}
+\sqrt[n]{z}=\sqrt[n]{\rho}\e^{\I\tfrac{\phi+2k\pi}{n}}
+\end{equation}
+$\sqrt[n]{z}$ have $n$ different values\\
+Logarithm and exponential of complex numbers are defined as
+\begin{equation}\label{key}
+\ln z=\ln (\rho\e^{\I\phi})=\ln\rho+\I(\phi+2k\pi)
+\end{equation}
+\begin{equation}\label{key}
+z^s=\e^{s\ln z}=\e^{s(\ln\rho+\I(\phi+2k\pi))}
+\end{equation}
+Specially
+\begin{equation}\label{key}
+\ln\I=\I(\dfrac{\pi}{2}+2k\pi)
+\end{equation}
+\begin{equation}\label{key}
+\I^\I=\e^{\I\cdot\I(\dfrac{\pi}{2}+2k\pi)}=-\dfrac{\pi}{2}+2k\pi
+\end{equation}
+
+\subsection{Complex Function}
+\subsubsection{Definition}
+If $\forall z \in E \subseteq \mathbb{C},\; \exists$ one or more complex number $\omega$ corresponds to $z$, we call $\omega$ as a complex function of $z$, namely
+\begin{equation}\label{key}
+\omega = f(z)
+\end{equation}
+\subsubsection{Domain}
+Definitions:
+\paragraph{Neighbourhood}~\\
+Neighbourhood of $z_0$ is a disc of the form $\{z\in\mathbb{C}:\abs{z - z_0}<\varepsilon\}$
+\paragraph{Interior Point}~\\
+A point $z_0 \in S$ is said to be an interior point of $S$
+if there exists a neighbourhood of $z_0$ which is contained in $S$.
+\paragraph{Open Set}~\\
+The set $S$ is said to be open if every point of $S$ is an interior point of $S$.
+\paragraph{Exterior Point}~\\
+A point $z_0$ is said to be an exterior point of $S$
+if $z_0$ and all neighbourhood of $z_0$ are not contained in $S$.
+\paragraph{Boundary Point}
+\paragraph{Connectivity}
+\paragraph{Domain}
+
+\subsubsection{Examples}
+\begin{equation}\label{key}
+\sin z=\dfrac{1}{2\I}(\e^{\I z}-\e^{-\I z})
+\end{equation}
+\begin{equation}\label{key}
+\cos z=\dfrac{1}{2}(\e^{\I z}+\e^{-\I z})
+\end{equation}
+\begin{equation}\label{key}
+\begin{aligned}
+\sin z&=\dfrac{\e^{\I x-y}-\e^{-\I x+y}}{2\I}\\
+&=\dfrac{\e^{-y}(\cos x+\I\sin x)-\e^y(\cos x-\I\sin x)}{2\I}\\
+&=\dfrac{\e^{-y}(-\I\cos x+\sin x)+\e^y(\I\cos x+\sin x)}{2}\\
+&=\dfrac{\e^y+\e^{-y}}{2}\sin x + \I\dfrac{\e^y-\e^{-y}}{2}\cos x
+\end{aligned}
+\end{equation}
+\begin{equation}\label{key}
+\abs{\sin z}=\dfrac{1}{2}\sqrt{\e^{2y}+\e^{-2y}+2(\sin^2 x-\cos^2 x)}
+\end{equation}
+$\abs{\sin z}$ and $\abs{\cos z}$ can $>1$.\\
+$\sin z$ and $\cos z$ have period $2\pi$.\\
+\begin{equation}\label{key}
+\sinh z=\dfrac{1}{2}(\e^z-\e^{-z})
+\end{equation}
+\begin{equation}\label{key}
+\cosh x=\dfrac{1}{2}(\e^z+\e^{-z})
+\end{equation}
+$\e^z,\;\sinh z\;\cosh z$ have period $2\pi\I$.
+\begin{equation}\label{key}
+\ln z = \ln\abs{z} + \I\Arg z
+\end{equation}
+\subsubsection{Derivatives}
+\begin{equation}\label{key}
+\dv{f}{z}=\lim_{\Delta x\rightarrow 0}\dfrac{f(z+\Delta z)-f(z)}{\Delta z}
+\end{equation}
+suppose $\Delta y = 0,\;\Delta z=\Delta x \ra 0$
+\begin{equation}\label{key}
+\lim_{\Delta z \ra 0} \dfrac{f(z+\Delta z)-f(z)}{\Delta z}=\pdv{u}{x}+\I\pdv{v}{x}
+\end{equation}
+suppose $\Delta x = 0,\;\Delta z=\I\Delta y \ra 0$
+\begin{equation}\label{key}
+\lim_{\Delta z \ra 0} \dfrac{f(z+\Delta z)-f(z)}{\Delta z} = \pdv{v}{y} - \I\pdv{u}{y}
+\end{equation}
+Cauchy-Riemann (C-R) condition: $\dis\pdv{u}{x}+\I\dis\pdv{v}{x} = \dis\pdv{v}{y} - \I\dis\pdv{u}{y}$, i.e.
+\begin{equation}\label{key}
+\left\{\begin{aligned}
+\pdv{u}{x} &= \pdv{v}{y}\\
+\pdv{v}{x} &= -\pdv{u}{y}
+\end{aligned}\right.
+\end{equation}
+
+which is the necessary condition for $f(z)$ being differentiable at $z$.\\
+The sufficient condition: $\exists$ continuous $\dis\pdv{u}{x},\dis\pdv{v}{x},\dis\pdv{v}{y},\dis\pdv{u}{y}$, which satisfy C-R condition. \\
+C-R cond $\dlra\; \pdv{u}{z^*}=0$\\
+\paragraph{C-R Eq. in Polar Coordinates}
+\begin{equation}\label{key}
+\begin{aligned}
+\pdv{u}{\rho} &= \dfrac{1}{\rho}\pdv{v}{\phi}\\
+\dfrac{1}{\rho}\pdv{u}{\phi} &= -\pdv{v}{\rho}
+\end{aligned}
+\end{equation}
+\section{Integral}
+\subsection{Introduction}
+
+\subsection{Cauchy Theorem}
+单连通
+\begin{equation}\label{key}
+\oint_l f(z)\dd z=0
+\end{equation}
+复连通
+\begin{equation}\label{key}
+\oint_l f(z)\dd z + \sum_{i=1}^n\oint_{l_i}f(z)\dd z=0
+\end{equation}
+\subsection{不定积分}
+Complex Newton-Lebniz
+\begin{equation}\label{key}
+F(z)=\int_{z_0}^z f(\zeta)\dd\zeta,\quad F^{\p}(z)=f(z)
+\end{equation}
+Consider integral
+\begin{equation}\label{key}
+I=\int_a^b z^n\dd z,\;n\in\mathbb{Z}
+\end{equation}
+1) $n\neq -1$\\
+2) $n=-1$
+\begin{equation}\label{key}
+I=\ln b-\ln a=\ln\abs{\dfrac{b}{a}}+\I(\Arg b-\Arg a)
+\end{equation}
+What about
+\begin{equation}\label{key}
+I=\oint_l (z-\alpha)^n\dd z
+\end{equation}
+1) $\alpha$ is external, $I=0$\\
+2) $\alpha$ is internal\\
+2.1) $n\geqslant 0$\\
+2.2) $n<0$, let $z-\alpha=R\e^{\I n\phi}$
+\begin{equation}\label{key}
+\begin{aligned}
+I&=\int_0^{2\pi}R^n\e^{\I n\phi}\dd(\alpha+R\e^{\I n\phi})\\
+&=\I R^{n+1}\int_0^{2\pi}\e^{\I(n+1)\phi}\dd\phi
+\end{aligned}
+\end{equation}
+2.2.1) $n\neq -1$
+2.2.2) $n=-1$
+~\\
+\begin{equation}\label{key}
+I=\int_C (\abs{z}-\e^z\sin z)\dd z
+\end{equation}
+where $C$ is 
+
+\subsection{Cauchy Equation}
+$f(z)$在闭单联通区域$B$上解析, $l$is boundary of $B$, $\alpha\in B$.
+\begin{equation}\label{key}
+f(\alpha)=\dfrac{1}{2\pi\I}\oint_l \dfrac{f(z)}{z-\alpha}\dd z
+\end{equation}
+Discussion\\
+1)
+\begin{equation}\label{key}
+f(z)=\dfrac{1}{2\pi\I}\oint_l\dfrac{}{}
+\end{equation}
+2) 无界推广\\
+3) derivatives
+\begin{equation}\label{key}
+f^{\p}(z)=\dfrac{1}{2\pi\I}\oint_l\dfrac{f(\zeta)}{(\zeta-z)^2}\dd\zeta
+\end{equation}
+\begin{equation}\label{key}
+f^{(n)}(z)=\dfrac{n!}{2\pi\I}\oint_l\dfrac{f(\zeta)}{(\zeta-z)^{n+1}}\dd\zeta
+\end{equation}
+
+\section{Power Series}
+\subsection{Complex Series}
+\subsubsection{Introduction}
+\begin{equation}\label{key}
+\sum_{k=1}^\infty w_k = \sum_{k=1}^\infty u_k + \I\sum_{k=1}^\infty v_k
+\end{equation}
+\subsubsection{Convergence Test}
+\paragraph{Cauchy's Convergence Test}~\\
+$\forall \varepsilon>0,\;\exists N,$ s.t. when $n>N,\;\forall p\in \mathbb{N}$
+\begin{equation}\label{key}
+\abs{\sum_{k=n+1}^{n+p} w_k}<\varepsilon
+\end{equation}
+\paragraph{Absolute Convergence}
+\subsubsection{Function Series}
+\paragraph{Convergence Test}
+\subparagraph{Cauchy's}
+\subsubsection{Uniform Convergence}
+
+\subsection{Power Series}
+\subsubsection{Definition}
+\subsubsection{Convergence and Divergence Test}
+\paragraph{D'Alembert's Test}
+\paragraph{Root}
+\paragraph{Convergence Circle}
+\subsubsection{Analytical Features}
+
+\subsection{Taylor Expansion}
+
+\subsection{解析延拓}
+
+\subsection{Laurent Expansion}
+\subsubsection{Bilateral Power Series}
+\begin{equation}\label{key}
+\cdots+a_{-2}(z-z_0)^{-2} + a_{-1}(z-z_0)^{-1} + a_0 + a_1(z-z_0) + a_2(z-z_0)^2 + \cdots
+\end{equation}
+Positive part: convergence radius = $R_1$\\
+Negative: denote $\zeta=\dfrac{1}{z-z_0}$\\
+conv radius = $\dfrac{1}{R_2}$
+thus, bilateral power series is abs and uniform conv when
+\begin{equation}\label{key}
+R_2 < \abs{z-z_0} < R_1
+\end{equation}
+which is called convergence ring.
+\subsubsection{Laurent Expansion Th.}
+~\\
+~\\
+pos part:\\
+aka canonical part\\
+neg part:\\
+aka 主部\\
+~\\
+Laurent Expansion is unique. Proof omitted.\\
+
+
+\paragraph{Attention}
+1) $z=z_0$ may be a singularity or not.\\
+2) Although Laurent Expansion looks the same as Taylor Expansion,
+\begin{equation}\label{key}
+a_k \neq \dfrac{F^{(k)}(z_0)}{k!}
+\end{equation}
+no matter whether $z_0$ is singularity.\\
+3) \\
+
+\subsection{Isolated Singularity}
+
+\section{留数定理}
+\subsection{}
+\subsection{计算实变函数定积分}
+\paragraph{type I}
+\paragraph{type II}~\\
+Suppose
+\begin{equation}\label{key}
+I = \lim_{\tiny\mqty{R_1\ra\infty\\R_2\ra\infty}} \int_{-R_1}{R_2} f(x)\dd{x}
+\end{equation}
+exists\\
+when $R_1 = R_2 \ra \infty$, I is called principle (主值) of the integral above, namely
+\begin{equation}\label{key}
+\mathscr{P}\intdinf f(x)\dd{x}
+\end{equation}
+Th\\
+\begin{equation}\label{key}
+\mathscr{P}\intdinf f(x)\dd{x} = 2\pi\I\sum_{k} \Res f(b_k)\;\;\text{(upper semi-plane)}
+\end{equation}
+\paragraph{type III}
+\begin{equation}\label{key}
+\int_0^\infty F(x)\cos mx\dd x = \dfrac{1}{2}\intdinf F(x)\e^{\I mx}\dd x
+\end{equation}
+\begin{equation}\label{key}
+\int_0^\infty G(x)\sin mx\dd x = \dfrac{1}{2\I}\intdinf G(x)\e^{\I mx}\dd x
+\end{equation}
+\paragraph{Jordan's Lemma (约当引理)}
+\begin{equation}\label{key}
+\lim_{R\ra\infty}\int_{C_R} F_z\e^{\I mz}\dd z = 0
+\end{equation}
+when $m>0$, $C_R$ is a semi-circle on upper semi-plane,\\
+or $m<0$, $C_R$ is a semi-circle on lower semi-plane.
+
+\end{document}
