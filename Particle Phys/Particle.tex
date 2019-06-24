@@ -276,6 +276,11 @@ P^\mu = (E, p_x, p_y, p_z)
 \begin{equation}\label{key}
 P^\mu P_\mu = E^2 - \vb{p}^2 = m^2
 \end{equation}
+total 4-momentum
+\begin{equation}\label{key}
+P^\mu P_\mu = \qty(\sum_i E_i)^2 - \qty(\sum_i \vb{p}_i)^2 \neq (\sum_i m_i)^2
+\end{equation}
+but also $ \LI $.
 
 \paragraph{4-derivative}
 \begin{equation}\label{key}
@@ -295,16 +300,89 @@ i.e.
 \end{equation}
 
 \subsubsection{Mandelstam Variables}
+$ 2 \ra 2 $ process\\
+\begin{equation}\label{key}
+\begin{aligned}
+&s = (p_1 + p_2)^2 = (p_3 + p_4)^2\\
+&t = (p_1 - p_3)^2 = (p_2 - p_4)^2\\
+&u = (p_1 - p_4)^2 = (p_2 - p_3)^2
+\end{aligned}
+\end{equation}
+all are $ \LI $.\\
+In CoM
+\begin{equation}\label{key}
+s = (E_1^* + E_2^*)^2
+\end{equation}
 
 \subsection{Non-relativistic QM}
 \subsubsection{Wave Mechanics \& Schr\"odinger Equation}
+
+
 \subsubsection{Prob. Dens. \& Prob. Current}
+\begin{equation}\label{key}
+\rho = \psi^*\psi
+\end{equation}
+def
+\begin{equation}\label{key}
+\pdv{t}\int_V \rho\dd V = -\int_S \vb{j}\cdot\dd\vb{S}
+\end{equation}
+use div th.
+\begin{equation}\label{key}
+\na \cdot \vb{j} + \pdv{\rho}{t} = 0
+\end{equation}
+From free-particle TDSE
+\begin{equation}\label{key}
+\I\pdv{\psi}{t} = -\dfrac{\nabla^2}{2m}\psi \quad
+-\I\pdv{\psis}{t} = -\dfrac{\nabla^2}{2m}\psis
+\end{equation}
+\begin{equation}\label{key}
+-\dfrac{1}{2m}(\psis\nna\psi - \psi\nna\psis) = \I\qty(\psis\pdv{\psi}{t} + \psi\pdv{\psis}{t})
+\end{equation}
+\begin{equation}\label{key}
+-\dfrac{1}{2m}\na\cdot(\psis\na\psi - \psi\na\psis) = \I\pdv{t}(\psis\psi) = \I\pdv{\rho}{t}
+\end{equation}
+thus
+\begin{equation}\label{key}
+\vb{j} = \dfrac{-\I}{2m}(\psis\na\psi - \psi\na\psis)
+\end{equation}
+suppose
+\begin{equation}\label{key}
+\psi = N\e^{\I(\vb{p}\cdot\vb{x} - Et)}
+\end{equation}
+\begin{equation}\label{key}
+\vb{j} = N^2\dfrac{\vb{p}}{m} = n\vb{v}
+\end{equation}
 
 \subsubsection{TD \& Conserved Quantities}
+\begin{equation}\label{key}
+\dv{t}\ev{\hat{A}} = \I\ev{[\hH,\hat{A}]}
+\end{equation}
 
 \subsubsection{Commutation relations \& Compatible Observables}
-
+\begin{equation}\label{key}
+\Delta A\Delta B \leq \dfrac{1}{2}\abs{\ev{\I[\hat{A},\hat{B}]}}
+\end{equation}
+where
+\begin{equation}\label{key}
+\Delta A = \sqrt{\ev{\hat{A}^2} - \ev{\hat{A}}^2}
+\end{equation}
 \subsubsection{Angular Momentum}
+
+...
+
+\subsection{Fermi's Golden Rule}
+unperturbed SE
+\begin{equation}\label{key}
+\hH_0\psi_k = E_k\psi_k
+\end{equation}
+add interaction Hamiltonian
+\begin{equation}\label{key}
+\i\dv{\psi}{t} = [\hH_0 + \hH']\psi
+\end{equation}
+basis set expd.
+\begin{equation}\label{key}
+\psi = \sum_k c_k(t)\psi_k(\vb{x})\e^{-\I Et}
+\end{equation}
 
 \section{Decay Rates and Cross Sections}
 
